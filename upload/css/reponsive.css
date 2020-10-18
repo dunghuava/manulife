@@ -1,0 +1,116 @@
+@media screen and (max-width: 680px) {
+  img {
+    margin-bottom: 5px;
+  }
+  .boxed.font18 {
+    padding: 10px;
+  }
+  .detail-more-top li {
+    width: 100%;
+  }
+  .detail-more-top li p.right {
+    text-align: right;
+  }
+  .detail-more li {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .product-detailt .item-slider {
+    height: 200px;
+  }
+  .duan-item-h .row_row {
+    display: block !important;
+  }
+  .duan-item-h .left {
+    width: 100%;
+    padding: 0px !important;
+  }
+  .duan-item-h .left img {
+    width: 100% !important;
+  }
+  .duan-item-h .right {
+    width: 100%;
+  }
+  .list_option li {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+  .list_option li::after {
+    position: absolute;
+    right: 12px;
+  }
+  .list_option li input#tim_kiem {
+    width: 100% !important;
+  }
+  .list_option .root_modal {
+    width: 100%;
+    padding-left: 0px;
+  }
+  .list_option .root_modal .list-modal {
+    max-height: 200px;
+    overflow: auto;
+  }
+  .p0mb {
+    padding: 0px !important;
+  }
+  .app-header .logo img {
+    width: 165px;
+    margin: auto;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 58px;
+    left: 0%;
+    right: 0%;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: none;
+    -webkit-transition: top 0.5s;
+    transition: top 0.5s;
+    background: #ffffff;
+    overflow: auto;
+  }
+  .nav-menu.opened {
+    top: 58px;
+  }
+  .nav-menu .main-menu {
+    padding: 15px;
+    background: #ffffff;
+  }
+  .nav-menu .main-menu li {
+    padding: 8px 0px;
+    display: block;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  .nav-menu .main-menu li:hover {
+    color: #000000 !important;
+    background: #ffffff;
+  }
+  .nav-menu .main-menu li:hover a {
+    color: #000000 !important;
+  }
+  .nav-menu .main-menu li:hover::after {
+    color: #000000;
+  }
+  .nav-menu .main-menu li.dropdown .dropdown-list {
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    display: none;
+    padding-left: 5px;
+  }
+  .nav-menu .main-menu li.dropdown::after {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+}
+/*# sourceMappingURL=reponsive.css.map */

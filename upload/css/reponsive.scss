@@ -1,0 +1,141 @@
+$primary_color:#0C714B;
+
+@media screen and (max-width: 680px) {
+    img{
+        margin-bottom: 5px;
+    }
+    .boxed{
+        &.font18{
+            padding: 10px;
+        }
+    }
+    .detail-more-top{
+        li{
+            width: 100%;
+            p{
+                &.right{
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .detail-more{
+        li{
+            width: 100% !important;
+        }
+    }
+}
+  
+@media screen and (max-width: 800px) {
+    .product-detailt{
+        .item-slider{
+            height: 200px;
+        }
+    }
+    .duan-item-h{
+        .row_row{
+            display: block !important;
+        }
+        .left{
+            width: 100%;
+            img{
+                width: 100% !important;
+            }
+            padding: 0px !important;
+        }
+        .right{
+            width: 100%;
+        }
+    }
+    .list_option{
+        li{
+            &::after{
+                position: absolute;
+                right: 12px;
+            }
+            padding-left: 0px;
+            padding-right: 0px;
+            width: 100%;
+            input#tim_kiem{
+                width: 100% !important;
+            }
+        }
+        .root_modal{
+            width: 100%;
+            padding-left: 0px;
+            .list-modal{
+                max-height: 200px;
+                overflow: auto;
+            }
+        }
+    }
+    .p0mb{
+        padding: 0px !important;
+    }
+    .app-header{
+        .logo{
+            img{
+                width: 165px;
+                margin: auto;
+            }
+        }
+        &.sticky{
+            // position: relative !important;
+        }
+    }
+    .nav-menu{
+        position: fixed;
+        top: 58px;
+        left: 0%;
+        right: 0%;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        display: none;
+        transition: top 0.5s;
+        background: #ffffff;
+        overflow: auto;
+        
+        &.opened{
+           top: 58px;
+        }
+        .main-menu{
+            padding: 15px;
+            background: #ffffff;
+            li{
+                padding:8px 0px;
+                display: block;
+                border-bottom: 1px solid #dcdcdc;
+                &:hover{
+                    color: #000000 !important;
+                    background: #ffffff;
+                    a{
+                        color: #000000 !important;
+                    }
+                    &::after{
+                        color: #000000;
+                    }
+                }
+                &.dropdown{
+                    .dropdown-list{
+                        position: relative;
+                        width: 100%;
+                        min-width: 100%;
+                        max-width: 100%;
+                        box-shadow: none;
+                        display: none;
+                        padding-left: 5px;
+                    }
+                    &::after{
+                        position: absolute;
+                        right: 10px;
+                        top: 5px;
+                    }
+                }
+
+            }
+        }
+
+    }
+}
