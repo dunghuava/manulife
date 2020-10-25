@@ -47,10 +47,11 @@ $('.project-slider').slick({
         // instead of a settings object
       ]
 });
-
 $('.cusselect').click(function (e) { 
    e.preventDefault();
+   $(this).find('.option').toggleClass('opened');
    $(this).find('.option').slideToggle();
+
 });
 
 $('#backtotop').click(function (e) { 

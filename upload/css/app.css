@@ -321,6 +321,7 @@ img {
 #page-break {
   width: 100%;
   height: 84px;
+  margin-bottom: 2px;
 }
 
 #main-menu {
@@ -424,6 +425,7 @@ img {
           box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.01);
   z-index: 1000;
   height: 84px;
+  border-bottom: 1px solid #dcdcdca8;
   line-height: 84px;
 }
 
