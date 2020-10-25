@@ -58,6 +58,6 @@ $route['admin/login'] 					= 'admin/account/login';
 $route['admin/logout'] 					= 'admin/account/logout';
 
 
-$route['user']							= 'user/project';
+$route['category']							= 'web/category';
 
 

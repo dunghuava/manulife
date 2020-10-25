@@ -52,11 +52,11 @@
                 <div class="cusselect">
                     <span>Tôi muốn&nbsp;</span><span class="selectbox">Bảo vệ cả nhà, an tâm vui sống</span>
                     <div class="option">
-                        <li><span class="fa fa-folder"></span>&nbsp;Option 01</li>
-                        <li><span class="fa fa-folder"></span>&nbsp;Option 02</li>
-                        <li><span class="fa fa-folder"></span>&nbsp;Option 03</li>
-                        <li><span class="fa fa-folder"></span>&nbsp;Option 04</li>
-                        <li><span class="fa fa-folder"></span>&nbsp;Option 05</li>
+                        <li><a href="">Option 01</a></li>
+                        <li><a href="">Option 02</a></li>
+                        <li><a href="">Option 03</a></li>
+                        <li><a href="">Option 04</a></li>
+                        <li><a href="">Option 05</a></li>
                     </div>
                 </div>
             </div>

@@ -9,15 +9,15 @@ html, body {
 }
 
 a {
-  color: #fff;
+  color: #000;
 }
 
 a:hover {
-  color: #fff;
+  color: #000;
 }
 
 a:active {
-  color: #fff;
+  color: #000;
 }
 
 .font18_all * {
@@ -362,6 +362,7 @@ img {
 }
 
 #main-menu ul li a {
+  color: #fff;
   font-size: 13px;
   padding: 15px 10px;
   display: block;
@@ -404,7 +405,7 @@ img {
 }
 
 #main-menu ul li .sub-menu li a {
-  color: #000000;
+  color: #fff;
   font-size: 14px;
   background: #fff;
 }
@@ -433,6 +434,9 @@ img {
 
 #footer {
   background: #282B3E;
+}
+
+#footer * {
   color: #fff;
 }
 
@@ -499,7 +503,7 @@ img {
 }
 
 .sec-muctieu a {
-  color: #fff;
+  color: #000;
 }
 
 h3.product-title {
@@ -557,5 +561,75 @@ h3.product-title {
   top: 0px;
   left: 0px;
   background: rgba(0, 0, 0, 0.2);
+}
+
+.item-category .name {
+  margin-top: 0px;
+}
+
+.sec-form-contact {
+  padding: 15px;
+}
+
+.sec-form-contact a {
+  color: #000000;
+}
+
+.sec-form-contact form .row {
+  padding: 10px 0px;
+}
+
+.sec-form-contact form .row button {
+  border-radius: 0px;
+  padding: 10px 18px;
+}
+
+.sec-form-contact form .row .custom {
+  border-radius: 0px;
+  height: 50px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px dashed #00A758;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  font-size: 18px;
+  padding-left: 0px;
+}
+
+.sec-form-contact form .row input[type="text"]::-webkit-input-placeholder {
+  font-size: 18px;
+}
+
+.sec-form-contact form .row input[type="text"]:-ms-input-placeholder {
+  font-size: 18px;
+}
+
+.sec-form-contact form .row input[type="text"]::-ms-input-placeholder {
+  font-size: 18px;
+}
+
+.sec-form-contact form .row input[type="text"]::placeholder {
+  font-size: 18px;
+}
+
+.sec-form-contact form .row input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+}
+
+.sec-form-contact form .row input[type="checkbox"]:checked {
+  background: red;
+}
+
+.sec-form-contact form .row select option {
+  padding: 8px 15px;
+  width: 200%;
+}
+
+.sec-form-contact form .row a {
+  margin: 0px 5px;
+  color: #000000;
 }
 /*# sourceMappingURL=app.css.map */

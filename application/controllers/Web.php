@@ -14,4 +14,9 @@ class Web extends MY_Controller {
         $this->view('web/index');
         $this->page_footer();
     }
+    public function category(){
+        $this->page_header();
+        $this->view('web/category');
+        $this->page_footer();
+    }
 }
