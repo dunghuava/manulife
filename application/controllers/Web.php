@@ -19,4 +19,9 @@ class Web extends MY_Controller {
         $this->view('web/category');
         $this->page_footer();
     }
+    public function contact(){
+        $this->page_header();
+        $this->view('web/contact');
+        $this->page_footer();
+    }
 }

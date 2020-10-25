@@ -326,6 +326,11 @@ img {
   display: none;
 }
 
+.btn {
+  padding: 8px 15px;
+  border-radius: 0px;
+}
+
 #page-break {
   width: 100%;
   height: 84px;
@@ -578,7 +583,7 @@ h3.product-title {
 }
 
 .sec-form-contact {
-  padding: 15px;
+  padding: 15px 0px;
 }
 
 .sec-form-contact a {
