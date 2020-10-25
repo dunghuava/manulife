@@ -17,11 +17,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <input placeholder="Họ và tên" type="text" class="form-control custom">
-                            <span class="error_log">(*) Không được bỏ trống trường này</span>
+                            <span class="error_log">(*) Vui lòng điền vào trường này</span>
                         </div>
                         <div class="col-md-6">
                             <input placeholder="Email" type="text" class="form-control custom">
-                            <span class="error_log">(*) Không được bỏ trống trường này</span>
+                            <span class="error_log">(*) Vui lòng điền vào trường này</span>
                         </div>
                     </div>
                     <div class="row">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-3">
                             <input placeholder="Số điện thoại" type="text" class="form-control custom">
-                            <span class="error_log">(*) Không được bỏ trống trường này</span>
+                            <span class="error_log">(*) Vui lòng điền vào trường này</span>
                         </div>
                         <div class="col-md-6">
                              <select name="" id="" class="form-control custom">
