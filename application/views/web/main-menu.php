@@ -22,7 +22,7 @@
             </ul>
         </li>
         <li>
-            <a href=""><span class="fa fa-book"></span><br>Kiên thức</a>
+            <a href="<?=base_url('tin-tuc-detail')?>"><span class="fa fa-book"></span><br>Kiên thức</a>
         </li>
         <li class="parent">
             <a href=""><span class="fa fa-youtube"></span><br>Movie</a>
@@ -34,10 +34,10 @@
             </ul>
         </li>
         <li>
-            <a href=""><span class="fa fa-info"></span><br>Về chúng tôi</a>
+            <a href="<?=base_url('about-us')?>"><span class="fa fa-info"></span><br>Về chúng tôi</a>
         </li>
         <li>
-            <a href=""><span class="fa fa-phone"></span><br>Liên hệ</a>
+            <a href="<?=base_url('contact')?>"><span class="fa fa-phone"></span><br>Liên hệ</a>
         </li>
     </ul>
 </div>
