@@ -24,4 +24,9 @@ class Web extends MY_Controller {
         $this->view('web/contact');
         $this->page_footer();
     }
+    public function aboutUs(){
+        $this->page_header();
+        $this->view('web/about-us');
+        $this->page_footer();
+    }
 }

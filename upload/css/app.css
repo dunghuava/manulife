@@ -331,6 +331,10 @@ img {
   border-radius: 0px;
 }
 
+.bg-secondary {
+  background: #00A758;
+}
+
 #page-break {
   width: 100%;
   height: 84px;
