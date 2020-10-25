@@ -43,13 +43,10 @@ function create_slug($string){
    return $slug;
 }
 
-function dd ($data,$die=false){
+function dd ($data){
 	echo '<pre>';
 		print_r($data);
 	echo '</pre>';
-	if($die){
-		die;
-	}
 }
 function resizeImg ($image='',$w=100,$h=100,$zc=2){
 	if (!file_exists('upload/images/'.$image) || empty($image)){
@@ -57,29 +54,18 @@ function resizeImg ($image='',$w=100,$h=100,$zc=2){
 	}
 	return base_url('thumb.php?src='.base_url('upload/images/'.$image.'&w='.$w.'&h='.$h.'&zc='.$zc));
 }
-function getLink($link,$is_admin){
-	$next_link=base_url($link);
-	if($is_admin==1){
-		return base_url().$link;
-	}
-	return 'javascript:void(0)';
+function img_path($str){
+    return base_url('upload/images/'.$str);
 }
-
+function upload_path($str){
+    return base_url('upload/'.$str);
+}
 function fullAddress(){
 	return $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 }
 function getID($alias){
 	return end(explode('-',$alias));
 }
-$vi_language=array(
-	'btn_cancel'=>'Thoát',
-	'btn_save'=>'Lưu',
-);
-$us_language=array(
-	'btn_cancel'=>'Close',
-	'btn_save'=>'Save',
-);
-
 function send_mail($tomail, $subject, $body){
   $body = mb_convert_encoding($body, "UTF-8","UTF-8");
   $from_mail = 'truongthuan20041997@gmail.com';
@@ -92,7 +78,7 @@ function send_mail($tomail, $subject, $body){
   return mb_send_mail($tomail, $subject, $body, $header);
 } 
 
-function check_isMobile() {
+function isMobile() {
     $is_mobile = '0';
     if(preg_match('/(android|iphone|ipad|up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone)/i', strtolower($_SERVER['HTTP_USER_AGENT'])))
         $is_mobile=1;

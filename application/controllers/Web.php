@@ -9,4 +9,9 @@ class Web extends MY_Controller {
         $this->load->model('Category_M');
         $this->load->model('Slide_M');
     }
+    public function index(){
+        $this->page_header();
+        $this->view('web/index');
+        $this->page_footer();
+    }
 }

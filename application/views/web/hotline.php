@@ -4,14 +4,14 @@
 		<div class="hotline-phone-ring-circle"></div>
 		<div class="hotline-phone-ring-circle-fill"></div>
 		<div class="hotline-phone-ring-img-circle">
-        <a href="tel:<?=$info[0]['phone']?>" class="pps-btn-img">
+        <a href="tel:0383868205" class="pps-btn-img">
             <span style="color:#fff;font-size:18px" class="fa fa-phone"></span>
 		</a>
 		</div>
 	</div>
 	<div class="hotline-bar">
-		<a href="tel:<?=$info[0]['phone']?>">
-			<span class="text-hotline"><?=$info[0]['phone']?></span>
+		<a href="tel:0383868205">
+			<span class="text-hotline">0383868205</span>
 		</a>
 	</div>
 </div>

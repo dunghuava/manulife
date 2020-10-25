@@ -11,8 +11,6 @@ class MY_Model extends CI_Model {
 	{
 		parent::__construct();
 	}
-	
-
 	public function all($where=array(),$sort=''){
 		if (!empty($where)){
 			$this->db->where($where);
