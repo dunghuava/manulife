@@ -23,12 +23,15 @@
             ?>
             <div class="col-md-3">
                     <div class="item-blog" style="<?=implode(';',$styles)?>">
-                        <div class="title">
-                            <p>Bảo hiểm trọn đời <a style="float:right" href="" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
-                            <h3>Hành trình hạnh phúc</h3>
-                        </div>
-                        <div class="overlay"></div>
-                        <div class="des">Xây dựng kế hoạch tài chính trọn đời, linh hoạt bảo vệ trên mọi hành trình của cuộc sống</div>
+                            <div class="title">
+                                <p>Bảo hiểm trọn đời <a style="float:right" href="<?=base_url('tin-tuc-detail')?>" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
+                                <a href="<?=base_url('tin-tuc-detail')?>" style="display:block">
+                                    <h3>Hành trình hạnh phúc</h3>
+                                </a>
+                            </div>
+                            <div class="overlay">
+                            </div>
+                            <div class="des">Xây dựng kế hoạch tài chính trọn đời, linh hoạt bảo vệ trên mọi hành trình của cuộc sống</div>
                     </div>
             </div>
             <?php } ?>
