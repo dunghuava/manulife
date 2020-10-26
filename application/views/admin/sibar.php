@@ -40,6 +40,7 @@
     }
     return '<span class="app_say">'.$sayText.'</span>';
   }
+  $online=1;
 
 ?>
 
@@ -75,13 +76,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/category',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/category')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/category/add',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/category/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm danh mục</p>
                 </a>
@@ -98,13 +99,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/project',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/project')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/project/add',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/project/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm dự án</p>
                 </a>
@@ -122,13 +123,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/sell',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/sell')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/sell/add',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/sell/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm nhà đất bán</p>
                 </a>
@@ -147,13 +148,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/lease',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/lease')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/lease/add',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/lease/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm nhà đất cho thuê</p>
                 </a>
@@ -171,13 +172,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/post',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/post')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/post/add',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/post/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm bài viết</p>
                 </a>
@@ -195,19 +196,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/region',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/region')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Khu vực hiển thị</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/residential',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/residential')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Khu dân cư</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/investor',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/investor')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Chủ đầu tư</p>
                 </a>
@@ -226,23 +227,17 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/staff',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/staff')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/staff/add',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/staff/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm nhân viên</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/themes/orther',$admin_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Khác</p>
-                </a>
-              </li> -->
             </ul>
           </li>
           
@@ -257,28 +252,22 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/themes/banner',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/themes/banner')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Banner</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/themes/domain',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/themes/domain')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thông tin</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/themes/orther',$admin_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Khác</p>
-                </a>
-              </li> -->
             </ul>
           </li>
 
           <li class="nav-item has-treeview <?=$page_menu=='contact' ? 'menu-open':''?>">
-            <a href="<?=getLink('admin/contact',$admin_infor['is_admin'])?>" class="nav-link">
+            <a href="<?=base_url('admin/contact')?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 <?php $list_contact = $this->Contact_M->all(['contact_status' => 0]); ?>
@@ -301,14 +290,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink('admin/user',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/user')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="<?=getLink('admin/user/add',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=base_url('admin/user/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm tài khoản</p>
                 </a>
@@ -317,7 +306,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview <?=$page_menu=='setting' ? 'menu-open':''?>">
-            <a href="<?=getLink('admin/setting',$admin_infor['is_admin'])?>" class="nav-link">
+            <a href="<?=base_url('admin/setting')?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 Cài đặt
