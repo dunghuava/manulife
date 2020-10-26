@@ -29,9 +29,14 @@ class Web extends MY_Controller {
         $this->view('web/about-us');
         $this->page_footer();
     }
-    public function tinttucDetail(){
+    public function tintucDetail(){
         $this->page_header();
         $this->view('web/tin-tuc-detail');
+        $this->page_footer();
+    }
+    public function tintuc(){
+        $this->page_header();
+        $this->view('web/tin-tuc');
         $this->page_footer();
     }
 }

@@ -61,6 +61,7 @@ $route['admin/logout'] 					= 'admin/account/logout';
 $route['category']						= 'web/category';
 $route['contact']						= 'web/contact';
 $route['about-us']						= 'web/aboutUs';
-$route['tin-tuc-detail']               = 'web/tinttucDetail';
+$route['tin-tuc-detail']                = 'web/tintucDetail';
+$route['tin-tuc']                       = 'web/tintuc';
 
 

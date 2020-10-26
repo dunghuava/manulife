@@ -22,7 +22,7 @@
             </ul>
         </li>
         <li>
-            <a href="<?=base_url('tin-tuc-detail')?>"><span class="fa fa-book"></span><br>Kiên thức</a>
+            <a href="<?=base_url('tin-tuc')?>"><span class="fa fa-book"></span><br>Kiên thức</a>
         </li>
         <li class="parent">
             <a href=""><span class="fa fa-youtube"></span><br>Movie</a>

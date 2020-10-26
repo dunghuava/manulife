@@ -112,8 +112,10 @@
                     ?>
                     <div class="col-md-4">
                             <div class="item-product has-bg" style="<?=implode(';',$styles)?>">
-                                <p>Bảo hiểm trọn đời <a style="float:right" href="" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
-                                <h3>Hành trình hạnh phúc</h3>
+                                <div class="title">
+                                    <p>Bảo hiểm trọn đời <a style="float:right" href="" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
+                                    <h3>Hành trình hạnh phúc</h3>
+                                </div>
                                 <div class="overlay"></div>
                                 <div class="des">Xây dựng kế hoạch tài chính trọn đời, linh hoạt bảo vệ trên mọi hành trình của cuộc sống</div>
                             </div>
