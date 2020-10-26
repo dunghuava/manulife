@@ -16,7 +16,7 @@
             <?php
             for ($i=0;$i<6;$i++){ 
                 $styles=array(
-                    0=>"background:#00A758 url(".img_path('bhxh.jpg').") no-repeat",
+                    0=>"background:#00A758 url(".img_path('bh.jpg').") no-repeat",
                     1=>"background-size:cover",
                     2=>"background-position-x:center"
                 );
