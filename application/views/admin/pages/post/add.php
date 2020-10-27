@@ -38,7 +38,7 @@
 
         <div class="col-md-8 inline-flex">
             <label for="">Mô tả</label>
-            <textarea name="post_introduce" id="post_introduce" cols="30" rows="3" class="form-control"></textarea>
+            <textarea name="post_description" id="post_description" cols="30" rows="3" class="form-control"></textarea>
         </div>   
 
         <div class="col-md-12 inline-flex">
@@ -56,11 +56,11 @@
             <textarea name="post_keyword" id="post_keyword" cols="30" rows="3" class="form-control"></textarea>
         </div>  
 
-        <div class="col-md-8 inline-flex">
+        <!-- <div class="col-md-8 inline-flex">
             <label for="">Description (SEO)</label>
             <textarea name="post_description" id="post_description" cols="30" rows="3" class="form-control"></textarea>
         </div>  
-
+ -->
         <div class="col-md-8 inline-flex">
             <label for="">Hiển thị</label>
             <input type="checkbox" name="post_active" id="post_active" value="1" style="margin-top: 12px;" checked>
@@ -86,7 +86,7 @@
         <br>
         <div class="col-md-6 inline-flex">
             <label for=""></label>
-            <button type="reset" class="btn btn-danger">Xóa</button>
+            <button type="reset" class="btn btn-danger">Nhập lại</button>
             <button type="submit" class="btn btn-primary">Lưu</button>
         </div>
     </form>

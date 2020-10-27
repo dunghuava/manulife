@@ -26,7 +26,7 @@ class Staff extends MY_Controller {
 
 			if (isset($_FILES['staff_img']['name'])){
 				$file = $_FILES['staff_img'];
-				$filename = md5($file['name'].time());
+				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				move_uploaded_file($file['tmp_name'],$path);
 			}
@@ -39,7 +39,8 @@ class Staff extends MY_Controller {
 				'staff_name' => $post['staff_name'], 
 				'staff_position' => $post['staff_position'], 
 				'staff_phone' => $post['staff_phone'], 
-				'staff_active' => $post['staff_active'], 
+				'staff_active' => $post['staff_active'],
+				'subdomain' => $post['subdomain'], 
 				'staff_img' => $filename, 
 			);
 			
@@ -68,7 +69,7 @@ class Staff extends MY_Controller {
 		if ($this->input->post()) {
 			if (!empty($_FILES['staff_img']['name'])){
 				$file = $_FILES['staff_img'];
-				$filename = md5($file['name'].time());
+				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				move_uploaded_file($file['tmp_name'],$path);
 				@unlink('upload/images/'.$info_staff['staff_img']);
@@ -87,6 +88,7 @@ class Staff extends MY_Controller {
 				'staff_position' => $post['staff_position'], 
 				'staff_phone' => $post['staff_phone'], 
 				'staff_active' => $post['staff_active'], 
+				'subdomain' => $post['subdomain'], 
 				'staff_img' => $filename, 
 			);
 			

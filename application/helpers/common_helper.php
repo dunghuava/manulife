@@ -18,6 +18,15 @@ function cutstr($text,$len){
 	else
 		return substr($text,0,$len).'<a title="Xem thêm">[...]</a>';
 }
+
+function getLink($link,$is_admin){
+  $next_link=base_url($link);
+  if($is_admin==1){
+    return base_url().$link;
+  }
+  return 'javascript:void(0)';
+}
+
 function get_client_ip() {
     $ipaddress = '';
     if (getenv('HTTP_CLIENT_IP'))

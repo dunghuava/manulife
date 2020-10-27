@@ -26,7 +26,7 @@ class Category extends MY_Controller {
 		if ($post){
 			if (!empty($_FILES['cate_img']['name'])){
 				$file = $_FILES['cate_img'];
-				$filename = md5($file['name'].time());
+				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				if (move_uploaded_file($file['tmp_name'],$path)){
 					$post['cate_img']=$filename;
@@ -61,7 +61,7 @@ class Category extends MY_Controller {
 		if ($post){
 			if (isset($_FILES['cate_img']['name'])){
 				$file = $_FILES['cate_img'];
-				$filename = md5($file['name'].time());
+				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				if (move_uploaded_file($file['tmp_name'],$path)){
 					$post['cate_img']=$filename;
@@ -74,7 +74,7 @@ class Category extends MY_Controller {
 
 			$max_stt = $this->Category_M->getMaxCateStt($post['cate_parent_id']);
 			$post['cate_stt'] = $max_stt['cate_stt']+1;
-			$post['cate_is_public'] = 1;
+			$post['cate_active'] = 1;
 			$this->Category_M->create($post);
 			$status = array(
 				'code'=>'success',

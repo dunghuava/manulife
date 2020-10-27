@@ -50,7 +50,7 @@
 
         <div class="col-md-8 inline-flex">
             <label for="">Mô tả</label>
-            <textarea name="post_introduce" id="post_introduce" cols="30" rows="3" class="form-control"><?php echo $info_post['post_introduce'] ?></textarea>
+            <textarea name="post_description" id="post_description" cols="30" rows="3" class="form-control"><?php echo $info_post['post_description'] ?></textarea>
         </div>   
 
         <div class="col-md-12 inline-flex">
@@ -68,11 +68,11 @@
             <textarea name="post_keyword" id="post_keyword" cols="30" rows="3" class="form-control"><?php echo $info_post['post_keyword'] ?></textarea>
         </div>  
 
-        <div class="col-md-8 inline-flex">
+        <!-- <div class="col-md-8 inline-flex">
             <label for="">Description (SEO)</label>
             <textarea name="post_description" id="post_description" cols="30" rows="3" class="form-control"><?php echo $info_post['post_description'] ?></textarea>
         </div>  
-
+ -->
         <div class="col-md-8 inline-flex">
             <label for="">Hiển thị</label>
             <?php if ($info_post['post_active'] == 1) {
@@ -114,7 +114,7 @@
         <br>
         <div class="col-md-6 inline-flex">
             <label for=""></label>
-            <button type="reset" class="btn btn-danger">Xóa</button>
+            <button type="reset" class="btn btn-danger">Nhập lại</button>
             <button type="submit" class="btn btn-primary">Lưu</button>
         </div>
     </form>

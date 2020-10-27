@@ -93,7 +93,7 @@
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Dự án
+                Sản phẩm
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -107,7 +107,7 @@
               <li class="nav-item">
                 <a href="<?=base_url('admin/project/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm dự án</p>
+                  <p>Thêm sản phẩm</p>
                 </a>
               </li>
             </ul>
@@ -117,7 +117,7 @@
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Bán
+                Dịch vụ
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -131,32 +131,7 @@
               <li class="nav-item">
                 <a href="<?=base_url('admin/sell/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm nhà đất bán</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
-          <li class="nav-item has-treeview <?=$page_menu=='lease' ? 'menu-open':''?>">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Cho thuê
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=base_url('admin/lease')?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Tất cả</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('admin/lease/add')?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm nhà đất cho thuê</p>
+                  <p>Thêm dịch vụ</p>
                 </a>
               </li>
             </ul>
@@ -186,36 +161,6 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview <?=$page_menu=='extend' ? 'menu-open':''?>">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Mở rộng
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=base_url('admin/region')?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Khu vực hiển thị</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('admin/residential')?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Khu dân cư</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('admin/investor')?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Chủ đầu tư</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
           <li class="nav-item has-treeview <?=$page_menu=='staff' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
@@ -240,14 +185,28 @@
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-item has-treeview <?=$page_menu=='themes' ? 'menu-open':''?>">
+            <a href="<?=base_url('admin/themes/domain')?>" class="nav-link">
+                  <i class="nav-icon fa fa-file"></i>
+                  <p>Thông tin site</p>
+                </a>
+          </li>
+
+
+          <li class="nav-item has-treeview <?=$page_menu=='content' ? 'menu-open':''?>">
+            <a href="<?=base_url('admin/content')?>" class="nav-link">
+                  <i class="nav-icon fa fa-file"></i>
+                  <p>Nội dung khác</p>
+                </a>
+          </li>
+
+          <!-- <li class="nav-item has-treeview <?=$page_menu=='themes' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Giao diện
+                T
                 <i class="fas fa-angle-left right"></i>
-                <!-- <span class="badge badge-info right">6</span> -->
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -264,7 +223,8 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
+
 
           <li class="nav-item has-treeview <?=$page_menu=='contact' ? 'menu-open':''?>">
             <a href="<?=base_url('admin/contact')?>" class="nav-link">

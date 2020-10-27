@@ -23,6 +23,11 @@
              </div>
 
              <div class="col-md-6 inline-flex">
+                    <label for="">Subdomain</label>
+                    <input id="subdomain" value="" type="text" name="subdomain" class="form-control" required>
+             </div>
+
+             <div class="col-md-6 inline-flex">
              	  <label for="">Hiển thị</label>
                 <input type="checkbox" name="staff_active" id="staff_active" value="1" style="margin-top: 12px;" checked>
              </div>
