@@ -4,7 +4,7 @@
             <a href=""><span class="fa fa-home"></span><br>Trang chủ</a>
         </li>
         <li class="parent">
-            <a href=""><span class="fa fa-calculator"></span><br>Sản phẩm</a>
+            <a href="<?=base_url('category')?>"><span class="fa fa-calculator"></span><br>Sản phẩm</a>
             <ul class="sub-menu">
                <li>Manulife</li>
                <?php for ($i=0;$i<15;$i++){ ?>
