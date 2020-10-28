@@ -28,7 +28,7 @@ class Post extends MY_Controller {
 		if ($this->input->post()) {
 			if (isset($_FILES['post_img']['name'])){
 				$file = $_FILES['post_img'];
-				$filename = md5($file['name'].time());
+				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				move_uploaded_file($file['tmp_name'],$path);
 			}
@@ -48,11 +48,10 @@ class Post extends MY_Controller {
 				'post_category_id' => $post['post_category_id'], 
 				'post_title' => $post['post_title'], 
 				'post_alias' => $post['post_alias'], 
-				'post_introduce' => $post['post_introduce'], 
+				'post_description' => $post['post_description'], 
 				'post_content' => $content, 
 				'post_author' => $post['post_author'], 
 				'post_keyword' => $post['post_keyword'], 
-				'post_description' => $post['post_description'], 
 				'post_highlights' => 0, 
 				'post_active' => $post['post_active'], 
 				'post_date_time' => $date_time,
@@ -90,7 +89,7 @@ class Post extends MY_Controller {
 		if ($this->input->post()) {
 			if (!empty($_FILES['post_img']['name'])){
 				$file = $_FILES['post_img'];
-				$filename = md5($file['name'].time());
+				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				move_uploaded_file($file['tmp_name'],$path);
 				@unlink('upload/images/'.$info_post['post_img']);
@@ -114,11 +113,10 @@ class Post extends MY_Controller {
 				'post_category_id' => $post['post_category_id'], 
 				'post_title' => $post['post_title'], 
 				'post_alias' => $post['post_alias'], 
-				'post_introduce' => $post['post_introduce'], 
+				'post_description' => $post['post_description'], 
 				'post_content' => $content, 
 				'post_author' => $post['post_author'], 
 				'post_keyword' => $post['post_keyword'], 
-				'post_description' => $post['post_description'], 
 				'post_active' => $post['post_active'], 
 				'post_date_time' => $date_time,
 				'post_img' => $filename, 

@@ -40,6 +40,10 @@
             <label for="">Đường dẫn</label>
             <input value="<?=$category['cate_alias']?>" type="text" name="cate_alias" id="cate_alias" class="form-control" placeholder="Tạo đường dẫn tự động">
         </div>
+        <div class="col-md-8 inline-flex">
+            <label for="">Mô tả</label>
+            <textarea name="cate_description" id="cate_description" cols="30" rows="3" class="form-control"><?=$category['cate_description']?></textarea>
+        </div> 
         <div class="col-md-12 inline-flex">
             <label for="">Nội dung</label>
             <textarea name="cate_content" id="cate_content" cols="30" rows="5" class="form-control html_editor"><?=$category['cate_content']?></textarea>
@@ -47,11 +51,7 @@
         <div class="col-md-8 inline-flex">
             <label for="">Keywords</label>
             <input value="<?=$category['cate_keyword']?>" type="text" name="cate_keyword" id="cate_keyword" class="form-control">
-        </div>
-        <div class="col-md-8 inline-flex">
-            <label for="">Descriptions</label>
-            <textarea name="cate_description" id="cate_description" cols="30" rows="3" class="form-control"><?=$category['cate_description']?></textarea>
-        </div> <br><br>
+        </div><br><br>
         <div class="col-md-6 inline-flex">
             <label for=""></label>
             <button type="reset" class="btn btn-danger">Nhập lại</button>
