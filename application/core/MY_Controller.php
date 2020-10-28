@@ -8,7 +8,6 @@ class MY_Controller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Account_M');
 		$this->load->model('Setting_M');
-		$this->load->model('Web_M');
 		$this->load->model('Info_M');
 		$this->load->model('Contact_M');
 	}
