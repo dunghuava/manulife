@@ -1,1 +1,2 @@
 ALTER TABLE `db_post` ADD `post_type` INT NOT NULL COMMENT '1=post; 2=service' AFTER `post_highlights`;
+DROP TABLE `db_service`;

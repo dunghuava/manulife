@@ -24,6 +24,10 @@
       text-align: center;
       border-radius: 50%
     }
+
+    .has-treeview{
+      padding-bottom: 5px;
+    }
 </style>
 <?php 
   function appSay(){
@@ -186,8 +190,8 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview <?=$page_menu=='themes' ? 'menu-open':''?>">
-            <a href="<?=base_url('admin/themes/domain')?>" class="nav-link">
+          <li class="nav-item has-treeview <?=$page_menu=='info' ? 'menu-open':''?>">
+            <a href="<?=base_url('admin/info')?>" class="nav-link">
                   <i class="nav-icon fa fa-file"></i>
                   <p>Thông tin site</p>
                 </a>
@@ -195,7 +199,7 @@
 
 
           <li class="nav-item has-treeview <?=$page_menu=='content' ? 'menu-open':''?>">
-            <a href="<?=base_url('admin/content')?>" class="nav-link">
+            <a href="<?=base_url('admin/other')?>" class="nav-link">
                   <i class="nav-icon fa fa-file"></i>
                   <p>Nội dung khác</p>
                 </a>
