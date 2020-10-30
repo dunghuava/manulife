@@ -165,6 +165,32 @@
             </ul>
           </li>
 
+
+          <li class="nav-item has-treeview <?=$page_menu=='customer' ? 'menu-open':''?>">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Khách hàng
+                <i class="fas fa-angle-left right"></i>
+                <!-- <span class="badge badge-info right">6</span> -->
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=base_url('admin/customer')?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Tất cả</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=base_url('admin/customer/add')?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Thêm khách hàng</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item has-treeview <?=$page_menu=='staff' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
