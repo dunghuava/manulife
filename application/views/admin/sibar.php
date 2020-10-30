@@ -113,7 +113,7 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview <?=$page_menu=='sell' ? 'menu-open':''?>">
+          <li class="nav-item has-treeview <?=$page_menu=='service' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
@@ -123,13 +123,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('admin/sell')?>" class="nav-link">
+                <a href="<?=base_url('admin/service')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('admin/sell/add')?>" class="nav-link">
+                <a href="<?=base_url('admin/service/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm dịch vụ</p>
                 </a>

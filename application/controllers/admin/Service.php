@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Post extends MY_Controller {
+class Service extends MY_Controller {
 
 	public function __construct()
 	{
@@ -12,11 +12,11 @@ class Post extends MY_Controller {
 
 	public function index()
 	{
-		$data['page_name']='Danh sách bài viết';
-		$data['page_menu']='post';
-		$data['list_post']=$this->Post_M->all(['post_type' => 1],'desc');
+		$data['page_name']='Danh sách dịch vụ';
+		$data['page_menu']='service';
+		$data['list_service']=$this->Post_M->all(['post_type' => 2],'desc');
 		$this->getHeader($data);
-		$this->load->view('admin/pages/post/index.php',$data);
+		$this->load->view('admin/pages/service/index.php',$data);
 		$this->getFooter();
 	}
 
@@ -50,13 +50,13 @@ class Post extends MY_Controller {
 				'post_alias' => $post['post_alias'], 
 				'post_description' => $post['post_description'], 
 				'post_content' => $content, 
-				'post_author' => $post['post_author'], 
+				'post_author' => '', 
 				'post_keyword' => $post['post_keyword'], 
 				'post_highlights' => 0, 
 				'post_active' => $post['post_active'], 
-				'post_date_time' => $date_time,
+				'post_date_time' => '',
 				'post_img' => $filename, 
-				'post_type' => 1, 
+				'post_type' => 2, 
 			);
 
 			$this->Post_M->create($data_insert);
@@ -66,18 +66,18 @@ class Post extends MY_Controller {
 				'message'=>'Đã lưu'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/post/add/'),'location');
+			redirect(base_url('admin/service/add/'),'location');
 
 		}
 		
-		$list_category = $this->get_option_category(1);
+		$list_category = $this->get_option_category(3);
 
 		// print_r($list_category);die();
 		$data['list_category'] = $list_category;
-		$data['page_name']='Thêm bài viết';
-		$data['page_menu']='post';
+		$data['page_name']='Thêm dịch vụ';
+		$data['page_menu']='service';
 		$this->getHeader($data);
-		$this->load->view('admin/pages/post/add.php',$data);
+		$this->load->view('admin/pages/service/add.php',$data);
 		$this->getFooter();
 	}
 
@@ -116,12 +116,12 @@ class Post extends MY_Controller {
 				'post_alias' => $post['post_alias'], 
 				'post_description' => $post['post_description'], 
 				'post_content' => $content, 
-				'post_author' => $post['post_author'], 
+				'post_author' => '', 
 				'post_keyword' => $post['post_keyword'], 
 				'post_active' => $post['post_active'], 
-				'post_date_time' => $date_time,
+				'post_date_time' => '',
 				'post_img' => $filename, 
-				'post_type' => 1, 
+				'post_type' => 2, 
 			);
 
 			$this->Post_M->update(['post_id' => $id],$data_update);
@@ -131,18 +131,18 @@ class Post extends MY_Controller {
 				'message'=>'Đã sửa'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/post/edit/'.$id),'location');
+			redirect(base_url('admin/service/edit/'.$id),'location');
 
 		}
 
-		$list_category = $this->get_option_category(1);
+		$list_category = $this->get_option_category(3);
 		$info_post = $this->Post_M->find_row(['post_id' => $id]);
 		$data['list_category'] = $list_category;
 		$data['info_post'] = $info_post;
-		$data['page_name']='Chỉnh sửa bài viết';
-		$data['page_menu']='post';
+		$data['page_name']='Chỉnh dịch vụ';
+		$data['page_menu']='service';
 		$this->getHeader($data);
-		$this->load->view('admin/pages/post/edit.php',$data);
+		$this->load->view('admin/pages/service/edit.php',$data);
 		$this->getFooter();
 	}
 
