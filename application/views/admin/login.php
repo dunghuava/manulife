@@ -45,6 +45,9 @@
         <img style="width:150px;margin:10px auto" src="<?=base_url('upload/logo_print.png')?>" alt="">
       </div>
       <form onsubmit="do_login()" action="" method="post">
+      <div class="text-center">
+           <h3>Đăng nhập</h3>
+        </div>
         <div class="input-groups mb-3">
           <input name="user_name" type="text" class="form-control" placeholder="Tên đăng nhập">
           <div class="input-group-append">
