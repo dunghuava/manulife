@@ -5,7 +5,7 @@
     <td><a style="color:#000" href="<?=base_url('admin/category/edit/'.$val['cate_id'])?>"><?=$str.' '.$val['cate_title']?></a></td>
     <td class="text-center">
         <?php if (!empty($val['cate_img'])){ ?>
-            <img onclick="onDeleteImg(<?=$val['cate_id']?>,'<?=$val['cate_img']?>')" style="max-height: 90px" src="<?=base_url('upload/images/'.$val['cate_img'])?>" alt="">
+            <img onclick="onDeleteImg(<?=$val['cate_id']?>,'<?=$val['cate_img']?>')" src="<?=resizeImg($val['cate_img'],50,50,0)?>" alt="">
         <?php } ?>
     </td>
     <td>

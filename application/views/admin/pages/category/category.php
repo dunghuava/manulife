@@ -7,13 +7,13 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th style="width: 9%">STT</th>
+                <th style="width: 6%">STT</th>
                 <th>Tên danh mục</th>
-                <th style="width:10%">Hình ảnh</th>
+                <th>Hình ảnh</th>
                 <th>Loại</th>
-                <th style="width: 5%">Menu</th>
-                <th style="width: 10%">Hiển thị</th>
-                <th style="width: 10%">Thao tác</th>
+                <th>Menu</th>
+                <th>Hiển thị</th>
+                <th>Thao tác</th>
             </tr>
         </thead>
         <tbody>

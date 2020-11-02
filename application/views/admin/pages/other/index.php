@@ -61,7 +61,7 @@
 
                             <td>
                                 <?php if (!empty($val['other_img'])){ ?>
-                                    <img src="<?=resizeImg($val['other_img'],100,90,0)?>" alt="">
+                                    <img src="<?=resizeImg($val['other_img'],50,50,0)?>" alt="">
                                 <?php } ?>
                             </td>
 
