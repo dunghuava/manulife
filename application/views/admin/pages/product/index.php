@@ -38,7 +38,7 @@
 
                              <td><?=$info_category['cate_title']?></td>
                              <td><?=$item['product_title']?></td>
-                             <td><img src="<?=resizeImg($item['product_img'],80,50,0)?>" style="max-height: 90px;"></td>
+                             <td><img src="<?=resizeImg($item['product_img'],50,50,0)?>" style="max-height: 90px;"></td>
                              <td><input onchange="setCkb(this,'product_highlights',<?=$item['product_id']?>)" type="checkbox" <?=$item['product_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'product_active',<?=$item['product_id']?>)" type="checkbox" <?=$item['product_active']==1 ? 'checked':''?> ></td>
                               <!-- <td>

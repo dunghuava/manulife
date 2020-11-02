@@ -64,7 +64,7 @@ class Product extends MY_Controller {
 		}
 		
 		$list_category = $this->get_option_category(2);
-		$list_benefits = $this->Other_M->all(['other_category_id' => 1]);
+		$list_benefits = $this->Other_M->all(['other_category_id' => 7]);
 
 		// print_r($list_category);die();
 		$data['list_category'] = $list_category;
@@ -122,7 +122,7 @@ class Product extends MY_Controller {
 		}
 
 		$list_category = $this->get_option_category(2);
-		$list_benefits = $this->Other_M->all(['other_category_id' => 1]);
+		$list_benefits = $this->Other_M->all(['other_category_id' => 7]);
 		$data['list_benefits'] = $list_benefits;
 		$data['list_category'] = $list_category;
 		$data['info_product'] = $info_product;
