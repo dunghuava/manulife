@@ -1,14 +1,12 @@
+<?php 
+    $slides = $this->Web_M->q("select other_img,other_url,other_id from db_other where other_category_id=3 and other_active=1");
+?>
 <div id="silder">
     <div class="main-slide">
-        <?php for($i=0;$i<=4;$i++){ ?>
+        <?php foreach($slides as $sl){ ?>
             <div class="silde-item">
-                <a href="">
-                    <img src="<?=resizeImg('slide01.jpeg',955,545,0)?>" alt="slick">
-                </a>
-            </div>
-            <div class="silde-item">
-                <a href="">
-                    <img src="<?=resizeImg('bh01.png',955,545,0)?>" alt="slick">
+                <a target="_blank" href="<?=$sl['other_url']?>">
+                    <img src="<?=resizeImg($sl['other_img'],955,545,0)?>" alt="slick">
                 </a>
             </div>
         <?php } ?>

@@ -56,7 +56,7 @@ class MY_Model extends CI_Model {
 	public function last_id(){
 		return $this->db->query("SELECT LAST_INSERT_ID() AS ID")->row_array()['ID'];
 	}
-	public function o_fetch($sql){
+	public function q($sql){
 		return $this->db->query($sql)->result_array();
 	}
 }

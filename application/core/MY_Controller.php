@@ -58,6 +58,9 @@ class MY_Controller extends CI_Controller {
 			return false;
 		}
 	}
+	function q($sql){
+		return $this->Account_M->query($sql);
+	}
 
 }
 
