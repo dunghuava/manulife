@@ -1,22 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Service extends MY_Controller {
+class Product extends MY_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Post_M');
+		$this->load->model('Product_M');
 		$this->load->model('Category_M');
+		$this->load->model('Other_M');
 	}
 
 	public function index()
 	{
-		$data['page_name']='Danh sách dịch vụ';
-		$data['page_menu']='service';
-		$data['list_service']=$this->Post_M->all(['post_type' => 2],'desc');
+		$data['page_name']='Danh sản phẩm';
+		$data['page_menu']='product';
+		$data['list_product']=$this->Product_M->all();
 		$this->getHeader($data);
-		$this->load->view('admin/pages/service/index.php',$data);
+		$this->load->view('admin/pages/product/index.php',$data);
 		$this->getFooter();
 	}
 
@@ -26,135 +27,121 @@ class Service extends MY_Controller {
 		$post = $this->input->post();
 
 		if ($this->input->post()) {
-			if (isset($_FILES['post_img']['name'])){
-				$file = $_FILES['post_img'];
+			if (isset($_FILES['product_img']['name'])){
+				$file = $_FILES['product_img'];
 				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				move_uploaded_file($file['tmp_name'],$path);
 			}
 
-			if ($post['post_active'] == '') {
-				$post['post_active'] = 0;
+			if ($post['product_active'] == '') {
+				$post['product_active'] = 0;
 			}
 
-			
-
-			$date_post_format = substr($post['date_post'],  6, 4). substr($post['date_post'],  3, 2).substr($post['date_post'],  0, 2);
-			$date_time = $date_post_format.$post['time_post'];
-
-			$content = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['post_content']);
 
 			$data_insert = array(
-				'post_category_id' => $post['post_category_id'], 
-				'post_title' => $post['post_title'], 
-				'post_alias' => $post['post_alias'], 
-				'post_description' => $post['post_description'], 
-				'post_content' => $content, 
-				'post_author' => '', 
-				'post_keyword' => $post['post_keyword'], 
-				'post_highlights' => 0, 
-				'post_active' => $post['post_active'], 
-				'post_date_time' => '',
-				'post_img' => $filename, 
-				'post_type' => 2, 
+				'product_category_id' => $post['product_category_id'], 
+				'product_title' => $post['product_title'], 
+				'product_alias' => $post['product_alias'], 
+				'product_description' => $post['product_description'], 
+				'product_content' => $post['product_content'], 
+				'product_keyword' => $post['product_keyword'], 
+				'product_highlights' => 0, 
+				'product_active' => $post['product_active'], 
+				'product_img' => $filename, 
+				'product_benefits' => implode(',', $post['product_benefits']), 
 			);
 
-			$this->Post_M->create($data_insert);
+			$this->Product_M->create($data_insert);
 
 			$status = array(
 				'code'=>'success',
 				'message'=>'Đã lưu'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/service/add/'),'location');
+			redirect(base_url('admin/product/add/'),'location');
 
 		}
 		
-		$list_category = $this->get_option_category(3);
+		$list_category = $this->get_option_category(2);
+		$list_benefits = $this->Other_M->all(['other_category_id' => 1]);
 
 		// print_r($list_category);die();
 		$data['list_category'] = $list_category;
-		$data['page_name']='Thêm dịch vụ';
-		$data['page_menu']='service';
+		$data['list_benefits'] = $list_benefits;
+		$data['page_name']='Thêm sản phẩm';
+		$data['page_menu']='product';
 		$this->getHeader($data);
-		$this->load->view('admin/pages/service/add.php',$data);
+		$this->load->view('admin/pages/product/add.php',$data);
 		$this->getFooter();
 	}
 
 	public function edit($id)
 	{
-		$info_post = $this->Post_M->find_row(['post_id' => $id]);
+		$info_product = $this->Product_M->find_row(['product_id' => $id]);
 
 		$post = $this->input->post();
 
 		if ($this->input->post()) {
-			if (!empty($_FILES['post_img']['name'])){
-				$file = $_FILES['post_img'];
+			if (!empty($_FILES['product_img']['name'])){
+				$file = $_FILES['product_img'];
 				$filename = time().$file['name'];
 				$path='upload/images/'.$filename;
 				move_uploaded_file($file['tmp_name'],$path);
-				@unlink('upload/images/'.$info_post['post_img']);
+				@unlink('upload/images/'.$info_post['product_img']);
 
 			}else{
-				$filename = $info_post['post_img'];
+				$filename = $info_product['product_img'];
 			}
 
-			if ($post['post_active'] == '') {
-				$post['post_active'] = 0;
+			if ($post['product_active'] == '') {
+				$post['product_active'] = 0;
 			}
-
-			
-
-			$date_post_format = substr($post['date_post'],  6, 4). substr($post['date_post'],  3, 2).substr($post['date_post'],  0, 2);
-			$date_time = $date_post_format.$post['time_post'];
-
-			$content = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['post_content']);
 
 			$data_update = array(
-				'post_category_id' => $post['post_category_id'], 
-				'post_title' => $post['post_title'], 
-				'post_alias' => $post['post_alias'], 
-				'post_description' => $post['post_description'], 
-				'post_content' => $content, 
-				'post_author' => '', 
-				'post_keyword' => $post['post_keyword'], 
-				'post_active' => $post['post_active'], 
-				'post_date_time' => '',
-				'post_img' => $filename, 
-				'post_type' => 2, 
+				'product_category_id' => $post['product_category_id'], 
+				'product_title' => $post['product_title'], 
+				'product_alias' => $post['product_alias'], 
+				'product_description' => $post['product_description'], 
+				'product_content' => $post['product_content'], 
+				'product_keyword' => $post['product_keyword'], 
+				'product_active' => $post['product_active'], 
+				'product_img' => $filename, 
+				'product_benefits' => implode(',', $post['product_benefits']), 
 			);
 
-			$this->Post_M->update(['post_id' => $id],$data_update);
+			$this->Product_M->update(['product_id' => $id],$data_update);
 
 			$status = array(
 				'code'=>'success',
 				'message'=>'Đã sửa'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/service/edit/'.$id),'location');
+			redirect(base_url('admin/product/edit/'.$id),'location');
 
 		}
 
-		$list_category = $this->get_option_category(3);
-		$info_post = $this->Post_M->find_row(['post_id' => $id]);
+		$list_category = $this->get_option_category(2);
+		$list_benefits = $this->Other_M->all(['other_category_id' => 1]);
+		$data['list_benefits'] = $list_benefits;
 		$data['list_category'] = $list_category;
-		$data['info_post'] = $info_post;
-		$data['page_name']='Chỉnh dịch vụ';
-		$data['page_menu']='service';
+		$data['info_product'] = $info_product;
+		$data['page_name']='Chỉnh sửa sản phẩm';
+		$data['page_menu']='product';
 		$this->getHeader($data);
-		$this->load->view('admin/pages/service/edit.php',$data);
+		$this->load->view('admin/pages/product/edit.php',$data);
 		$this->getFooter();
 	}
 
 	public function update(){
 		$post = $this->input->post();
-		$this->Post_M->update(['post_id'=>$post['post_id']],$post);
+		$this->Product_M->update(['product_id'=>$post['product_id']],$post);
 	}
 
 	public function destroy()
 	{
-		$post_id = $this->input->post('post_id');
-		$this->Post_M->delete(['post_id' => $post_id]);
+		$product_id = $this->input->post('product_id');
+		$this->Product_M->delete(['product_id' => $product_id]);
 		$status = array(
 				'code'=>'success',
 				'message'=>'Đã xóa'
@@ -171,9 +158,9 @@ class Service extends MY_Controller {
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){
-			// if ($val['cate_module_id'] == $cate_module_id) {
-			// 	$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
-			// }
+			if ($val['cate_module_id'] == $cate_module_id) {
+				$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
+			}
 			
 			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id'],'cate_module_id'=> $cate_module_id],$oder_by);
 			// echo'<pre>';

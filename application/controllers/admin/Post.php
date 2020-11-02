@@ -171,9 +171,9 @@ class Post extends MY_Controller {
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){
-			if ($val['cate_module_id'] == $cate_module_id) {
-				$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
-			}
+			// if ($val['cate_module_id'] == $cate_module_id) {
+			// 	$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
+			// }
 			
 			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id'],'cate_module_id'=> $cate_module_id],$oder_by);
 			// echo'<pre>';

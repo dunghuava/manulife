@@ -19,20 +19,17 @@
                         </th>
                         <th style="width: 10%">Số thứ tự</th> -->
                         <th>Loại danh mục</th>
-                        <th>Bài viết</th>
+                        <th>Sản phẩm</th>
                         <th>Hình ảnh</th>
-                        <th>Cập nhật</th>
                         <th>Nổi bậc</th>
                         <th>Hiển thị</th>
-                        <!-- <th>Người đăng</th> -->
                         <th style="width: 11%">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                    foreach ($list_post as $item){ 
-                        $date_time_format = date('d-m-Y H:i:s', strtotime($item['post_date_time']));
-                        $info_category = $this->Category_M->find_row(['cate_id' => $item['post_category_id']]);
+                    foreach ($list_product as $item){ 
+                        $info_category = $this->Category_M->find_row(['cate_id' => $item['product_category_id']]);
                     ?>
                         <tr>
                             <!--  <td>
@@ -40,11 +37,10 @@
                              </td> -->
 
                              <td><?=$info_category['cate_title']?></td>
-                             <td><?=$item['post_title']?></td>
-                             <td><img src="<?=resizeImg($item['post_img'],80,50,0)?>" style="max-height: 90px;"></td>
-                             <td><?=$item['updated_at']?></td>
-                             <td><input onchange="setCkb(this,'post_highlights',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_highlights']==1 ? 'checked':''?>></td>
-                             <td><input onchange="setCkb(this,'post_active',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_active']==1 ? 'checked':''?> ></td>
+                             <td><?=$item['product_title']?></td>
+                             <td><img src="<?=resizeImg($item['product_img'],80,50,0)?>" style="max-height: 90px;"></td>
+                             <td><input onchange="setCkb(this,'product_highlights',<?=$item['product_id']?>)" type="checkbox" <?=$item['product_highlights']==1 ? 'checked':''?>></td>
+                             <td><input onchange="setCkb(this,'product_active',<?=$item['product_id']?>)" type="checkbox" <?=$item['product_active']==1 ? 'checked':''?> ></td>
                               <!-- <td>
                                 <?php  
                                   if ($item['post_user_id'] == 0) {
@@ -57,22 +53,16 @@
                              </td> -->
                              <td style="white-space: nowrap;">
 
-                                <a href="<?=base_url().'admin/post/edit/'.$item['post_id']?>">
+                                <a href="<?=base_url().'admin/product/edit/'.$item['product_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
                                     </button>
                                 </a>
                                
                                  
-                                 <button onclick="onDelete(<?=$item['post_id']?>)" type="button" class="btn btn-default">
+                                 <button onclick="onDelete(<?=$item['product_id']?>)" type="button" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
-
-                                 <a href="<?=base_url('bai-viet/'.$item['post_alias'].'-'.$item['post_id'])?>">
-                                    <button type="button" class="btn btn-default">
-                                        <i class="fa fa-link" aria-hidden="true"></i>
-                                    </button>
-                                </a>
                              </td>
                         </tr>
                     <?php } ?>
@@ -85,28 +75,22 @@
 </div>
 
 <script>
-    function onEdit(permission_id,permission_name,permission_value){
-        $('#permission_id').val(permission_id);
-        $('#permission_name').val(permission_name);
-        $('#permission_value').val(permission_value);
-    }
-
-    function setCkb(ckb,colset,post_id){
+    function setCkb(ckb,colset,product_id){
         ckb = ckb.checked;
         ckb = ckb==true ? 1:0;
         colset = colset.toString();
         $.ajax({
             type: "post",
-            url: "<?=base_url('admin/post/update')?>",
-            data: {'post_id':post_id,[colset]:ckb},
+            url: "<?=base_url('admin/product/update')?>",
+            data: {'product_id':product_id,[colset]:ckb},
             success: function (response) {
                 
             }
         });
     }
 
-    function onDelete(post_id){
-        var post_id = post_id;
+    function onDelete(product_id){
+        var product_id = product_id;
         // console.log(post_id);
         Swal.fire({
             title: 'Bạn có muốn xóa mục này?',
@@ -122,8 +106,8 @@
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/post/destroy')?>",
-                    data: {'post_id':post_id},
+                    url: "<?=base_url('admin/product/destroy')?>",
+                    data: {'product_id':product_id},
                     success: function (response) {
                         location.reload();
                     }
