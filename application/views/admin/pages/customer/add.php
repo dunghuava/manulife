@@ -98,7 +98,6 @@
         <div class="col-md-8 inline-flex">
             <label for="">Tiến độ</label>
             <select name="processing_steps" id="processing_steps" class="form-control">
-                <option value=""></option>
                 <option value="0">Tiềm hiểu thông tin</option>
                 <option value="1">Nuôi dưỡng khách</option>
                 <option value="2">Xác định có nhu cầu</option>
@@ -109,7 +108,7 @@
                 <option value="7">Thành công</option>
                 <option value="8">Chăm sóc</option>
                 <option value="9">Giao HD và trao quà</option>
-                <option value="10">Có khả năng khai thác thêm HD</option>
+                <option value="10">Có khả năng khai thác</option>
             </select>
         </div>  
 

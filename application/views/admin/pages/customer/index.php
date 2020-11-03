@@ -36,7 +36,7 @@
               					<th>Chăm sóc</th>
 
               					<th>Giao HD và trao quà</th>
-              					<th>Có khả năng khai thác thêm HD</th>
+              					<th>Có khả năng khai thác</th>
               				</tr>
 
               			</thead>
@@ -45,15 +45,38 @@
               					<tr>
               						<?php for ($i=0; $i <11 ; $i++) {
               							if ($val['processing_steps'] == $i) {
+              								$date_update =date('Ymd') - date('Ymd', strtotime($val['updated_at']));
+              								if ($date_update == 0) {
+              									$date_update = 'Hôm nay';
+              								}else{
+              									$date_update = $date_update.' ngày trước';
+              								}
               						?>
               							<td>
-              								<p>Tên</p>
-              								<p>Nhu cầu</p>
-              								<p>Mức hợp đồng hoa hồng</p>
-              								<p>Lần cuối tương tác</p>
-              								<p>note</p>
-              								<p>ngày nhận</p>
-              								<p>Tiếp theo</p>
+              								<div>
+              									<p><?=$val['customer_name']?></p>
+              									<p><?=$val['need']?></p>
+              									<p><?=$val['commission_level']?></p>
+              									<p><?=$date_update?></p>
+              									<p><?=$val['note']?></p>
+              									<p><?=date('d-m-Y', strtotime($val['created_at']))?></p>
+              								</div>
+              								
+              								<p>
+              									<select name="processing_steps" id="processing_steps" class="form-control" style="width: 190px;">
+              										<option value="0">Tiềm hiểu thông tin</option>
+              										<option value="1">Nuôi dưỡng khách</option>
+              										<option value="2">Xác định có nhu cầu</option>
+              										<option value="3">Sẳn sàng chốt hẹn</option>
+              										<option value="4">Chờ gặp</option>
+              										<option value="5">Thương thảo</option>
+              										<option value="6">Thất bại</option>
+              										<option value="7">Thành công</option>
+              										<option value="8">Chăm sóc</option>
+              										<option value="9">Giao HD và trao quà</option>
+              										<option value="10">Có khả năng khai thác</option>
+              									</select>
+              								</p>
               							</td>
               						<?php }else{ echo '<td></td>';} } ?>
               					</tr>
