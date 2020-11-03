@@ -130,7 +130,7 @@ class Customer extends MY_Controller {
 
 	public function update(){
 		$post = $this->input->post();
-		$this->Post_M->update(['post_id'=>$post['post_id']],$post);
+		$this->Customer_M->update(['customer_id'=>$post['customer_id']],$post);
 	}
 
 	public function destroy()

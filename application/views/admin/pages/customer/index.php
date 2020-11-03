@@ -13,7 +13,7 @@
            <div class="col-md-12">
               <div class="col-md-12">
               	<form method="post" style="overflow: auto;">
-              		<table class="table table-striped table-bordered">
+              		<table id="table_cus" class="table table-striped table-bordered">
               			<thead>
               				<tr>
               					<th colspan="3" style="text-align: center;">Tiềm năng</th>
@@ -63,18 +63,18 @@
               								</div>
               								
               								<p>
-              									<select name="processing_steps" id="processing_steps" class="form-control" style="width: 190px;">
-              										<option value="0">Tiềm hiểu thông tin</option>
-              										<option value="1">Nuôi dưỡng khách</option>
-              										<option value="2">Xác định có nhu cầu</option>
-              										<option value="3">Sẳn sàng chốt hẹn</option>
-              										<option value="4">Chờ gặp</option>
-              										<option value="5">Thương thảo</option>
-              										<option value="6">Thất bại</option>
-              										<option value="7">Thành công</option>
-              										<option value="8">Chăm sóc</option>
-              										<option value="9">Giao HD và trao quà</option>
-              										<option value="10">Có khả năng khai thác</option>
+              									<select onchange="setStt(this,'processing_steps',<?=$val['customer_id']?>)" name="processing_steps" id="processing_steps" class="form-control" style="width: 200px;">
+              										<option <?php if ($val['processing_steps'] == 0) echo "selected"; ?> value="0">Tiềm hiểu thông tin</option>
+              										<option <?php if ($val['processing_steps'] == 1) echo "selected"; ?> value="1">Nuôi dưỡng khách</option>
+              										<option <?php if ($val['processing_steps'] == 2) echo "selected"; ?> value="2">Xác định có nhu cầu</option>
+              										<option <?php if ($val['processing_steps'] == 3) echo "selected"; ?> value="3">Sẳn sàng chốt hẹn</option>
+              										<option <?php if ($val['processing_steps'] == 4) echo "selected"; ?> value="4">Chờ gặp</option>
+              										<option <?php if ($val['processing_steps'] == 5) echo "selected"; ?> value="5">Thương thảo</option>
+              										<option <?php if ($val['processing_steps'] == 6) echo "selected"; ?> value="6">Thất bại</option>
+              										<option <?php if ($val['processing_steps'] == 7) echo "selected"; ?> value="7">Thành công</option>
+              										<option <?php if ($val['processing_steps'] == 8) echo "selected"; ?> value="8">Chăm sóc</option>
+              										<option <?php if ($val['processing_steps'] == 9) echo "selected"; ?> value="9">Giao HD và trao quà</option>
+              										<option <?php if ($val['processing_steps'] == 10) echo "selected"; ?> value="10">Có khả năng khai thác</option>
               									</select>
               								</p>
               							</td>
@@ -97,44 +97,18 @@
         $('#permission_value').val(permission_value);
     }
 
-    function setCkb(ckb,colset,post_id){
-        ckb = ckb.checked;
-        ckb = ckb==true ? 1:0;
+    function setStt(ckb,colset,customer_id){
+        ckb = ckb.value;
         colset = colset.toString();
         $.ajax({
             type: "post",
-            url: "<?=base_url('admin/post/update')?>",
-            data: {'post_id':post_id,[colset]:ckb},
+            url: "<?=base_url('admin/customer/update')?>",
+            data: {'customer_id':customer_id,[colset]:ckb},
             success: function (response) {
-                
+                $("#table_cus").load(" #table_cus");
             }
         });
     }
 
-    function onDelete(post_id){
-        var post_id = post_id;
-        // console.log(post_id);
-        Swal.fire({
-            title: 'Bạn có muốn xóa mục này?',
-            text: "Dữ liệu đã xóa sẽ không thể phục hồi",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            cancelButtonText: 'Hủy',
-            confirmButtonText: 'Xóa'
-            // cancelButtonText: 'Hủy',
-            }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    type: "post",
-                    url: "<?=base_url('admin/post/destroy')?>",
-                    data: {'post_id':post_id},
-                    success: function (response) {
-                        location.reload();
-                    }
-                });
-            }
-        });
-    }
+
 </script>

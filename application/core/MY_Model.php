@@ -45,6 +45,7 @@ class MY_Model extends CI_Model {
 		return $this->db->where($where)->delete($this->table);
 	}
 	public function update($where,$data){
+		$data['updated_at']=dateinsert();
 		return $this->db->where($where)->update($this->table,$data);
 	}
 	public function create($where){
