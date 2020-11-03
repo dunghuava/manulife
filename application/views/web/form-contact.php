@@ -1,16 +1,12 @@
+<?php 
+    $formcontact = $this->Web_M->q("select * from db_other where other_id=1");
+?>
 <section class="sec-form-contact">
     <div class="container full-w">
         <div class="row">
             <div class="col-md-3">
                 <h3>Hãy liên hệ với chúng tôi để được hỗ trợ tốt nhất</h3>
-                <p><i>Hotline</i></p>
-                <p><b>19001776</b></p>
-                <p><i>Email:</i></p>
-                <p><a href="mailto:khachhang@manulife.com">khachhang@manulife.com</a></p>
-                <p>Trung tâm dịch vụ khách hàng<br/>
-                    Thứ 2 - Thứ 6 từ 8:30 đến 17:30<br/>
-                    (trừ ngày nghỉ lễ, Tết)<br/>
-                </p>
+                <?=$formcontact[0]['other_content']?>
             </div>
             <div class="col-md-9">
                 <form id="form-contact" action="" method="post" class="form-group">

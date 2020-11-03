@@ -1,53 +1,33 @@
 <br><br>
 <?php include ('botchat.php') ?>
 <?php include ('hotline.php') ?>
+<?php 
+    $textFooter = $this->Web_M->q("select * from db_other where other_id=2");
+    $menuFooter = $this->Web_M->q("select * from db_other where other_id in (8,9,10,11)");
+?>
 <footer id="footer">
-    <div class="container">
+    <div class="container full-w">
         <div class="row">
+            <?php 
+                foreach ($menuFooter as $menu)
+                {
+                $sub = $this->Web_M->q("select * from db_other where other_category_id = '".$menu['other_id']."'");
+            ?>
             <div class="col-md-3">
-                <h3 class="title-footer">Footer</h3>
+                <h3 class="title-footer"><?=$menu['other_title']?></h3>
                 <ul>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
+                    <?php foreach ($sub as $item){ ?>
+                        <li><a target="_blank" href="<?=$item['other_url']?>"><?=$item['other_title']?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
-            <div class="col-md-3">
-                <h3 class="title-footer">Footer</h3>
-                <ul>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h3 class="title-footer">Footer</h3>
-                <ul>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h3 class="title-footer">Footer</h3>
-                <ul>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                    <li><a href="">Về Manulife Việt Nam</a></li>
-                </ul>
-            </div>
+            <?php 
+                } 
+            ?>
         </div>
     </div>
     <div class="line-break"></div>
-    <div class="container">
+    <div class="container full-w">
         <div class="row">
             <div class="col-md-6">
                 <a href="">Điều khoản sử dụng</a>
@@ -67,17 +47,15 @@
         </div>
     </div>
     <div class="line-break"></div>
-    <div class="container">
+    <div class="container full-w">
         <div class="row">
             <div class="col-md-3">
                 <h4>Manulife</h4>
             </div>
             <div class="col-md-9">
                 <p>
-                    © Bản quyền thuộc về Công ty TNHH Manulife (Việt Nam).<br/>
-                    Giấy phép số 503/GP-BC do Bộ VHTT cấp ngày 15/11/2004.<br/>
-                    Văn phòng chính: Tòa nhà Manulife Plaza, 75 Hoàng Văn Thái, Phường Tân Phú, Q. 7, Tp. HCM<br/>
-                    Điện thoại : (028) 5416 6888 / Fax : (028) 5416 1818 / Đường dây nóng: 1900 1776</p><br/>
+                    <?=$textFooter[0]['other_content']?>
+                </p>
             </div>
         </div>
     </div>

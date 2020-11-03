@@ -33,27 +33,6 @@
         </div>
     </div>
 </section>
-<section class="sec-muctieu">
-    <div class="container full-w">
-        <div class="row">
-            <div class="col-md-3">
-                <p>Mục tiêu trong tương lai của bạn là gì ?</p>
-                <a class="readmore" href=""><span class="fa fa-angle-right"></span>Xem thêm</a>
-            </div>
-            <div class="col-md-9">
-                <div class="cusselect">
-                    <span>Tôi muốn&nbsp;</span><span class="selectbox">Bảo vệ cả nhà, an tâm vui sống</span>
-                    <div class="option">
-                        <li><a href="">Option 01</a></li>
-                        <li><a href="">Option 02</a></li>
-                        <li><a href="">Option 03</a></li>
-                        <li><a href="">Option 04</a></li>
-                        <li><a href="">Option 05</a></li>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
+<?php include ('sec-muctieu.php') ?>
 <?php include ('form-contact.php') ?>

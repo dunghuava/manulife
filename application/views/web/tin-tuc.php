@@ -1,3 +1,7 @@
+<?php 
+    print_r($category);
+    $kienthuc = $this->Web_M->q("select a.post_id,a.post_title,b.cate_title,a.post_img,a.post_alias from db_post a inner join db_category b on a.post_category_id=b.cate_id where post_category_id=0");
+?>
 <section>
     <div class="container full-w">
         <div class="row">

@@ -19,6 +19,7 @@ $wmenu:84px;
     z-index: 1099;
     width: $wmenu;
     background: #34384B;
+    font-size: 16px;
     ul{
         height: 100%;
         background: #34384b;
@@ -29,6 +30,9 @@ $wmenu:84px;
             border-bottom: 1px solid #1e212f5c;
             position: relative;
             background: #34384B;
+            img{
+                margin-bottom: 5px;
+            }
             &:first-child{
                 height: $wmenu;
                 background: $secondary;
@@ -43,7 +47,7 @@ $wmenu:84px;
             }
             a{
                 color: #fff;
-                font-size: 13px;
+                font-size: 15px;
                 padding:15px 10px;
                 display: block;
                 text-decoration: none;
@@ -78,7 +82,7 @@ $wmenu:84px;
                     }
                     a{
                         color: #000;
-                        font-size: 14px;
+                        font-size: 16px;
                         background: #fff;
                     }
                 }
@@ -110,6 +114,7 @@ $wmenu:84px;
     }
 }
 #footer{
+    font-size: 16px;
     background: $primary;
     *{
         color: #fff;
@@ -123,6 +128,7 @@ $wmenu:84px;
             margin-bottom: 2px;
             display: block;
             a{
+                font-size: 16px;
                 color: #fff !important;
             }
         }
