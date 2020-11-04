@@ -7,6 +7,42 @@
   td{
     white-space: nowrap;
   }
+
+  .blocker {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #000;
+    background-color: rgba(0,0,0,0.75);
+    text-align: center;
+}
+
+/*#details{
+  top: 5%;
+  vertical-align: middle;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 90%;
+}*/
+
+.inline-flex label {
+  min-width: 160px;
+  text-align: left;
+}
+
+.inline-flex{
+  padding: 0px 30px;
+}
+
 </style>
 <div class="container-fluid">
      <div class="row">
@@ -53,7 +89,7 @@
               								}
               						?>
               							<td>
-              								<div>
+              								<div class="btn_modal" data-id="<?=$val['customer_id']?>">
               									<p><?=$val['customer_name']?></p>
               									<p><?=$val['need']?></p>
               									<p><?=$val['commission_level']?></p>
@@ -88,9 +124,56 @@
               </div>
            </div>
      </div>
+
+
+    <div id="div_bloker">
+    <form id="details" method="post" class="" style="display: none;background: #fff;width: 800px;margin: 5% auto;">
+   </form>
+ </div>
+
+
 </div>
 
 <script>
+
+  $('.container-fluid').on('click', '.btn_modal', function(){
+    var customer_id = $(this).data('id');
+    $.ajax({
+      type: "post",
+      url: "<?=base_url('admin/customer/loadDetails')?>",
+      data: {'customer_id':customer_id},
+      success: function (response) {
+        // var obj = JSON.parse(response);
+        $('#details').css("display","block");
+        $('#div_bloker').attr("class","blocker");
+        $('#details').html(response);
+      }
+    });
+    
+  });
+
+
+  $('.container-fluid').on('click', '#save', function(){
+    $.ajax({
+      type: "post",
+      url: "<?=base_url('admin/customer/updateDetails')?>",
+      data: $('#details').serialize(),
+      success: function (response) {
+        $('#details').css("display","none");
+        $('#div_bloker').attr("class","");
+        $("#table_cus").load(" #table_cus");
+      }
+    });
+    
+  });
+
+  $('.container-fluid').on('click', '#close', function(){
+    $('#details').css("display","none");
+    $('#div_bloker').attr("class","");
+  });
+
+  
+
     function onEdit(permission_id,permission_name,permission_value){
         $('#permission_id').val(permission_id);
         $('#permission_name').val(permission_name);

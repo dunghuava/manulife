@@ -63,69 +63,43 @@ class Customer extends MY_Controller {
 		$this->getFooter();
 	}
 
-	public function edit($id)
+	public function loadDetails()
 	{
-		$info_post = $this->Post_M->find_row(['post_id' => $id]);
+		$customer_id = $this->input->post('customer_id');
+		$info_customer = $this->Customer_M->find_row(['customer_id' => $customer_id]);
 
+		
+		$data['info_customer']=$info_customer;
+		$this->load->view('admin/pages/customer/load_details.php',$data);
+	}
+
+	public function updateDetails()
+	{
 		$post = $this->input->post();
 
 		if ($this->input->post()) {
-			if (!empty($_FILES['post_img']['name'])){
-				$file = $_FILES['post_img'];
-				$filename = time().$file['name'];
-				$path='upload/images/'.$filename;
-				move_uploaded_file($file['tmp_name'],$path);
-				@unlink('upload/images/'.$info_post['post_img']);
-
-			}else{
-				$filename = $info_post['post_img'];
-			}
-
-			if ($post['post_active'] == '') {
-				$post['post_active'] = 0;
-			}
-
-			
-
-			$date_post_format = substr($post['date_post'],  6, 4). substr($post['date_post'],  3, 2).substr($post['date_post'],  0, 2);
-			$date_time = $date_post_format.$post['time_post'];
-
-			$content = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['post_content']);
-
 			$data_update = array(
-				'post_category_id' => $post['post_category_id'], 
-				'post_title' => $post['post_title'], 
-				'post_alias' => $post['post_alias'], 
-				'post_description' => $post['post_description'], 
-				'post_content' => $content, 
-				'post_author' => $post['post_author'], 
-				'post_keyword' => $post['post_keyword'], 
-				'post_active' => $post['post_active'], 
-				'post_date_time' => $date_time,
-				'post_img' => $filename, 
-				'post_type' => 1, 
+				'customer_name' => $post['customer_name'], 
+				'customer_email' => $post['customer_email'], 
+				'customer_phone' => $post['customer_phone'], 
+				'customer_birth' => $post['customer_birth'], 
+				'customer_address' => $post['customer_address'], 
+				'need' => $post['need'], 
+				'commission_level' => $post['commission_level'], 
+				'job' => $post['job'], 
+				'interests' => $post['interests'], 
+				'note' => $post['note'], 
+				'insurance' => $post['insurance'], 
+				'source' => $post['source'], 
+				'marriage' => $post['marriage'], 
+				'info_relatives' => $post['info_relatives'], 
+				'amount_insurance' => $post['amount_insurance'], 
+				'insurance_name' => $post['insurance_name'], 
+				'processing_steps' => $post['processing_steps'],
 			);
 
-			$this->Post_M->update(['post_id' => $id],$data_update);
-
-			$status = array(
-				'code'=>'success',
-				'message'=>'Đã sửa'
-			);
-			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/post/edit/'.$id),'location');
-
+			$this->Customer_M->update(['customer_id'=>$post['customer_id']],$data_update);
 		}
-
-		$list_category = $this->get_option_category(1);
-		$info_post = $this->Post_M->find_row(['post_id' => $id]);
-		$data['list_category'] = $list_category;
-		$data['info_post'] = $info_post;
-		$data['page_name']='Chỉnh sửa bài viết';
-		$data['page_menu']='post';
-		$this->getHeader($data);
-		$this->load->view('admin/pages/post/edit.php',$data);
-		$this->getFooter();
 	}
 
 	public function update(){
