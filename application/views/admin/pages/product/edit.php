@@ -13,18 +13,34 @@
 <div class="container-fluid">
     <form action="" method="post" enctype="multipart/form-data">
         <div class="col-md-8 inline-flex">
-            <label for="">Hình ảnh</label>
+            <label for="">Ảnh đại diện</label>
             <input type="file" name="product_img" id="product_img" class="">
             
         </div>
 
         <div class="col-md-8 inline-flex" id="div_image">
             <label for=""></label>
-            <img src="<?=base_url().'upload/images/'.$info_product['product_img']?>" onclick="onDelete()" title="Bấm vào đây để xóa" style="cursor: pointer;">
+            <img src="<?=base_url().'upload/images/'.$info_product['product_img']?>" onclick="onDelete(1)" title="Bấm vào đây để xóa" style="cursor: pointer;">
             	
             
 
         </div>
+
+
+        <div class="col-md-8 inline-flex">
+            <label for="">Banner</label>
+            <input type="file" name="product_banner" id="product_banner" class="">
+            
+        </div>
+
+        <div class="col-md-8 inline-flex" id="div_banner">
+            <label for=""></label>
+            <img src="<?=base_url().'upload/images/'.$info_product['product_banner']?>" onclick="onDelete(2)" title="Bấm vào đây để xóa" style="cursor: pointer;">
+                
+            
+
+        </div>
+
 
         <div class="col-md-8 inline-flex" >
             <label for="">Loại sản phẩm</label>
@@ -110,7 +126,7 @@
         $(target).val(val);
     }
 
-    function onDelete(){
+    function onDelete(key){
         Swal.fire({
             title: 'Bạn có muốn xóa mục này?',
             text: "Dữ liệu đã xóa sẽ không thể phục hồi",
@@ -122,8 +138,14 @@
             confirmButtonText: 'Xóa'
             }).then((result) => {
             if (result.value) {
-            	$('#div_image').css("display","none");
-            	$('#product_img').attr("required","required");
+                if (key == 1) {
+                    $('#div_image').css("display","none");
+                    $('#product_img').attr("required","required");
+                }else{
+                    $('#div_banner').css("display","none");
+                    $('#product_banner').attr("required","required");
+                }
+            	
             }
         });
         }

@@ -9,8 +9,13 @@
 <div class="container-fluid">
     <form action="" method="post" enctype="multipart/form-data">
         <div class="col-md-8 inline-flex">
-            <label for="">Hình ảnh</label>
+            <label for="">Ảnh đại diện</label>
             <input required type="file" name="product_img" id="product_img" class="">
+        </div>
+
+        <div class="col-md-8 inline-flex">
+            <label for="">Banner</label>
+            <input required type="file" name="product_banner" id="product_banner" class="">
         </div>
 
         <div class="col-md-8 inline-flex" >

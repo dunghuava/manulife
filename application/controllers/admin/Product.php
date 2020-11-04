@@ -28,11 +28,20 @@ class Product extends MY_Controller {
 
 		if ($this->input->post()) {
 			if (isset($_FILES['product_img']['name'])){
-				$file = $_FILES['product_img'];
-				$filename = time().$file['name'];
-				$path='upload/images/'.$filename;
-				move_uploaded_file($file['tmp_name'],$path);
+				$file_img = $_FILES['product_img'];
+				$filename_img = time().$file_img['name'];
+				$path='upload/images/'.$filename_img;
+				move_uploaded_file($file_img['tmp_name'],$path);
 			}
+
+
+			if (isset($_FILES['product_banner']['name'])){
+				$file_banner = $_FILES['product_banner'];
+				$filename_banner = time().$file_banner['name'];
+				$path='upload/images/'.$filename_banner;
+				move_uploaded_file($file_banner['tmp_name'],$path);
+			}
+
 
 			if ($post['product_active'] == '') {
 				$post['product_active'] = 0;
@@ -48,7 +57,8 @@ class Product extends MY_Controller {
 				'product_keyword' => $post['product_keyword'], 
 				'product_highlights' => 0, 
 				'product_active' => $post['product_active'], 
-				'product_img' => $filename, 
+				'product_img' => $filename_img, 
+				'product_banner' => $filename_banner, 
 				'product_benefits' => implode(',', $post['product_benefits']), 
 			);
 
@@ -84,15 +94,28 @@ class Product extends MY_Controller {
 
 		if ($this->input->post()) {
 			if (!empty($_FILES['product_img']['name'])){
-				$file = $_FILES['product_img'];
-				$filename = time().$file['name'];
-				$path='upload/images/'.$filename;
-				move_uploaded_file($file['tmp_name'],$path);
+				$file_img = $_FILES['product_img'];
+				$filename_img = time().$file_img['name'];
+				$path='upload/images/'.$filename_img;
+				move_uploaded_file($file_img['tmp_name'],$path);
 				@unlink('upload/images/'.$info_post['product_img']);
 
 			}else{
-				$filename = $info_product['product_img'];
+				$filename_img = $info_product['product_img'];
 			}
+
+
+			if (!empty($_FILES['product_banner']['name'])){
+				$file_banner = $_FILES['product_banner'];
+				$filename_banner = time().$file_banner['name'];
+				$path='upload/images/'.$filename_banner;
+				move_uploaded_file($file_banner['tmp_name'],$path);
+				@unlink('upload/images/'.$info_post['product_banner']);
+
+			}else{
+				$filename_banner = $info_product['product_banner'];
+			}
+
 
 			if ($post['product_active'] == '') {
 				$post['product_active'] = 0;
@@ -106,7 +129,8 @@ class Product extends MY_Controller {
 				'product_content' => $post['product_content'], 
 				'product_keyword' => $post['product_keyword'], 
 				'product_active' => $post['product_active'], 
-				'product_img' => $filename, 
+				'product_img' => $filename_img, 
+				'product_banner' => $filename_banner, 
 				'product_benefits' => implode(',', $post['product_benefits']), 
 			);
 
