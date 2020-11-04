@@ -13,7 +13,7 @@
                     {
                 ?>
                     <div class="post">
-                        <a class="readmore" href="<?=base_url('p/'.$bv['post_title'].'-'.$bv['post_id'])?>.html">
+                        <a class="readmore" href="<?=base_url('post/'.$bv['post_alias'].'-'.$bv['post_id'])?>.html">
                             <h4><?=$bv['post_title']?></h4>
                             <p><?=$bv['post_description']?></p>
                             <br>
@@ -84,9 +84,9 @@
                     <div class="col-md-4">
                                 <div class="item-product has-bg" style="<?=implode(';',$styles)?>">
                                     <div class="title">
-                                        <p><?=$item['cate_title']?> <a style="float:right" href="<?=base_url('p/'.$item['post_alias'].'-'.$item['post_id'])?>.html" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
+                                        <p><?=$item['cate_title']?> <a style="float:right" href="<?=base_url('post/'.$item['post_alias'].'-'.$item['post_id'])?>.html" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
                                         <h3>
-                                            <a href="<?=base_url('p/'.$item['post_alias'].'-'.$item['post_id'])?>.html">
+                                            <a href="<?=base_url('post/'.$item['post_alias'].'-'.$item['post_id'])?>.html">
                                                 <?=$item['post_title']?>
                                             </a>
                                         </h3>

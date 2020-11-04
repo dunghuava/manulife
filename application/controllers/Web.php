@@ -9,6 +9,7 @@ class Web extends MY_Controller {
         $this->load->model('Web_M');
         $this->load->model('Category_M');
         $this->load->model('Slide_M');
+        $this->load->model('Post_M');
     }
     public function route($alias=null){
         $category = $this->Category_M->find_row(['cate_alias'=>$alias]);
@@ -29,9 +30,10 @@ class Web extends MY_Controller {
         $this->view('web/index');
         $this->page_footer();
     }
-    public function product($alias=null){
+    public function product($category=null){
+        $data['category']=$category;
         $this->page_header();
-        $this->view('web/category');
+        $this->view('web/category',$data);
         $this->page_footer();
     }
     public function contact(){
@@ -44,14 +46,18 @@ class Web extends MY_Controller {
         $this->view('web/about-us');
         $this->page_footer();
     }
-    public function tintucDetail(){
+    public function tintuc_detail($alias=null){
+        $id = getID($alias);
+        $data['post']=$this->Post_M->find_row(['post_id'=>$id]);
+        
         $this->page_header();
-        $this->view('web/tin-tuc-detail');
+        $this->view('web/tin-tuc-detail',$data);
         $this->page_footer();
     }
-    public function tintuc($category=array()){        
+    public function tintuc($category=array()){      
+        $data['category']=$category;
         $this->page_header();
-        $this->view('web/tin-tuc',$category);
+        $this->view('web/tin-tuc',$data);
         $this->page_footer();
     }
 }

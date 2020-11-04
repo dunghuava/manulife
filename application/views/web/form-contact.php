@@ -91,7 +91,7 @@
                 }
             });
         }else{
-            alert('Vui lòng đồng ý với chính sách bảo mật của chúng tôi để tiếp tục');
+            alert('Vui lòng đồng ý với chính sách bảo mật của chúng tôi để hoàn tất');
         }
         return false;
     });

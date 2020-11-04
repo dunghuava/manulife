@@ -59,5 +59,6 @@ $route['admin/logout'] 					= 'admin/account/logout';
 
 
 $route['(:any).html']					= 'web/route/$1';
+$route['post/(:any).html']				= 'web/tintuc_detail/$1';
 
 
