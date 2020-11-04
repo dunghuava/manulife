@@ -17,6 +17,7 @@ class Web extends MY_Controller {
             switch($category['cate_module_id']){
                 case 1: $this->tintuc($category);break;
                 case 2: $this->product($category);break;
+                case 3: $this->service($category);break;
                 case 4: $this->aboutUs();break;
                 case 5: $this->contact($category);break;
                 default: $this->index();break;
@@ -34,6 +35,12 @@ class Web extends MY_Controller {
         $data['category']=$category;
         $this->page_header();
         $this->view('web/category',$data);
+        $this->page_footer();
+    }
+    public function service($category=null){
+        $data['category']=$category;
+        $this->page_header();
+        $this->view('web/service',$data);
         $this->page_footer();
     }
     public function contact(){
