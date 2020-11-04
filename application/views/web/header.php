@@ -36,6 +36,18 @@
     <script src="<?=base_url('upload/slick/slick.min.js')?>"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
+
+<style type="text/css">
+    #main-menu ul li .sub-menu {
+        width: 300px;
+    }
+
+    #main-menu ul li .sub-menu li {
+        border-bottom: 1px solid #ededed;
+        min-height: 70px;
+        padding: 10px 10px;
+    }
+</style>
 <body>
 <header class="app-header">
     <?php include ('main-menu.php') ?>
