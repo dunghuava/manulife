@@ -16,9 +16,10 @@
                         ?>
                             <div class="post_ser">
                                 <a class="readmore" href="<?=base_url('post/'.$bv['post_alias'].'-'.$bv['post_id'])?>.html">
-                                    <p><?=$bv['post_title']?></p>
+                                   <h5><?=$bv['post_title']?></h5>
                                     <span class="fa fa-angle-right"></span>Readmore
                                 </a>
+                                <hr style="margin:5px 0px;">
                             </div>
                         <?php
                     }
@@ -31,7 +32,7 @@
                 <div class="row"><br>
                     <?php foreach ($subdichvu as $item){ ?>
                     <div class="col-md-4">
-                        <a href="<?=base_url($item['cate_alias'])?>.html">
+                        <a href="<?=base_url('service/'.$item['cate_alias'].'-'.$item['cate_id'])?>.html">
                             <div class="item-product" style="display:flex;height: 140px;">
                                 <img src="<?=img_path('se_05.svg')?>" alt="">
                                 <div class="des"><?=$item['cate_title']?></div>

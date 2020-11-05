@@ -61,6 +61,14 @@ class Web extends MY_Controller {
         $this->view('web/tin-tuc-detail',$data);
         $this->page_footer();
     }
+    public function dichvu_detail($alias=null){
+        $id = getID($alias);
+        $data['category']=$this->Category_M->find_row(['cate_id'=>$id]);
+        $data['service']=$this->Post_M->all(['post_category_id'=>$id,'post_active'=>1]);
+        $this->page_header();
+        $this->view('web/dichvu-detail',$data);
+        $this->page_footer();
+    }
     public function tintuc($category=array()){      
         $data['category']=$category;
         $this->page_header();
