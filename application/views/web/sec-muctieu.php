@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-9">
                 <div class="cusselect">
-                    <span>Tôi muốn&nbsp;</span><span class="selectbox">Bảo vệ cả nhà, an tâm vui sống</span>
+                    <span>Tôi muốn&nbsp;</span><span class="selectbox" style="border-bottom: 1px dashed #fff !important;">Bảo vệ cả nhà, an tâm vui sống</span>
                     <div class="option">
                         <?php foreach ($muctieu as $item){ ?>
                             <li><a target="_blank" href="<?=$item['other_url']?>"><?=$item['other_title']?></a></li>

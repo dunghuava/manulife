@@ -1,5 +1,5 @@
 <?php 
-    $menu = $this->Web_M->q("select cate_img,cate_id,cate_title,cate_alias from db_category where cate_parent_id=0 and cate_is_menu=1 and cate_active=1 order by cate_id,cate_stt asc");
+    $menu = $this->Web_M->q("select cate_img,cate_id,cate_title,cate_alias,cate_module_id from db_category where cate_parent_id=0 and cate_is_menu=1 and cate_active=1 order by cate_id,cate_stt asc");
 ?>
 <div id="main-menu">
     <ul class="main-menu">
@@ -8,7 +8,7 @@
         </li>
         <?php 
             foreach ($menu as $mn){ 
-            $submenu = $this->Web_M->q("select cate_id,cate_title,cate_alias from db_category where cate_parent_id='".$mn['cate_id']."' and cate_active=1 order by cate_id,cate_stt asc");
+            $submenu = $this->Web_M->q("select cate_id,cate_title,cate_alias,cate_module_id from db_category where cate_parent_id='".$mn['cate_id']."' and cate_active=1 order by cate_id,cate_stt asc");
         ?>
             <li class="parent">
                 <a href="<?=base_url($mn['cate_alias'])?>.html">
@@ -20,9 +20,13 @@
                 ?>
                     <ul class="sub-menu">
                         <li><?=$mn['cate_title']?></li>
-                        <?php foreach ($submenu as $sub){ ?>
+                        <?php foreach ($submenu as $sub){ 
+                            if ($sub['cate_module_id'] == 3) {
+                        ?>
+                            <li><a href="<?=base_url('service/'.$sub['cate_alias'].'-'.$sub['cate_id'])?>.html"><?=$sub['cate_title']?></a></li>
+                        <?php }else{ ?>
                             <li><a href="<?=base_url($sub['cate_alias'])?>.html"><?=$sub['cate_title']?></a></li>
-                        <?php } ?>
+                        <?php } } ?>
                     </ul>
                 <?php 
                     } 

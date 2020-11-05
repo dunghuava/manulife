@@ -1,5 +1,5 @@
 <?php 
-    $bvnoibat = $this->Web_M->q("select a.post_id,a.post_title,a.post_img,a.post_alias from db_post a order by post_id desc limit 5");
+    $bvnoibat = $this->Web_M->q("select a.post_id,a.post_title,a.post_img,a.post_alias from db_post a where a.post_type=1 order by post_id desc limit 5");
 ?>
 <section class="sec-slide">
     <div class="container full-w">
@@ -17,7 +17,7 @@
                             <h4><?=$bv['post_title']?></h4>
                             <p><?=$bv['post_description']?></p>
                             <br>
-                            <span class="fa fa-angle-right"></span>Readmore
+                            <span class="fa fa-angle-right"></span>Xem thêm
                         </a>
                     </div>
                 <?php 
@@ -121,9 +121,9 @@
                 <div class="row">
                     <?php foreach ($dichvu as $item){ ?>
                     <div class="col-md-4">
-                        <a href="<?=base_url($item['cate_alias'])?>.html">
+                        <a href="<?=base_url('service/'.$item['cate_alias'])?>.html">
                             <div class="item-product" style="display:flex;height: 115px;overflow: hidden;">
-                                <img src="<?=img_path('se_05.svg')?>" alt="" style="margin-right: 20px;">
+                                <img src="<?=img_path('se_05.svg')?>" alt="" style="margin-right: 20px;height: 50px;">
                                 <div class="des"><?=$item['cate_title']?></div>
                             </div>
                         </a>
