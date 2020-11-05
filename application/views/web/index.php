@@ -121,7 +121,7 @@
                 <div class="row">
                     <?php foreach ($dichvu as $item){ ?>
                     <div class="col-md-4">
-                        <a href="<?=base_url('service/'.$item['cate_alias'])?>.html">
+                        <a href="<?=base_url('service/'.$item['cate_alias'].'-'.$item['cate_id'])?>.html">
                             <div class="item-product" style="display:flex;height: 115px;overflow: hidden;">
                                 <img src="<?=img_path('se_05.svg')?>" alt="" style="margin-right: 20px;height: 50px;">
                                 <div class="des"><?=$item['cate_title']?></div>
