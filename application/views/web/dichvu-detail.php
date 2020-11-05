@@ -20,6 +20,7 @@
             <div class="col-md-9">
                 <h1><?=$category['cate_title']?></h1>
                 <hr>
+                <?php include ('shares.php') ?>
                 <img src="<?=img_path($category['cate_img'])?>" alt="">
 
                 <div class="row">
