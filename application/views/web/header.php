@@ -47,6 +47,7 @@
         min-height: 70px;
         padding: 10px 10px;
     }
+    hr{margin:5px 0px}
 </style>
 <body>
 <header class="app-header">

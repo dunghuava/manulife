@@ -7,6 +7,8 @@
         text-align:center;
         border-radius:50%;
         color:#fff;
+        font-size: 14px;
+        margin-right: 10px;
     }
 </style>
 <section>
@@ -31,7 +33,7 @@
                                     <div class="card-header" role="tab" id="section_h_<?=$sv['post_id']?>">
                                         <h5 class="mb-0">
                                             <a data-toggle="collapse" data-parent="#accordian_<?=$sv['post_id']?>" href="#sectioncontent_<?=$sv['post_id']?>" aria-expanded="true" aria-controls="#sectioncontent_<?=$sv['post_id']?>">
-                                               <h3><span class="plsubtn fa fa-plus"></span><?=$sv['post_title']?></h3>
+                                               <p style="font-size:20px"><span class="plsubtn fa fa-plus"></span><?=$sv['post_title']?></p>
                                             </a>
                                         </h5>
                                     </div>
@@ -47,9 +49,13 @@
                         </div>
                     <?php 
                         } 
+                        if (empty($service)){
+                            include ('empty.php');
+                        }
                     ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<?php include ('form-contact.php') ?>

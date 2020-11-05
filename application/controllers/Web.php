@@ -10,6 +10,7 @@ class Web extends MY_Controller {
         $this->load->model('Category_M');
         $this->load->model('Slide_M');
         $this->load->model('Post_M');
+        $this->load->model('Product_M');
     }
     public function route($alias=null){
         $category = $this->Category_M->find_row(['cate_alias'=>$alias]);
@@ -67,6 +68,13 @@ class Web extends MY_Controller {
         $data['service']=$this->Post_M->all(['post_category_id'=>$id,'post_active'=>1]);
         $this->page_header();
         $this->view('web/dichvu-detail',$data);
+        $this->page_footer();
+    }
+    public function product_detail($alias=null){
+        $id = getID($alias);
+        $data['product']=$this->Product_M->find_row(['product_id'=>$id]);
+        $this->page_header();
+        $this->view('web/product-detail',$data);
         $this->page_footer();
     }
     public function tintuc($category=array()){      
