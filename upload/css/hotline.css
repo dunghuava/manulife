@@ -32,7 +32,7 @@
     position: absolute;
     background-color: transparent;
     border-radius: 100%;
-    border: 2px solid #0C714B;
+    border: 2px solid #00A758;
     -webkit-animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
     animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
     transition: all .5s;
@@ -47,7 +47,7 @@
     top: 25px;
     left: 25px;
     position: absolute;
-    background-color: #0C714B;
+    background-color: #00A758;
     border-radius: 100%;
     border: 2px solid transparent;
     -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
@@ -58,8 +58,8 @@
     transform-origin: 50% 50%;
   }
   .hotline-phone-ring-img-circle {
-      background-color: #0C714B;
-      width: 33px;
+    background-color: #00A758;
+    width: 33px;
     height: 33px;
     top: 37px;
     left: 37px;
@@ -91,7 +91,7 @@
   }
   .hotline-bar {
     position: absolute;
-    background: #0c714bed;
+    background: #00A758;
     height: 40px;
     width: 180px;
     line-height: 40px;
