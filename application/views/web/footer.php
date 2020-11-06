@@ -50,11 +50,11 @@
     <div class="container full-w">
         <div class="row">
             <div class="col-md-3">
-                <h4>Manulife</h4>
+                <h4><?=$info[0]['company']?></h4>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <p>
-                    <?=$textFooter[0]['other_content']?>
+                    <?=$info[0]['coppy_right']?>
                 </p>
             </div>
         </div>
