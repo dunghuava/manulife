@@ -13,18 +13,19 @@
     .item-blog{
         height:350px;
     }
+    .quote{
+        font-size:40px;
+        margin-right: 10px;
+    }
 </style>
 <section>
     <div class="container full-w">
         <div class="row">
-            <div class="col-md-3">
-                <img src="<?=img_path($product['product_img'])?>" alt="">
-            </div>
             <div class="col-md-9">
                 <h1><?=$product['product_title']?></h1>
                 <hr>
-                <h3><b><?=$product['product_description']?></b></h3>
-                <p><?=$product['product_content']?></p>
+                <h3><div class="quote fa fa-quote-left"></div><b><?=$product['product_description']?></b></h3>
+                <div class="font16_all"><?=$product['product_content']?></div>
                 <hr>
                 <?php  include ('shares.php') ?>
                 <br>
@@ -60,7 +61,9 @@
                     ?>
                 </div>
             </div>
+            <div class="col-md-3">
+                <?php include ('form-seller.php') ?>
+            </div>
         </div>
     </div>
 </section>
-<?php include ('form-contact.php') ?>
