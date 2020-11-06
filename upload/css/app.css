@@ -725,4 +725,13 @@ h3.product-title {
   left: 0px;
   background: rgba(0, 0, 0, 0.2);
 }
+
+.swal2-icon {
+  font-size: 18px !important;
+}
+
+.swal2-title {
+  font-size: 18px !important;
+}
+
 /*# sourceMappingURL=app.css.map */

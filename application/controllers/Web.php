@@ -83,4 +83,23 @@ class Web extends MY_Controller {
         $this->view('web/tin-tuc',$data);
         $this->page_footer();
     }
+
+
+    public function addContact()
+    {
+        $post = $this->input->post();
+
+        $data_insert = array(
+            'contact_name' => $post['contact_name'],
+            'contact_phone' => $post['contact_phone'], 
+            'contact_email' => $post['contact_email'], 
+            'contact_info' => $post['contact_info'], 
+            'contact_title' => $post['contact_title'], 
+            'contact_to_staff' => $post['contact_to_staff'], 
+            'contact_status' => 0, 
+            
+        );
+
+        $this->Contact_M->create($data_insert);
+    }
 }

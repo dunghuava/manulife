@@ -10,46 +10,33 @@
             </div>
             <div class="col-md-9">
                 <form id="form-contact" action="" method="post" class="form-group">
+                    <input type="hidden" id="contact_title" name="contact_title" class="form-control custom" value="Giải đáp thắc mắc" >
+                    <input type="hidden" id="contact_to_staff" name="contact_to_staff" class="form-control custom" value="1" >
                     <div class="row">
                         <div class="col-md-6">
-                            <input placeholder="Họ và tên" type="text" class="form-control custom">
-                            <span class="error_log">(*) Vui lòng điền vào trường này</span>
+                            <input placeholder="Họ và tên" type="text" id="contact_name" name="contact_name" class="form-control custom" required="" >
                         </div>
                         <div class="col-md-6">
-                            <input placeholder="Email" type="text" class="form-control custom">
-                            <span class="error_log">(*) Vui lòng điền vào trường này</span>
+                            <input placeholder="Email" type="email" id="contact_email" name="contact_email" class="form-control custom" required="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <select name="" id="" class="form-control custom">
-                                <option value="0">Mã quốc gia</option>
-                                <option value="+84">+84</option>
-                                <option value="+85">+85</option>
-                                <option value="+86">+86</option>
-                                <option value="+87">+87</option>
-                            </select>
+                            <input placeholder="Địa chỉ" type="text" id="contact_address" name="contact_address" class="form-control custom">
                         </div>
                         <div class="col-md-3">
-                            <input placeholder="Số điện thoại" type="text" class="form-control custom">
-                            <span class="error_log">(*) Vui lòng điền vào trường này</span>
+                            <input placeholder="Số điện thoại" type="text" id="contact_phone" name="contact_phone" class="form-control custom" required="">
                         </div>
                         <div class="col-md-6">
-                             <select name="" id="" class="form-control custom">
-                                <option value="0">Tỉnh / Thành phố</option>
-                                <option value="+84">Việt nam</option>
-                                <option value="+85">Malaisia</option>
-                                <option value="+86">Indonesa</option>
-                                <option value="+87">Philipin</option>
-                            </select>
+                            <input placeholder="Nhu cầu liên hệ" type="text" id="contact_info" name="contact_info" class="form-control custom" required="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div style="display:flex">
-                                <input type="checkbox" name="ckb" id="ckb">&nbsp;
+                                <input type="checkbox" name="ckb" id="ckb" required="">&nbsp;
                                 <label for="ckb" style="padding-top: 8px;">
-                                    <div>Tôi đã đọc và đồng ý với <a style="color:#00A758" href=""><i>Chính sách bảo mật</i></a>  của Manulife</div>
+                                    <div>Tôi đã đọc và đồng ý với <a style="color:#00A758" href="">Chính sách bảo mật</a>  của Manulife</div>
                                 </label> 
                             </div>
                         </div>
@@ -66,33 +53,34 @@
 </section>
 
 <script>
-    var invalid = false;
-    $('#form-contact input').mouseout(function () { 
-        if ($(this).val().trim()==''){
-            $(this).parent('div').find('span').show();
-            invalid=false;
-        }else{
-            $(this).parent('div').find('span').hide(); 
-            invalid=true;
-        }
-    });
-    $('#form-contact').submit(function (e) { 
-        if (!invalid){
-            $('#form-contact input').trigger('mouseout');
-            return false;
-        }
-        if ($('#ckb').is(':checked')){
-            $.ajax({
-                type: "post",
-                url: "url",
-                data: "data",
-                success: function (response) {
-                    
-                }
-            });
-        }else{
-            alert('Vui lòng đồng ý với chính sách bảo mật của chúng tôi để hoàn tất');
-        }
-        return false;
+    $('#form-contact').submit(function(event){  
+        event.preventDefault();  
+
+        $.ajax({  
+            url:"<?=base_url()?>web/addContact",  
+            method:"POST",  
+            data:$('#form-contact').serialize(),  
+            success: function (data) {
+                const toast = swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+
+                toast({
+                    type: 'success',
+                    title: 'Thông tin đã được gửi',
+                });
+
+                $('#form-contact').find('#contact_name').val('');
+                $('#form-contact').find('#contact_phone').val('');
+                $('#form-contact').find('#contact_email').val('');
+                $('#form-contact').find('#contact_address').val('');
+                $('#form-contact').find('#contact_info').val('');
+                $('#form-contact').find('#ckb').removeAttr("checked");
+            }
+        });  
+
     });
 </script>

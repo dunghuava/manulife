@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-3">
                 <p>Mục tiêu trong tương lai của bạn là gì ?</p>
-                <a class="readmore" href=""><span class="fa fa-angle-right"></span>Xem thêm</a>
+                <a class="readmore" href="" style="color: white!important"><span class="fa fa-angle-right"></span>Xem thêm</a>
             </div>
             <div class="col-md-9">
                 <div class="cusselect">
