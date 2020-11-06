@@ -18,7 +18,7 @@
                     if(count($submenu)>0)
                     {
                 ?>
-                    <ul class="sub-menu">
+                    <ul class="sub-menu" style="overflow: auto">
                         <li><?=$mn['cate_title']?></li>
                         <?php foreach ($submenu as $sub){ 
                             if ($sub['cate_module_id'] == 3) {
