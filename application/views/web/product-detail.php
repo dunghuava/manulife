@@ -17,6 +17,16 @@
         font-size:40px;
         margin-right: 10px;
     }
+    .item-ql{
+        padding: 5px;
+        border: 1px solid #dcdcdc;
+        cursor: pointer;
+        text-align: center;
+        transition:all 0.3s;
+    }
+    .item-ql:hover{
+        border: 1px solid #0D6F4B;
+    }
 </style>
 <section>
     <div class="container full-w">
@@ -24,11 +34,42 @@
             <div class="col-md-9">
                 <h1><?=$product['product_title']?></h1>
                 <hr>
-                <h3><div class="quote fa fa-quote-left"></div><b><?=$product['product_description']?></b></h3>
-                <div class="font16_all"><?=$product['product_content']?></div>
+                <?php 
+                    $sstyles=array(
+                        0=>"background:#00A758 url(".img_path($product['product_img']).") no-repeat",
+                    );
+                ?>
+                <div class="row" style="height:155px;background:#00A758;color:#fff">
+                    <div class="col-md-7" style="<?=implode(';',$sstyles)?>;height:100%">
+                    </div>
+                    <div class="col-md-5">
+                        <h3><div class="quote fa fa-quote-left"></div><?=$product['product_description']?></h3>
+                    </div>
+                </div>
+                <p></p>
+                <div class="font16_all"><p><?=$product['product_content']?></p></div>
                 <hr>
-                <?php  include ('shares.php') ?>
-                <br>
+                <!-- quyen loi -->
+                <?php  
+                    include ('shares.php');
+                    $benefir = $product['product_benefits'];
+                    if (!empty($benefir))
+                    {
+                        $qlhapdan = $this->Web_M->q("select * from db_other where other_id in($benefir) ");
+                ?>
+                <h3><b>Quyền lợi hấp dẫn</b></h3>
+                <div class="row">
+                    <?php foreach ($qlhapdan as $ql){ ?>
+                        <div class="col-md-4">
+                            <div class="item-ql">
+                                <img src="<?=img_path($ql['other_img'])?>" alt="">
+                                <h4><?=$ql['other_title']?></4>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                <?php } ?>
+                <!-- quyen loi -->
                 <h3><b>Sản phẩm liên quan</b></h3>
                 <div class="row">
                     <?php

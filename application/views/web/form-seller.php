@@ -28,27 +28,22 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text" placeholder="Họ và tên" class="form-control">
+                    <input required name="contact_name"  type="text" placeholder="Họ và tên" class="form-control">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" placeholder="Số điện thoại" class="form-control">
+                    <input required name="contact_phone" type="text" placeholder="Số điện thoại" class="form-control">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" placeholder="Địa chỉ email" class="form-control">
+                    <input name="contact_email" type="text" placeholder="Địa chỉ email" class="form-control">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="hidden" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                   <textarea style="height:auto" placeholder="Hỏi thông tin..." name="" rows="5" class="form-control"></textarea>
+                   <textarea name="contact_info" style="height:auto" placeholder="Hỏi thông tin..." name="" rows="5" class="form-control"></textarea>
                 </td>
             </tr>
             <tr>
@@ -57,3 +52,28 @@
         </table>
     </form>
 </div>
+<script>
+    $('#seller').submit(function(event){  
+        event.preventDefault();  
+
+        $.ajax({  
+            url:"<?=base_url()?>web/addContact",  
+            method:"POST",  
+            data:$('#seller').serialize(),  
+            success: function (data) {
+                const toast = swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+
+                toast({
+                    type: 'success',
+                    title: 'Thông tin đã được gửi',
+                });
+            }
+        });  
+
+    });
+</script>
