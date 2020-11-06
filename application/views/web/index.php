@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-md-3">
                 <h3 class="product-title">Sản phẩm tiêu biểu</h3><br>
-                <a href="" class="readmore">
+                <a href="<?=base_url('san-pham')?>.html" class="readmore">
                     <span class="fa fa-angle-right"></span>Xem thêm
                 </a>
             </div>
@@ -70,7 +70,7 @@
         <div class="row">
             <div class="col-md-3">
                 <h3 class="product-title">Các bài viết</h3><br>
-                <a href="" class="readmore">
+                <a href="<?=base_url('kien-thuc')?>.html" class="readmore">
                     <span class="fa fa-angle-right"></span>Xem thêm
                 </a>
             </div>
@@ -113,7 +113,7 @@
         <div class="row">
             <div class="col-md-3">
                 <h3 class="product-title">Dịch vụ hỗ trợ khách hàng</h3><br>
-                <a href="" class="readmore">
+                <a href="<?=base_url('dich-vu')?>.html" class="readmore">
                     <span class="fa fa-angle-right"></span>Xem thêm
                 </a>
             </div>
