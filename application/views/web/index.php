@@ -44,8 +44,14 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <?php foreach ($list_product as $key => $item) { ?>
-                    <div class="col-md-4">
+                    <?php foreach ($list_product as $key => $item) { 
+                        $styles=array(
+                            0=>"background:#00A758 url(".img_path($item['product_img']).") no-repeat",
+                            1=>"background-size:cover",
+                            2=>"background-position-x:center"
+                        );
+                    ?>
+                    <!-- <div class="col-md-4">
                             <div class="item-product">
                                 <p><?=$item['cate_title']?> <a style="float:right" href="" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
                                 <h3><?=$item['product_title']?></h3>
@@ -54,7 +60,26 @@
                                 <br><br>
                                 <div class="des"><?=$item['product_description']?></div>
                             </div>
+                    </div> -->
+
+
+                    <div class="col-md-4">
+                        <div class="item-product has-bg" style="<?=implode(';',$styles)?>">
+                            <div class="title">
+                                <p><?=$item['cate_title']?> <a style="float:right" href="" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
+                                <h3>
+                                    <a href="">
+                                        <?=$item['product_title']?>
+                                    </a>
+                                </h3>
+
+                            </div>
+                            <div class="overlay"></div>
+                            <div class="des"><?=$item['product_description']?></div>
+                        </div>
                     </div>
+
+
                     <?php } ?>
                 </div>
             </div>

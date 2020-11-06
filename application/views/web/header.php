@@ -60,9 +60,11 @@
                 </div>
                 <div class="col-md-3">
                     <div class="text-right">
-                        <button class="btn btn-default">
-                            <span class="fa fa-info"></span>&nbsp;Liên hệ
-                        </button>
+                        <a href="<?=base_url('lien-he')?>.html">
+                            <button class="btn btn-default">
+                                <span class="fa fa-info"></span>&nbsp;Liên hệ
+                            </button>
+                        </a>
                         <button class="btn btn-default">
                             <span class="fa fa-user"></span>&nbsp;Đăng nhập
                         </button>

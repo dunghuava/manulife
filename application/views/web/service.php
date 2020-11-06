@@ -17,7 +17,7 @@
                             <div class="post_ser">
                                 <a class="readmore" href="<?=base_url('post/'.$bv['post_alias'].'-'.$bv['post_id'])?>.html">
                                    <h5><?=$bv['post_title']?></h5>
-                                    <span class="fa fa-angle-right"></span>Readmore
+                                    <span class="fa fa-angle-right"></span>Xem thêm
                                 </a>
                                 <hr style="margin:5px 0px;">
                             </div>
