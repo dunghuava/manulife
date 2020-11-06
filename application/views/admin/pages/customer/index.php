@@ -123,6 +123,13 @@ p {
     margin-bottom: 0rem;
 }
 
+.a{
+    color: #007bff!important;
+    text-decoration: none!important;
+    background-color: transparent!important;
+    cursor: pointer!important;
+}
+
 </style>
 <div class="container-fluid">
      <div class="row">
@@ -195,6 +202,7 @@ p {
               									<p><strong>Cập nhật: </strong><?=$date_update?></p>
               									<p><strong>Ghi chú: </strong><?=$val['note']?></p>
               									<p><strong>Ngày tạo: </strong><?=date('d-m-Y', strtotime($val['created_at']))?></p>
+                                <a class="a btn_modal" data-id="<?=$val['customer_id']?>">Xem chi tiết</a>
               								</div>
                               <br>
               								
