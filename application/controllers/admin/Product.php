@@ -182,16 +182,16 @@ class Product extends MY_Controller {
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){
-			if ($val['cate_module_id'] == $cate_module_id) {
-				$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
-			}
+			// if ($val['cate_module_id'] == $cate_module_id) {
+			// 	$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
+			// }
 			
 			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id'],'cate_module_id'=> $cate_module_id],$oder_by);
 			// echo'<pre>';
 			// print_r($sub1);
 			if (count($sub1) >0){
 				foreach ($sub1 as $val1){
-					$str.='<option value="'.$val1['cate_id'].'">|__'.$val1['cate_title'].'</option>';
+					$str.='<option value="'.$val1['cate_id'].'" disabled style="background: #dee2e6;">'.$val1['cate_title'].'</option>';
 					$sub2 = $this->Category_M->all(['cate_parent_id'=>$val1['cate_id'],'cate_module_id'=> $cate_module_id],$oder_by);
 					if (count($sub2) >0){
 						foreach ($sub2 as $val2){

@@ -171,7 +171,7 @@ class Service extends MY_Controller {
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){
-			$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
+			// $str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
 			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']],$oder_by);
 			if (count($sub1) >0){
 				foreach ($sub1 as $val1){
