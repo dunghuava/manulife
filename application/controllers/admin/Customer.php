@@ -9,14 +9,63 @@ class Customer extends MY_Controller {
 		$this->load->model('Customer_M');
 	}
 
-	public function index()
+	public function index($offset = 1)
 	{
 		$data['page_name']='Danh sách khách hàng';
 		$data['page_menu']='customer';
-		$data['list_customer']=$this->Customer_M->all();
+		$list_customer = $this->Customer_M->all();
+
+		$config['base_url']    = base_url().'admin/customer/index';
+        $config['uri_segment'] = 4;
+        $config['per_page']    = 20;
+        $count      = count($list_customer);
+        $config['total_rows']       = $count ;
+        $total_rows                 = CEIL($config['total_rows']/$config['per_page']);
+        $config['use_page_numbers'] = TRUE;
+        $config['num_tag_open']     = '<li>';
+        $config['num_tag_close']    = '</li>';
+        $config['cur_tag_open']     = '<li class="active"><a href="#">';
+        $config['cur_tag_close']    = '</a></li>';
+        $config['next_tag_open']    = '<li>';
+        $config['next_tag_close']   = '</li>';
+        $config['prev_tag_open']    = '<li>';
+        $config['prev_tag_close']   = '</li>';
+        $config['next_link']        = '>';
+        $config['prev_link']        = '<';
+        $config['first_tag_open']   = '<li>';
+        $config['first_tag_close']  = '</li>';
+        $config['last_tag_open']    = '<li>';
+        $config['last_tag_close']   = '</li>';
+        $config['last_link']        = 'Last';
+        $config['first_link']       = 'First';
+        $this->pagination->initialize($config);
+        $pagination = $this->pagination->create_links();
+        
+        $off      = ($offset - 1) * $config['per_page'];
+        $list_all = array_slice($list_customer,$off, $config['per_page']);
+
+        $data['count']          = $count;
+        $data['pagination']     = $pagination;
+        $data['total_rows']     = $total_rows;
+        $data['offset']         = $offset;
+        $data['list_customer']   = $list_all;
 		$this->getHeader($data);
 		$this->load->view('admin/pages/customer/index.php',$data);
 		$this->getFooter();
+	}
+
+
+
+	public function search($offset = 1)
+	{
+		$customer_name = $this->input->post('customer_name');
+        $insurance_name    = $this->input->post('insurance_name');
+        $commission_level    = $this->input->post('commission_level');
+        $customer_phone    = $this->input->post('customer_phone');
+        $list_customer = $this->Customer_M->getSearchCustomer($customer_name,$insurance_name,$customer_phone,$commission_level);
+
+        $data['list_customer'] = $list_customer;
+        $this->load->view('admin/pages/customer/search.php',$data);
 	}
 
 	public function add()

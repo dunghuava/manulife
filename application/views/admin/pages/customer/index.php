@@ -17,7 +17,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    z-index: 1;
+    z-index: 999999999;
     padding: 20px;
     box-sizing: border-box;
     background-color: #000;
@@ -43,11 +43,110 @@
   padding: 0px 30px;
 }
 
+
+.pagination {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+.pagination .btn_prev {
+    text-align: center;
+    float: left;
+    margin: 5px 10px 0 0;
+}
+
+.pagination .btn_prev a {
+    background: #dec617;
+    width: 70px;
+    padding: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    float: left;
+}
+
+.pagination .last a,
+.pagination .first a {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.pagination .page li.active a,
+.pagination .page li:hover a,
+.pagination .btn_prev.active a,
+.pagination .btn_prev:hover a,
+.pagination .btn_next.active a,
+.pagination .btn_next:hover a {
+    background: #2f714c;
+}
+
+.pagination a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pagination .btn_next {
+    text-align: center;
+    float: right;
+}
+
+.pagination .btn_next a {
+    background: #dec617;
+    display: block;
+    width: 70px;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
+.pagination .page {
+    float: left;
+    max-width: 450px;
+    margin: 0 5px 0 5px;
+}
+
+.pagination .page li {
+    display: inline;
+}
+
+.pagination .page li a {
+    background: #ccc;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: white;
+}
+
+p {
+    margin-bottom: 0rem;
+}
+
 </style>
 <div class="container-fluid">
      <div class="row">
            <div class="col-md-12">
               <div class="col-md-12">
+                <form id="search_customer" method="POST">
+                  <div style="display:flex">
+                      <span style="line-height: 30px;">Tên khách hàng : &nbsp;</span>
+                      <input type="text" name="customer_name" id="customer_name" class="form-control" style="width: 200px;">
+                      &nbsp;
+                      &nbsp;
+                      <span style="line-height: 30px;">Tên bảo hiểm : &nbsp;</span>
+                      <input type="text" name="insurance_name" id="insurance_name" class="form-control" style="width: 200px;">
+                      &nbsp;
+                      &nbsp;
+                      <span style="line-height: 30px;">Số điện thoại : &nbsp;</span>
+                      <input type="text" name="customer_phone" id="customer_phone" class="form-control" style="width: 200px;">
+                      &nbsp;
+                      &nbsp;
+                      <span style="line-height: 30px;">Mức hoa hồng : &nbsp;</span>
+                      <input type="text" name="commission_level" id="commission_level" class="form-control" style="width: 200px;">
+                  </div>
+                  <br>
+                </form>
               	<form method="post" style="overflow: auto;">
               		<table id="table_cus" class="table table-striped table-bordered">
               			<thead>
@@ -90,13 +189,14 @@
               						?>
               							<td>
               								<div class="btn_modal" data-id="<?=$val['customer_id']?>">
-              									<p><?=$val['customer_name']?></p>
-              									<p><?=$val['need']?></p>
-              									<p><?=$val['commission_level']?></p>
-              									<p><?=$date_update?></p>
-              									<p><?=$val['note']?></p>
-              									<p><?=date('d-m-Y', strtotime($val['created_at']))?></p>
+              									<p><strong>Tên: </strong><?=$val['customer_name']?></p>
+              									<p><strong>Nhu cầu: </strong><?=$val['need']?></p>
+              									<p><strong>Hoa hồng: </strong><?=$val['commission_level']?></p>
+              									<p><strong>Cập nhật: </strong><?=$date_update?></p>
+              									<p><strong>Ghi chú: </strong><?=$val['note']?></p>
+              									<p><strong>Ngày tạo: </strong><?=date('d-m-Y', strtotime($val['created_at']))?></p>
               								</div>
+                              <br>
               								
               								<p>
               									<select onchange="setStt(this,'processing_steps',<?=$val['customer_id']?>)" name="processing_steps" id="processing_steps" class="form-control" style="width: 200px;">
@@ -121,6 +221,21 @@
               			</tbody>
               		</table>
               	</form>
+
+                <div class="pagination clearfix">
+                  <ul class="page clearfix">
+                    <?php
+                    if (!empty($list_customer)) {
+                      if($total_rows != 0 && $total_rows > 1){
+                        echo "<li class='btn_prev'><span>Trang ".$offset."/".$total_rows."</span></li>";
+                        echo $pagination;
+                      }
+                    }
+
+                    ?>
+                  </ul>
+                </div>
+
               </div>
            </div>
      </div>
@@ -192,6 +307,36 @@
             }
         });
     }
+
+
+    function searchCustomer() {
+      $.ajax({
+        url: '<?=base_url()?>admin/customer/search/',
+        data: $('#search_customer').serialize(),
+        type: 'POST',
+        success: function (data) {
+          $('#table_cus').html(data);
+        }
+    });
+    }
+
+
+    $('#customer_name').keyup(function (e) { 
+        searchCustomer();
+    });
+
+    $('#insurance_name').keyup(function (e) { 
+        searchCustomer();
+    });
+
+
+    $('#commission_level').keyup(function (e) { 
+        searchCustomer();
+    });
+
+    $('#customer_phone').keyup(function (e) { 
+        searchCustomer();
+    });
 
 
 </script>
