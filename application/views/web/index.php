@@ -66,9 +66,9 @@
                     <div class="col-md-4">
                         <div class="item-product has-bg" style="<?=implode(';',$styles)?>">
                             <div class="title">
-                                <p><?=$item['cate_title']?> <a style="float:right" href="" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
+                                <p><?=$item['cate_title']?> <a style="float:right" href="<?=base_url('product/'.$item['product_alias'].'-'.$item['product_id'])?>.html" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
                                 <h3>
-                                    <a href="">
+                                    <a href="<?=base_url('product/'.$item['product_alias'].'-'.$item['product_id'])?>.html">
                                         <?=$item['product_title']?>
                                     </a>
                                 </h3>

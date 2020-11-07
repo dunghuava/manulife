@@ -22,7 +22,7 @@
                     </div>
                     <div class="f-right">
                         <h4><b>Trương công ánh</b></h4>
-                        <p>Sale mânger</p>
+                        <p>Sale manager</p>
                     </div>
                 </td>
             </tr>

@@ -31,12 +31,12 @@
 <section>
     <div class="container full-w">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <h1><?=$product['product_title']?></h1>
-                <hr>
+                <br>
                 <?php 
                     $sstyles=array(
-                        0=>"background:#00A758 url(".img_path($product['product_img']).") no-repeat",
+                        0=>"background:#00A758 url(".img_path($product['product_banner']).") no-repeat",
                     );
                 ?>
                 <div class="row" style="height:155px;background:#00A758;color:#fff">
@@ -46,12 +46,14 @@
                         <h3><div class="quote fa fa-quote-left"></div><?=$product['product_description']?></h3>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-9">
                 <p></p>
                 <div class="font16_all"><p><?=$product['product_content']?></p></div>
-                <hr>
+                <!-- <hr> -->
                 <!-- quyen loi -->
                 <?php  
-                    include ('shares.php');
+                    // include ('shares.php');
                     $benefir = $product['product_benefits'];
                     if (!empty($benefir))
                     {
