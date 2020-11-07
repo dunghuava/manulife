@@ -1,6 +1,6 @@
 <style>
     #seller table tr td{padding:4px 0px}
-    #seller table button{background:#0D6F4B;border-radius:5px}
+    #seller table button{background:#00A758;;border-radius:5px}
     #seller .f-left{float:left}
     #seller .f-right{float: left;padding-left: 15px;}
     #seller img{border-radius:50%}
@@ -13,6 +13,7 @@
 </style>
 <div class="form-group">
     <form id="seller" action="" style="width:100%">
+        <input name="contact_to_staff"  type="hidden" value="0">
         <h3>Liên hệ tư vấn</h3>
         <table style="width:100%">
             <tr>
@@ -41,6 +42,13 @@
                     <input name="contact_email" type="text" placeholder="Địa chỉ email" class="form-control">
                 </td>
             </tr>
+
+            <tr>
+                <td>
+                    <input name="contact_title" type="text" placeholder="Chủ đề" class="form-control">
+                </td>
+            </tr>
+
             <tr>
                 <td>
                    <textarea name="contact_info" style="height:auto" placeholder="Hỏi thông tin..." name="" rows="5" class="form-control"></textarea>
@@ -72,6 +80,12 @@
                     type: 'success',
                     title: 'Thông tin đã được gửi',
                 });
+
+                $('#seller').find('#contact_name').val('');
+                $('#seller').find('#contact_phone').val('');
+                $('#seller').find('#contact_email').val('');
+                $('#seller').find('#contact_title').val('');
+                $('#seller').find('textarea').val('');
             }
         });  
 

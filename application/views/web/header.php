@@ -42,6 +42,15 @@
         padding: 10px 10px;
     }
     hr{margin:5px 0px}
+
+    .swal2-icon {
+        font-size: 18px !important;
+    }
+
+    .swal2-title {
+        font-size: 18px !important;
+    }
+
 </style>
 <body>
 <header class="app-header">
