@@ -11,8 +11,8 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('Info_M');
 		$this->load->model('Contact_M');
 	}
-	public function page_header($data=null){
-		$data['data'] = $data;
+	public function page_header($seo=null){
+		$data['seo'] = $seo;
 		$this->load->view('web/header.php',$data);
 	}
 	public function page_footer($data=null){

@@ -28,29 +28,58 @@ class Web extends MY_Controller {
         }
     }
     public function index(){
-        $this->page_header();
+        $seo = array(
+            'title'=>'Bảo hiểm Manulife Việt Nam',
+        );
+
+        $data['seo'] = $seo;
+        $this->page_header($seo);
         $this->view('web/index');
         $this->page_footer();
     }
     public function product($category=null){
         $data['category']=$category;
-        $this->page_header();
+        $seo = array(
+            'title'=>$category['cate_title'],
+            'description'=>strip_tags($category['cate_description']),
+            'image'=>$info['cate_img']
+        );
+
+        $data['seo'] = $seo;
+        $this->page_header($seo);
         $this->view('web/category',$data);
         $this->page_footer();
     }
     public function service($category=null){
         $data['category']=$category;
-        $this->page_header();
+        $seo = array(
+            'title'=>$category['cate_title'],
+            'description'=>strip_tags($category['cate_description']),
+            'image'=>$info['cate_img']
+        );
+        
+        $data['seo'] = $seo;
+        $this->page_header($seo);
         $this->view('web/service',$data);
         $this->page_footer();
     }
     public function contact(){
-        $this->page_header();
+        $seo = array(
+            'title'=>'Liên hệ tư vấn',
+        );
+        
+        $data['seo'] = $seo;
+        $this->page_header($seo);
         $this->view('web/contact');
         $this->page_footer();
     }
     public function aboutUs(){
-        $this->page_header();
+        $seo = array(
+            'title'=>'Về chúng tôi',
+        );
+        
+        $data['seo'] = $seo;
+        $this->page_header($seo);
         $this->view('web/about-us');
         $this->page_footer();
     }
@@ -58,7 +87,15 @@ class Web extends MY_Controller {
         $id = getID($alias);
         $data['post']=$this->Post_M->find_row(['post_id'=>$id]);
         
-        $this->page_header();
+        $seo = array(
+            'title'=>$data['post']['post_title'],
+            'description'=>strip_tags($data['post']['post_description']),
+            'image'=>$data['post']['post_img']
+        );
+        
+        $data['seo'] = $seo;
+
+        $this->page_header($seo);
         $this->view('web/tin-tuc-detail',$data);
         $this->page_footer();
     }
@@ -66,20 +103,47 @@ class Web extends MY_Controller {
         $id = getID($alias);
         $data['category']=$this->Category_M->find_row(['cate_id'=>$id]);
         $data['service']=$this->Post_M->all(['post_category_id'=>$id,'post_active'=>1]);
-        $this->page_header();
+
+        $seo = array(
+            'title'=>$data['category']['cate_title'],
+            'description'=>strip_tags($data['category']['cate_description']),
+            'image'=>$data['category']['cate_img']
+        );
+        
+        $data['seo'] = $seo;
+
+        $this->page_header($seo);
         $this->view('web/dichvu-detail',$data);
         $this->page_footer();
     }
     public function product_detail($alias=null){
         $id = getID($alias);
         $data['product']=$this->Product_M->find_row(['product_id'=>$id]);
-        $this->page_header();
+
+        $seo = array(
+            'title'=>$data['product']['product_title'],
+            'description'=>strip_tags($data['product']['product_description']),
+            'image'=>$data['product']['product_img']
+        );
+        
+        $data['seo'] = $seo;
+
+        $this->page_header($seo);
         $this->view('web/product-detail',$data);
         $this->page_footer();
     }
     public function tintuc($category=array()){      
         $data['category']=$category;
-        $this->page_header();
+
+        $seo = array(
+            'title'=>$category['cate_title'],
+            'description'=>strip_tags($category['cate_description']),
+            'image'=>$info['cate_img']
+        );
+        
+        $data['seo'] = $seo;
+
+        $this->page_header($seo);
         $this->view('web/tin-tuc',$data);
         $this->page_footer();
     }

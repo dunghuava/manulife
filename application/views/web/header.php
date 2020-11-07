@@ -1,8 +1,3 @@
-<?php 
-    if (!isset($title)){
-        $title='Trang chủ';
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php if(!empty($seo['title'])) echo $seo['title']?></title>
     <!-- -->
-    <meta name="keywords" content="<?php if(!empty($seo['keywords'])) echo $seo['keywords']?>" />
     <meta name="description" content="<?php if(!empty($seo['description'])) echo $seo['description']?>" />
     <!-- google -->
     <meta itemprop="name" content="<?php if(!empty($seo['title'])) echo $seo['title']?>">
