@@ -51,15 +51,20 @@
 </style>
 <body>
 <header class="app-header">
-    <?php include ('main-menu.php') ?>
+   <div class="desktop-menu">
+        <?php include ('main-menu.php') ?>
+   </div>
     <div id="main-nav">
         <div class="container full-w">
             <div class="row">
-                <div class="col-md-9">
-                    <span class="app-name">Manulife</span>
+                <div class="col-md-9 col-xs-5">
+                    <span class="app-name">
+                        <a class="hidden-md hidden-lg" style="color:#fff" href="<?=base_url()?>">Manucare</a>
+                        <a class="hidden-xs" style="color:#000" href="<?=base_url()?>">Manucare</a>
+                    </span>
                 </div>
-                <div class="col-md-3">
-                    <div class="text-right">
+                <div class="col-md-3 col-xs-7">
+                    <div class="text-right hidden-xs">
                         <a href="<?=base_url('lien-he')?>.html">
                             <button class="btn btn-default">
                                 <span class="fa fa-info"></span>&nbsp;Liên hệ
@@ -68,6 +73,10 @@
                         <button class="btn btn-default">
                             <span class="fa fa-user"></span>&nbsp;Đăng nhập
                         </button>
+                    </div>
+                    <div class="hidden-lg text-right nav_icon_mb">
+                        <a href=""><span class="fa fa-user"></span></a>
+                        <a href="javascript:$('#main-menu').toggleClass('opened')"><span class="fa fa-bars"></span></a>
                     </div>
                 </div>
             </div>

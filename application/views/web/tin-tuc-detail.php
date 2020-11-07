@@ -11,8 +11,12 @@
                 <div class="des font16_all">
                     <p><b><?=$post['post_description']?></b></p>
                 </div>
+                <div class="img">
+                    <p><img src="<?=img_path($post['post_img'])?>" alt=""></p>
+                </div>
                 <div class="content font16_all">
                     <?=$post['post_content']?>
+                    <hr>
                 </div>
             </div>
             <div class="col-md-3">

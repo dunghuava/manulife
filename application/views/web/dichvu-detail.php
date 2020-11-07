@@ -14,7 +14,7 @@
 <section>
     <div class="container full-w">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 hidden-xs">
                 <img src="<?=img_path('1582170661771.jpeg')?>" alt="">
             </div>
             <div class="col-md-9">

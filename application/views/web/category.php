@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-md-3">
                 <img src="<?=img_path('cate.jpeg')?>" alt="">
+                <p></p>
             </div>
             <div class="col-md-9">
                 <div class="row">
