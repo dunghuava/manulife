@@ -1,69 +1,92 @@
+<style type="text/css">
+  img{
+    max-width: 200px;
+  }
+
+  .inline-flex label {
+        min-width: 140px!important;
+    }
+</style>
 <div class="container-fluid">
-     <div class="row">
-           <div class="col-md-12">
-              <div class="col-md-12">
-                <form method="post">
-                    <a href="<?=base_url('admin/info/add')?>">[Thêm mới]</a>
-                    <br>
-                    <br>
-                    <table class="datatable table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Tên miền</th>
-                                <th>Số điện thoại</th>
-                                <th>Email</th>
-                                <!-- <th>Hiển thị</th> -->
-                                <th style="width: 11%">Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                            foreach ($list_domain as $item){ 
-                                ?>
-                                <tr>
-                                   <td><?=$item['domain_name']?></td>
-                                   <td><?=$item['phone']?></td>
-                                   <td><?=$item['email']?></td>
-                                   <td>
-                                        <a href="<?=base_url().'admin/info/edit/'.$item['info_id']?>">
-                                            <button type="button" class="btn btn-default">
-                                                <span class="fa fa-eye"></span>
-                                            </button>
-                                        </a>
+	<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="staff_id" id="staff_id" value="<?php echo $info_staff['staff_id'] ?>">
+	 <div class="row">
+     	<div class="col-md-12">
 
-
-                                        <button onclick="onDelete(<?=$item['info_id']?>)" type="button" class="btn btn-default">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </form>
+              <div class="col-md-6 inline-flex">
+                <label for="">Hình ảnh</label>
+                <input type="file" name="staff_img" id="staff_img" class="">
               </div>
-           </div>
+
+              <div class="col-md-6 inline-flex" id="div_image">
+                  <label for=""></label>
+                  <img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" onclick="onDelete()" title="Bấm vào đây để xóa" style="cursor: pointer;">
+              </div>
+             <div class="col-md-6 inline-flex">
+             	    <label for="">Họ tên</label>
+     		        <input id="staff_name" value="<?php echo $info_staff['staff_name'] ?>" type="text" name="staff_name" class="form-control" required>
+             </div>
+
+             <div class="col-md-6 inline-flex">
+                    <label for="">Chức danh</label>
+                    <input id="staff_position" value="<?php echo $info_staff['staff_position'] ?>" type="text" name="staff_position" class="form-control" required>
+             </div>
+
+             <div class="col-md-6 inline-flex">
+                    <label for="">Số điện thoại</label>
+                    <input id="staff_phone" value="<?php echo $info_staff['staff_phone'] ?>" type="text" name="staff_phone" class="form-control" required>
+             </div>
+
+             <div class="col-md-6 inline-flex">
+                    <label for="">Subdomain</label>
+                    <input id="subdomain" value="<?php echo $info_staff['subdomain'] ?>" type="text" name="subdomain" class="form-control">
+             </div>
+
+             <div class="col-md-12 inline-flex">
+                    <label for="">Email đăng nhập</label>
+                    <input id="staff_email" value="<?php echo $info_staff['staff_email'] ?>" type="email" name="staff_email" class="form-control col-md-4" required>
+                    <span id="result" style="color: red;margin-left: 5px;"></span>
+             </div>
+
+             <div class="col-md-12 inline-flex">
+                    <label for="">Mật khẩu mới</label>
+                    <input id="staff_password" value="" type="text" name="staff_password" class="form-control col-md-4">
+             </div>
+
+             <div class="col-md-6 inline-flex">
+                <label for="">Hiển thị</label>
+                <?php 
+                  if ($info_staff['staff_active'] == 1) {
+                    $checked = 'checked';
+                  }else{
+                    $checked = '';
+                  } 
+                ?>
+                <input type="checkbox" name="staff_active" id="staff_active" value="1" style="margin-top: 12px;" <?php echo $checked ?>>
+             </div>
+
+             <div class="col-md-6 inline-flex">
+             	    <label for=""></label>
+             	    <a href="<?=base_url('admin/staff')?>" title="">
+	     		        <button type="button" class="btn btn-danger">
+	     		        	<span class="fa fa-arrow-left"></span>
+	     		        	Trở về
+	     		        </button>
+             	    </a>
+     		        <button type="submit" id="btn_save" name="btn_save" style="margin-left: 10px" class="btn btn-success">
+     		        	<span class="fa fa-save"></span>
+     		        	Lưu lại
+     		        </button>
+             </div>
+     	</div>
      </div>
+	 </form> 
 </div>
 
 <script>
-    // function setCkb(ckb,colset,slide_id){
-    //     ckb = ckb.checked;
-    //     ckb = ckb==true ? 1:0;
-    //     colset = colset.toString();
-    //     $.ajax({
-    //         type: "post",
-    //         url: "<?=base_url('admin/themes/updateBanner')?>",
-    //         data: {'slide_id':slide_id,[colset]:ckb},
-    //         success: function (response) {
-                
-    //         }
-    //     });
-    // }
 
-    function onDelete(info_id){
-        var info_id = info_id;
-        // console.log(post_id);
+    function onDelete(cate_id){
+        var cate_id = cate_id;
         Swal.fire({
             title: 'Bạn có muốn xóa mục này?',
             text: "Dữ liệu đã xóa sẽ không thể phục hồi",
@@ -73,18 +96,44 @@
             cancelButtonColor: '#d33',
             cancelButtonText: 'Hủy',
             confirmButtonText: 'Xóa'
-            // cancelButtonText: 'Hủy',
             }).then((result) => {
             if (result.value) {
-                $.ajax({
-                    type: "post",
-                    url: "<?=base_url('admin/themes/destroyDomain')?>",
-                    data: {'info_id':info_id},
-                    success: function (response) {
-                        location.reload();
-                    }
-                });
+              $('#div_image').css("display","none");
+              $('#staff_img').attr("required","required");
             }
         });
-    }
+        }
+
+
+  $("#btn_save").on('click', function() {
+        var text = $('#result').html();
+        if (text !='') {
+          return false;
+        }
+    });
+
+     $(document).ready(function(){
+        $("#staff_email").keyup( function(e){
+            var staff_email = $("#staff_email").val();
+            var staff_id = $("#staff_id").val();
+          e.preventDefault();
+            $.ajax({
+              url:"<?php echo base_url() ?>staff/manage/check_staff_username",
+              type:"POST",
+              data:{staff_email:staff_email,staff_id:staff_id},
+              success: function(data){
+              if (data=='exist') {
+                $('#result').html('Email đăng nhập đã tồn tại. Vui lòng chọn email khác.');
+              }else{
+                $('#result').html('');
+              }
+              
+              },
+              error: function(){
+              alert("Error"); 
+              }
+            });
+          
+        });
+      });
 </script>

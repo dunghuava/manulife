@@ -93,7 +93,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview <?=$page_menu=='product' ? 'menu-open':''?>">
+          <li class="nav-item has-treeview <?=$page_menu=='staff' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
@@ -103,15 +103,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('admin/product')?>" class="nav-link">
+                <a href="<?=base_url('staff/manage')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('admin/product/add')?>" class="nav-link">
+                <a href="<?=base_url('staff/manage/add')?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm sản phẩm</p>
+                  <p>Thêm nhân viên</p>
                 </a>
               </li>
             </ul>
@@ -119,7 +119,7 @@
 
           
           <li class="nav-item has-treeview <?=$page_menu=='info' ? 'menu-open':''?>">
-            <a href="<?=base_url('admin/info')?>" class="nav-link">
+            <a href="<?=base_url('staff/info')?>" class="nav-link">
                   <i class="nav-icon fa fa-file"></i>
                   <p>Thông tin cá nhân</p>
                 </a>

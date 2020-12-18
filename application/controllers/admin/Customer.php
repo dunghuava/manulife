@@ -101,6 +101,56 @@ class Customer extends MY_Controller {
 		$this->getFooter();
 	}
 
+
+	public function edit($id)
+	{
+		$info_customer = $this->Customer_M->find_row(['customer_id' => $id]);
+		$post = $this->input->post();
+
+		if ($this->input->post()) {
+			$data_update = array(
+				'customer_name' => $post['customer_name'], 
+				'customer_email' => $post['customer_email'], 
+				'customer_phone' => $post['customer_phone'], 
+				'customer_birth' => $post['customer_birth'], 
+				'customer_address' => $post['customer_address'], 
+				'need' => $post['need'], 
+				'commission_level' => $post['commission_level'], 
+				'job' => $post['job'], 
+				'interests' => $post['interests'], 
+				'note' => $post['note'], 
+				'insurance' => $post['insurance'], 
+				'source' => $post['source'], 
+				'marriage' => $post['marriage'], 
+				'info_relatives' => $post['info_relatives'], 
+				'amount_insurance' => $post['amount_insurance'], 
+				'insurance_name' => $post['insurance_name'], 
+				'processing_steps' => $post['processing_steps'],
+				'staff_id' => $post['staff_id'],
+			);
+
+			$this->Customer_M->update(['customer_id'=>$id],$data_update);
+
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đã sửa'
+			);
+			$this->session->set_flashdata('reponse',$status);
+			redirect(base_url('admin/customer/'),'location');
+		}
+
+		$data['info_customer']=$info_customer;
+		$list_staff = $this->Staff_M->all();
+		$data['list_staff'] = $list_staff;
+		$data['page_name']='Chỉnh sửa khách hàng';
+		$data['page_menu']='customer';
+		$this->getHeader($data);
+		$this->load->view('admin/pages/customer/edit.php',$data);
+		$this->getFooter();
+	}
+
+
+
 	public function loadDetails()
 	{
 		$customer_id = $this->input->post('customer_id');

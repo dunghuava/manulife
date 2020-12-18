@@ -210,7 +210,8 @@ p {
                                 <p><strong>Ghi chú: </strong><?=mb_substr($list_customer[$i]['note'], 0, 18,"UTF-8").'[...]'?></p>
                                 <p><strong>Ngày tạo: </strong><?=date('d-m-Y', strtotime($list_customer[$i]['created_at']))?></p>
                                 <p><strong>Phụ trách: </strong><?=$info_staff['staff_name']?></p>
-                                <a class="a btn_modal" data-id="<?=$list_customer[$i]['customer_id']?>">[Xem chi tiết]</a>
+                                <!-- <a class="a btn_modal" data-id="<?=$list_customer[$i]['customer_id']?>">[Xem chi tiết]</a> -->
+                                <a class="a" href="<?=base_url().'staff/customer/edit/'.$list_customer[$i]['customer_id']?>">[Xem chi tiết]</a>
                                 <br>
                                 <a class="a" onclick="onDelete(<?=$list_customer[$i]['customer_id']?>)" data-id="<?=$list_customer[$i]['customer_id']?>" style="color: red!important;margin-top: 10px">[xóa]</a>
                               </div>

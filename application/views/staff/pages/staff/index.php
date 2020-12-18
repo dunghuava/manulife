@@ -29,7 +29,7 @@
                               <?php }else{ echo 'mặc định hiển thị';} ?>
                              </td>
                              <td>
-                                <a href="<?=base_url().'admin/staff/edit/'.$item['staff_id']?>">
+                                <a href="<?=base_url().'staff/manage/edit/'.$item['staff_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
                                     </button>
@@ -59,7 +59,7 @@
         colset = colset.toString();
         $.ajax({
             type: "post",
-            url: "<?=base_url('admin/staff/update')?>",
+            url: "<?=base_url('staff/manage/update')?>",
             data: {'staff_id':staff_id,[colset]:ckb},
             success: function (response) {
                 
@@ -82,7 +82,7 @@
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/staff/destroy')?>",
+                    url: "<?=base_url('staff/manage/destroy')?>",
                     data: {'staff_id':staff_id},
                     success: function (response) {
                         location.reload();

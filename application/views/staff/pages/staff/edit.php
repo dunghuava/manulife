@@ -118,7 +118,7 @@
             var staff_id = $("#staff_id").val();
           e.preventDefault();
             $.ajax({
-              url:"<?php echo base_url() ?>admin/staff/check_staff_username",
+              url:"<?php echo base_url() ?>staff/manage/check_staff_username",
               type:"POST",
               data:{staff_email:staff_email,staff_id:staff_id},
               success: function(data){
