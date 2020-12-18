@@ -1,2 +1,6 @@
 ALTER TABLE `db_post` ADD `post_type` INT NOT NULL COMMENT '1=post; 2=service' AFTER `post_highlights`;
 DROP TABLE `db_service`;
+
+ALTER TABLE `db_staff` ADD `staff_username` VARCHAR(225) NOT NULL AFTER `staff_id`, ADD `staff_password` VARCHAR(225) NOT NULL AFTER `staff_username`;
+ALTER TABLE `db_staff` ADD `staff_curator` INT NOT NULL DEFAULT '0' COMMENT '0=admin; 1=staff' AFTER `staff_password`;
+ALTER TABLE `db_customer` ADD `staff_id` INT NOT NULL COMMENT '0=admin' AFTER `processing_steps`;

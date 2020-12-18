@@ -31,7 +31,7 @@
     <tr>
       <?php for ($j=0; $j <11 ; $j++) {
 
-        $list_customer = $this->Customer_M->getSearchCustomer($customer_name,$insurance_name,$customer_phone,$commission_level,'',$j);
+        $list_customer = $this->Customer_M->getSearchCustomer($customer_name,$insurance_name,$customer_phone,$commission_level,$arr_staff,$j);
 
         if (!empty($list_customer[$i])) {
           $date_update =date('Ymd') - date('Ymd', strtotime($list_customer[$i]['updated_at']));
@@ -57,7 +57,7 @@
               <a class="a" onclick="onDelete(<?=$list_customer[$i]['customer_id']?>)" data-id="<?=$list_customer[$i]['customer_id']?>" style="color: red!important;margin-top: 10px">[xóa]</a>
             </div>
             <br>
-            
+
             <p>
               <select onchange="setStt(this,'processing_steps',<?=$list_customer[$i]['customer_id']?>)" name="processing_steps" id="processing_steps" class="form-control" style="width: 200px;">
                 <option <?php if ($list_customer[$i]['processing_steps'] == 0) echo "selected"; ?> value="0">Tiềm hiểu thông tin</option>

@@ -41,6 +41,8 @@ class Staff extends MY_Controller {
 				'staff_phone' => $post['staff_phone'], 
 				'staff_active' => $post['staff_active'],
 				'subdomain' => $post['subdomain'], 
+				'staff_email' => $post['staff_email'], 
+				'staff_password' => md5($post['staff_password']), 
 				'staff_img' => $filename, 
 			);
 			
@@ -82,6 +84,12 @@ class Staff extends MY_Controller {
 				$post['staff_active'] = 0;
 			}
 
+			if ($post['staff_password'] != '') {
+				$password = md5($post['staff_password']);
+			}else{
+				$password = $info_staff['staff_password'];
+			}
+
 			
 			$data_update = array(
 				'staff_name' => $post['staff_name'], 
@@ -89,6 +97,8 @@ class Staff extends MY_Controller {
 				'staff_phone' => $post['staff_phone'], 
 				'staff_active' => $post['staff_active'], 
 				'subdomain' => $post['subdomain'], 
+				'staff_email' => $post['staff_email'], 
+				'staff_password' => $password, 
 				'staff_img' => $filename, 
 			);
 			
@@ -130,6 +140,19 @@ class Staff extends MY_Controller {
 				'message'=>'Đã xóa'
 			);
 		$this->session->set_flashdata('reponse',$status);
+	}
+
+	public function check_staff_username()
+	{
+		$staff_email = $this->input->post('staff_email');
+		$staff_id = $this->input->post('staff_id');
+		$check = $this->Staff_M->Check_Username($staff_email,$staff_id);
+
+		if (count($check) >0) {
+			echo "exist";
+		}else{
+			echo "ok";
+		}
 	}
 
 }

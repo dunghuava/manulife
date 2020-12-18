@@ -57,6 +57,10 @@ $route['admin']							= 'admin/category';
 $route['admin/login'] 					= 'admin/account/login';
 $route['admin/logout'] 					= 'admin/account/logout';
 
+$route['staff']							= 'staff/customer';
+$route['staff/login'] 					= 'staff/account/login';
+$route['staff/logout'] 					= 'staff/account/logout';
+
 
 $route['(:any).html']					= 'web/route/$1';
 $route['post/(:any).html']				= 'web/tintuc_detail/$1';

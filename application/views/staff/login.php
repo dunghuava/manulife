@@ -46,15 +46,15 @@
       </div>
       <form onsubmit="do_login()" action="" method="post">
       <div class="text-center">
-           <h3>Đăng nhập (Admin)</h3>
+           <h3>Đăng nhập (Nhân viên)</h3>
         </div>
         <div class="input-groups mb-3">
-          <input name="user_name" type="text" class="form-control" placeholder="Tên đăng nhập">
+          <input name="staff_email" type="text" class="form-control" placeholder="Email đăng nhập" required="">
           <div class="input-group-append">
           </div>
         </div>
         <div class="input-groups mb-3">
-        <input name="user_password" type="password" class="form-control" placeholder="Mật khẩu">
+        <input name="staff_password" type="password" class="form-control" placeholder="Mật khẩu" required="">
           <div class="input-group-append">
           </div>
         </div>

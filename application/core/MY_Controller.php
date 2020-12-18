@@ -45,6 +45,22 @@ class MY_Controller extends CI_Controller {
 		$this->load->view('user/header.php',$data);
 	}
 
+
+	public function getHeaderStaff($data=null){
+		if (!$this->session->has_userdata('staff_infor')){
+			redirect(base_url('staff/login'),'location');
+		}
+		$this->staff_infor = $this->session->get_userdata('staff_infor');
+		$data['staff_infor']=$this->staff_infor['staff_infor'];
+		$data['setting']=$this->Setting_M->find(['setting_id'=>1]);
+		$this->load->view('staff/header.php',$data);
+	}
+	public function getFooterStaff(){
+		$this->load->view('staff/footer.php');
+		$this->load->view('staff/script.php');
+	}
+
+
 	function do_upload($userfile)
 	{		
 		$dir='./upload/img/';

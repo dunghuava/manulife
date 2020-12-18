@@ -107,12 +107,11 @@
             </select>
         </div>  
 
-
         <div class="col-md-8 inline-flex">
             <label for="">Nhân viên phụ trách</label>
             <select name="staff_id" id="staff_id" class="form-control" required="">
                 <option value="">Chọn nhận viên phụ trách</option>
-                <option value="0">Admin</option>
+                <option value="<?=$staff_infor['staff_id']?>"><?=$staff_infor['staff_name']?></option>
                 <?php foreach ($list_staff as $key => $staff) {?>
                     <option value="<?=$staff['staff_id']?>"><?=$staff['staff_name']?></option>
                 <?php } ?>

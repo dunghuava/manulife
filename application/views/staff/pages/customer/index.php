@@ -156,40 +156,40 @@ p {
                 </form>
               	<form method="post" style="overflow: auto;">
               		<table id="table_cus" class="table table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th colspan="3" style="text-align: center;">Tiềm năng <span>(<?=$count_steps_0 + $count_steps_1 + $count_steps_2?>)</span></th>
-                        <th colspan="3" style="text-align: center;">Tư vấn <span>(<?=$count_steps_3 + $count_steps_4 + $count_steps_5?>)</span></th>
-                        <th colspan="3" style="text-align: center;">Thực hiện giao dịch <span>(<?=$count_steps_6 + $count_steps_7 + $count_steps_8?>)</span></th>
-                        <th colspan="2" style="text-align: center;">Kết thúc giao dịch <span>(<?=$count_steps_8 + $count_steps_9?>)</span></th>
-                      </tr>
+              			<thead>
+              				<tr>
+              					<th colspan="3" style="text-align: center;">Tiềm năng <span>(<?=$count_steps_0 + $count_steps_1 + $count_steps_2?>)</span></th>
+              					<th colspan="3" style="text-align: center;">Tư vấn <span>(<?=$count_steps_3 + $count_steps_4 + $count_steps_5?>)</span></th>
+              					<th colspan="3" style="text-align: center;">Thực hiện giao dịch <span>(<?=$count_steps_6 + $count_steps_7 + $count_steps_8?>)</span></th>
+              					<th colspan="2" style="text-align: center;">Kết thúc giao dịch <span>(<?=$count_steps_8 + $count_steps_9?>)</span></th>
+              				</tr>
 
-                      <tr>
-                        <th>Tiềm hiểu thông tin <span>(<?=$count_steps_0?>)</span></th>
-                        <th>Nuôi dưỡng khách <span>(<?=$count_steps_1?>)</span></th>
-                        <th>Xác định có nhu cầu <span>(<?=$count_steps_2?>)</span></th>
+              				<tr>
+              					<th>Tiềm hiểu thông tin <span>(<?=$count_steps_0?>)</span></th>
+              					<th>Nuôi dưỡng khách <span>(<?=$count_steps_1?>)</span></th>
+              					<th>Xác định có nhu cầu <span>(<?=$count_steps_2?>)</span></th>
 
-                        <th>Sẳn sàng chốt hẹn <span>(<?=$count_steps_3?>)</span></th>
-                        <th>Chờ gặp <span>(<?=$count_steps_4?>)</span></th>
-                        <th>Thương thảo <span>(<?=$count_steps_5?>)</span></th>
+              					<th>Sẳn sàng chốt hẹn <span>(<?=$count_steps_3?>)</span></th>
+              					<th>Chờ gặp <span>(<?=$count_steps_4?>)</span></th>
+              					<th>Thương thảo <span>(<?=$count_steps_5?>)</span></th>
 
-                        <th>Thất bại <span>(<?=$count_steps_6?>)</span></th>
-                        <th>Thành công <span>(<?=$count_steps_7?>)</span></th>
-                        <th>Chăm sóc <span>(<?=$count_steps_8?>)</span></th>
+              					<th>Thất bại <span>(<?=$count_steps_6?>)</span></th>
+              					<th>Thành công <span>(<?=$count_steps_7?>)</span></th>
+              					<th>Chăm sóc <span>(<?=$count_steps_8?>)</span></th>
 
-                        <th>Giao HD và trao quà <span>(<?=$count_steps_9?>)</span></th>
-                        <th>Có khả năng khai thác <span>(<?=$count_steps_10?>)</span></th>
-                      </tr>
+              					<th>Giao HD và trao quà <span>(<?=$count_steps_9?>)</span></th>
+              					<th>Có khả năng khai thác <span>(<?=$count_steps_10?>)</span></th>
+              				</tr>
 
-                    </thead>
-                    <tbody>
+              			</thead>
+              			<tbody>
 
                       <?php for ($i=0; $i <$max_item ; $i++) {?>
 
                         <tr>
                           <?php for ($j=0; $j <11 ; $j++) {
 
-                            $list_customer = $this->Customer_M->listCustomerbyStaff('',$j);
+                            $list_customer = $this->Customer_M->listCustomerbyStaff($arr_staff,$j);
 
                             if (!empty($list_customer[$i])) {
                               $date_update =date('Ymd') - date('Ymd', strtotime($list_customer[$i]['updated_at']));
@@ -199,13 +199,7 @@ p {
                                 $date_update = $date_update.' ngày trước';
                               }
 
-                              if ($list_customer[$i]['staff_id'] == 0) {
-                                $staff_name = 'Admin';
-                              }else{
-                                $info_staff = $this->Staff_M->find_row(['staff_id'=>$list_customer[$i]['staff_id']]);
-                                $staff_name = $info_staff['staff_name'];
-                              }
-                              
+                              $info_staff = $this->Staff_M->find_row(['staff_id'=>$list_customer[$i]['staff_id']]);
                           ?>
                           <td>
                               <div data-id="<?=$list_customer[$i]['customer_id']?>">
@@ -215,12 +209,10 @@ p {
                                 <p><strong>Cập nhật: </strong><?=$date_update?></p>
                                 <p><strong>Ghi chú: </strong><?=mb_substr($list_customer[$i]['note'], 0, 18,"UTF-8").'[...]'?></p>
                                 <p><strong>Ngày tạo: </strong><?=date('d-m-Y', strtotime($list_customer[$i]['created_at']))?></p>
-                                <p><strong>Phụ trách: </strong><?=$staff_name?></p>
+                                <p><strong>Phụ trách: </strong><?=$info_staff['staff_name']?></p>
                                 <a class="a btn_modal" data-id="<?=$list_customer[$i]['customer_id']?>">[Xem chi tiết]</a>
                                 <br>
                                 <a class="a" onclick="onDelete(<?=$list_customer[$i]['customer_id']?>)" data-id="<?=$list_customer[$i]['customer_id']?>" style="color: red!important;margin-top: 10px">[xóa]</a>
-
-                                
                               </div>
                               <br>
                               
@@ -243,21 +235,13 @@ p {
                           <?php }else{ echo '<td></td>';} } ?>
                         </tr>
                       <?php } ?>
-                    </tbody>
-                  </table>
+              			</tbody>
+              		</table>
               	</form>
 
                 <div class="pagination clearfix">
                   <ul class="page clearfix">
-                    <?php
-                    if (!empty($list_customer)) {
-                      if($total_rows != 0 && $total_rows > 1){
-                        echo "<li class='btn_prev'><span>Trang ".$offset."/".$total_rows."</span></li>";
-                        echo $pagination;
-                      }
-                    }
-
-                    ?>
+                    
                   </ul>
                 </div>
 
@@ -280,7 +264,7 @@ p {
     var customer_id = $(this).data('id');
     $.ajax({
       type: "post",
-      url: "<?=base_url('admin/customer/loadDetails')?>",
+      url: "<?=base_url('staff/customer/loadDetails')?>",
       data: {'customer_id':customer_id},
       success: function (response) {
         // var obj = JSON.parse(response);
@@ -296,7 +280,7 @@ p {
   $('.container-fluid').on('click', '#save', function(){
     $.ajax({
       type: "post",
-      url: "<?=base_url('admin/customer/updateDetails')?>",
+      url: "<?=base_url('staff/customer/updateDetails')?>",
       data: $('#details').serialize(),
       success: function (response) {
         $('#details').css("display","none");
@@ -325,7 +309,7 @@ p {
         colset = colset.toString();
         $.ajax({
             type: "post",
-            url: "<?=base_url('admin/customer/update')?>",
+            url: "<?=base_url('staff/customer/update')?>",
             data: {'customer_id':customer_id,[colset]:ckb},
             success: function (response) {
                 $("#table_cus").load(" #table_cus");
@@ -336,7 +320,7 @@ p {
 
     function searchCustomer() {
       $.ajax({
-        url: '<?=base_url()?>admin/customer/search/',
+        url: '<?=base_url()?>staff/customer/search/',
         data: $('#search_customer').serialize(),
         type: 'POST',
         success: function (data) {
@@ -381,7 +365,7 @@ p {
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/customer/destroy')?>",
+                    url: "<?=base_url('staff/customer/destroy')?>",
                     data: {'customer_id':customer_id},
                     success: function (response) {
                         location.reload();
