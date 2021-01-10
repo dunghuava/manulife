@@ -161,7 +161,7 @@ p {
                         <th colspan="3" style="text-align: center;">Tiềm năng <span>(<?=$count_steps_0 + $count_steps_1 + $count_steps_2?>)</span></th>
                         <th colspan="3" style="text-align: center;">Tư vấn <span>(<?=$count_steps_3 + $count_steps_4 + $count_steps_5?>)</span></th>
                         <th colspan="3" style="text-align: center;">Thực hiện giao dịch <span>(<?=$count_steps_6 + $count_steps_7 + $count_steps_8?>)</span></th>
-                        <th colspan="2" style="text-align: center;">Kết thúc giao dịch <span>(<?=$count_steps_8 + $count_steps_9?>)</span></th>
+                        <th colspan="2" style="text-align: center;">Kết thúc giao dịch <span>(<?=$count_steps_9 + $count_steps_10?>)</span></th>
                       </tr>
 
                       <tr>
@@ -210,7 +210,7 @@ p {
                           <td>
                               <div data-id="<?=$list_customer[$i]['customer_id']?>">
                                 <p><strong>Tên: </strong><?=$list_customer[$i]['customer_name']?></p>
-                                <p><strong>Nhu cầu: </strong><?=$list_customer[$i]['need']?></p>
+                                <p><strong>Nhu cầu: </strong><?=mb_substr($list_customer[$i]['need'], 0, 20,"UTF-8").'[...]'?></p>
                                 <p><strong>Hoa hồng: </strong><?=$list_customer[$i]['commission_level']?></p>
                                 <p><strong>Cập nhật: </strong><?=$date_update?></p>
                                 <p><strong>Ghi chú: </strong><?=mb_substr($list_customer[$i]['note'], 0, 18,"UTF-8").'[...]'?></p>
