@@ -11,8 +11,6 @@ class Customer extends MY_Controller {
 		$this->staff_infor = $this->session->get_userdata('staff_infor');
 		$this->staff_id = $this->staff_infor['staff_infor']['staff_id'];
 		$this->is_admin = $this->staff_infor['staff_infor']['is_admin'];
-
-		// print_r($this->is_admin);die();
 	}
 
 	public function index()
@@ -88,46 +86,44 @@ class Customer extends MY_Controller {
 	public function add()
 	{
 
-		$post = $this->input->post();
+		// $post = $this->input->post();
 
-		if ($this->input->post()) {
-			$data_insert = array(
-				'customer_name' => $post['customer_name'], 
-				'customer_email' => $post['customer_email'], 
-				'customer_phone' => $post['customer_phone'], 
-				'customer_birth' => $post['customer_birth'], 
-				'customer_address' => $post['customer_address'], 
-				'need' => $post['need'], 
-				'commission_level' => $post['commission_level'], 
-				'job' => $post['job'], 
-				'interests' => $post['interests'], 
-				'note' => $post['note'], 
-				'insurance' => $post['insurance'], 
-				'source' => $post['source'], 
-				'marriage' => $post['marriage'], 
-				'info_relatives' => $post['info_relatives'], 
-				'amount_insurance' => $post['amount_insurance'], 
-				'insurance_name' => $post['insurance_name'], 
-				'processing_steps' => $post['processing_steps'],
-				'staff_id' => $post['staff_id'],
-			);
+		// if ($this->input->post()) {
+		// 	$data_insert = array(
+		// 		'customer_name' => $post['customer_name'], 
+		// 		'customer_email' => $post['customer_email'], 
+		// 		'customer_phone' => $post['customer_phone'], 
+		// 		'customer_birth' => $post['customer_birth'], 
+		// 		'customer_address' => $post['customer_address'], 
+		// 		'need' => $post['need'], 
+		// 		'commission_level' => $post['commission_level'], 
+		// 		'job' => $post['job'], 
+		// 		'interests' => $post['interests'], 
+		// 		'note' => $post['note'], 
+		// 		'insurance' => $post['insurance'], 
+		// 		'source' => $post['source'], 
+		// 		'marriage' => $post['marriage'], 
+		// 		'info_relatives' => $post['info_relatives'], 
+		// 		'amount_insurance' => $post['amount_insurance'], 
+		// 		'insurance_name' => $post['insurance_name'], 
+		// 		'processing_steps' => $post['processing_steps'],
+		// 		'staff_id' => $post['staff_id'],
+		// 	);
 
-			$this->Customer_M->create($data_insert);
+		// 	$this->Customer_M->create($data_insert);
 
-			$status = array(
-				'code'=>'success',
-				'message'=>'Đã lưu'
-			);
-			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('staff/customer/'),'location');
+		// 	$status = array(
+		// 		'code'=>'success',
+		// 		'message'=>'Đã lưu'
+		// 	);
+		// 	$this->session->set_flashdata('reponse',$status);
+		// 	redirect(base_url('staff/customer/'),'location');
 
-		}
+		// }
 		$list_staff = $this->Staff_M->all(['staff_curator' => $this->staff_id]);
 		$data['list_staff'] = $list_staff;
 		$data['staff_infor'] = $this->staff_infor['staff_infor'];
-		$data['page_name']='Thêm khách hàng';
-		$data['page_menu']='customer';
-		$this->getHeaderStaff($data);
+		$this->HeaderStaff();
 		$this->load->view('staff/pages/customer/add.php',$data);
 		$this->getFooterStaff();
 	}

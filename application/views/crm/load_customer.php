@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="0">
                         <?php foreach ($list_customer_0 as $value_0) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_0['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -56,7 +56,7 @@
 
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_0['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_0['customer_name'] ?>
@@ -65,7 +65,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_0['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_0['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_0['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -85,7 +85,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_0['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="1">
                         <?php foreach ($list_customer_1 as $value_1) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_1['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -139,7 +139,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_1['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_1['customer_name'] ?>
@@ -148,7 +148,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_1['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_1['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_1['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -168,7 +168,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px;" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_1['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -200,7 +200,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="2">
                         <?php foreach ($list_customer_2 as $value_2) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_2['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -223,7 +223,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_2['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_2['customer_name'] ?>
@@ -232,7 +232,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_2['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_2['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_2['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -252,7 +252,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_2['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -292,7 +292,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="3">
                         <?php foreach ($list_customer_3 as $value_3) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_3['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -315,7 +315,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_3['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_3['customer_name'] ?>
@@ -324,7 +324,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_3['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_3['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_3['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -344,7 +344,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_3['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -375,7 +375,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="4">
                         <?php foreach ($list_customer_4 as $value_4) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_4['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -399,7 +399,7 @@
 
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_4['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_4['customer_name'] ?>
@@ -408,7 +408,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_4['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_4['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_4['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -428,7 +428,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_4['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -460,7 +460,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="5">
                         <?php foreach ($list_customer_5 as $value_5) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_5['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -483,7 +483,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_5['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_5['customer_name'] ?>
@@ -492,7 +492,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_5['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_5['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_5['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -512,7 +512,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_5['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -552,7 +552,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="6">
                         <?php foreach ($list_customer_6 as $value_6) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_6['updated_at'])) / (60 * 60 * 24);
                                 if ($date_update <= 0) {
@@ -575,7 +575,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_6['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_6['customer_name'] ?>
@@ -584,7 +584,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_6['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_6['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_6['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -604,7 +604,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_6['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -635,7 +635,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="7">
                         <?php foreach ($list_customer_7 as $value_7) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_7['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -658,7 +658,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_7['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_7['customer_name'] ?>
@@ -667,7 +667,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_7['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_7['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_7['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -687,7 +687,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_7['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -719,7 +719,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="8">
                         <?php foreach ($list_customer_8 as $value_8) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_8['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -742,7 +742,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_8['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_8['customer_name'] ?>
@@ -751,7 +751,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_8['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_8['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_8['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -771,7 +771,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_8['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -810,7 +810,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="9">
                         <?php foreach ($list_customer_9 as $value_9) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_9['updated_at'])) / (60 * 60 * 24);
                                 if ($date_update <= 0) {
@@ -833,7 +833,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_9['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_9['customer_name'] ?>
@@ -842,7 +842,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_9['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_9['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_9['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -862,7 +862,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=round($date_update).' ngày trước'?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_9['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -893,7 +893,7 @@
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
-                        
+                        <input type="hidden" class="area" value="10">
                         <?php foreach ($list_customer_10 as $value_10) {
                                 $date_update =(strtotime(date('Ymd')) - strtotime($value_10['updated_at'])) / (60 * 60 * 24);
                                  if ($date_update <= 0) {
@@ -916,7 +916,7 @@
                                 }
                         ?>
 
-                        <div class="animation-img mg-b-15 box" style="height: 125px;background: #eee;">
+                        <div class="animation-img mg-b-15 box" data-customer="<?=$value_10['customer_id']?>" style="height: 125px;background: #eee;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px">
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding: 5px 5px;" title="Họ tên">
                                     <?= $value_10['customer_name'] ?>
@@ -925,7 +925,7 @@
                                     <div class="dropdown-trig-sgn" style="float: right;" title="Chi tiết">
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
-                                            <li onclick="setFalse(6,'processing_steps',<?=$value_10['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
+                                            <li onclick="setSteps(6,'processing_steps',<?=$value_10['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
                                             <li><a href="#" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_10['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
@@ -945,7 +945,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;" title="">
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 28px"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 5px;width: 45px;" title="Nhân viên"><img src="<?=base_url().'upload/images/'.$info_staff['staff_img']?>" style="margin-top: -6px;border-radius: 50%;width: 30px;height: 30px"></div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;width: 95px" title="Thời gian tương tác"><?=$date_update?></div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 0px;padding-right: 0px;padding: 5px 0px;" title="Di chuyển">
                                     <select onchange="setStt(this,'processing_steps',<?=$value_10['customer_id']?>)" name="processing_steps" id="processing_steps">
@@ -1014,15 +1014,13 @@
     $( ".drag-area" ).droppable({
         scope: 'demoBox',
         drop: function( event, ui ) {
-            // var area = $(this).find(".area").html();
-            // var box = $(ui.draggable).html()     
+            var area = $(this).find(".area").val();
+
+            var box = $(ui.draggable).attr('data-customer');  
 
             $( ".box" ).draggable( "option", "revert", false );
-     
-            //Display action in text
-            // $('.result').html("[Action] <b>" + box + "</b>" +
-            //                   " dropped on " + 
-            //                   "<b>" + area + "</b>")
+            
+            setSteps(area,'processing_steps',box)
      
             //Realign item
             $(ui.draggable).detach().css({top: 0,left: 0}).appendTo(this);

@@ -165,7 +165,7 @@
         });
     }
 
-    function setFalse(ckb,colset,customer_id) {
+    function setSteps(ckb,colset,customer_id) {
         colset = colset.toString();
         var key = $('#key').val();
         $.ajax({
