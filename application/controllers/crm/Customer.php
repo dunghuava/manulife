@@ -10,19 +10,39 @@ class Customer extends MY_Controller {
 		$this->load->model('Staff_M');
 		$this->staff_infor = $this->session->get_userdata('staff_infor');
 		$this->staff_id = $this->staff_infor['staff_infor']['staff_id'];
+		$this->is_admin = $this->staff_infor['staff_infor']['is_admin'];
+
+		// print_r($this->is_admin);die();
 	}
 
 	public function index()
 	{
+		$this->HeaderStaff();
 		$this->load->view('crm/list_customer.php');
+		// $this->FooterStaff();
 	}
 
 
 	public function loadCustomer()
 	{
 		$key = $this->input->post("key");
+		$arr_staff = array();
+		
+		if ($this->is_admin ==1) {
+			$list_staff = $this->Staff_M->all();
+		}else{
+			array_push($arr_staff, $this->staff_id);
+			$list_staff = $this->Staff_M->all(['staff_curator' => $this->staff_id]);
+		}
+		
+		if (!empty($list_staff)) {
+			foreach ($list_staff as $staff) {
+				array_push($arr_staff, $staff['staff_id']);
+			}
+		}
+
 		for ($i=0; $i <11 ; $i++) { 
-			$list_customer_steps = $this->Customer_M->listCustomerbyStaff('',$i);
+			$list_customer_steps = $this->Customer_M->listCustomerbyStaff($arr_staff,$i);
 			$data['list_customer_'.$i]   = $list_customer_steps;
 		}
 
@@ -213,11 +233,6 @@ class Customer extends MY_Controller {
 	{
 		$customer_id = $this->input->post('customer_id');
 		$this->Customer_M->delete(['customer_id' => $customer_id]);
-		$status = array(
-				'code'=>'success',
-				'message'=>'Đã xóa'
-			);
-		$this->session->set_flashdata('reponse',$status);
 	}
 }
 

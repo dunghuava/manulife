@@ -61,6 +61,22 @@ class MY_Controller extends CI_Controller {
 	}
 
 
+	public function HeaderStaff($data=null){
+
+		if (!$this->session->has_userdata('staff_infor')){
+			redirect(base_url('crm/login'),'location');
+		}
+		$this->staff_infor = $this->session->get_userdata('staff_infor');
+		$data['staff_infor']=$this->staff_infor['staff_infor'];
+		$this->load->view('crm/header.php',$data);
+	}
+	// public function FooterStaff(){
+	// 	$this->load->view('crm/footer.php');
+	// 	// $this->load->view('staff/script.php');
+	// }
+
+
+
 	function do_upload($userfile)
 	{		
 		$dir='./upload/img/';

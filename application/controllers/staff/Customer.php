@@ -10,6 +10,7 @@ class Customer extends MY_Controller {
 		$this->load->model('Staff_M');
 		$this->staff_infor = $this->session->get_userdata('staff_infor');
 		$this->staff_id = $this->staff_infor['staff_infor']['staff_id'];
+		
 	}
 
 	public function index($offset = 1)

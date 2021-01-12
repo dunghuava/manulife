@@ -23,7 +23,7 @@ class Customer_M extends MY_model {
 		$this->db->select("*");
 		if($arr_staff != '')$this->db->where_in('staff_id',$arr_staff);
 		$this->db->where('processing_steps',$steps);
-		$this->db->order_by('updated_at');
+		$this->db->order_by('updated_at','desc');
 		return $this->db->get($this->table)->result_array();
 	}
 
