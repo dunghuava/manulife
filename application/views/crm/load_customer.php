@@ -1020,7 +1020,17 @@
 
             $( ".box" ).draggable( "option", "revert", false );
             
-            setSteps(area,'processing_steps',box)
+            setSteps(area,'processing_steps',box);
+            const toast = swal.mixin({
+                            toast: true,
+                            position: 'center',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        toast({
+                          type: 'success',
+                          title: 'Đã cập nhật.',
+                        });
      
             //Realign item
             $(ui.draggable).detach().css({top: 0,left: 0}).appendTo(this);

@@ -1,12 +1,12 @@
     <div class="">
         <div class="container">
-            <div class="row" style="margin-top: 15px;">
+            <div class="row" style="margin-top: 80px;">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="font-weight: bold;font-size: 20px;">
                     Khách hàng của tôi
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="text-align: right;">
-                    <button class="btn btn-default btn-icon-notika waves-effect" style="background: #54c391;color: white;"><i class="notika-icon notika-search"></i> Tìm kiếm</button>
-                    <button class="btn btn-default btn-icon-notika waves-effect" style="background: #54c391;color: white;"><i class="notika-icon notika-search"></i> Sắp xếp</button>
+                    <button class="btn btn-default btn-icon-notika waves-effect" data-toggle="modal" data-target="#search" style="background: #54c391;color: white;"><i class="notika-icon notika-search"></i> Tìm kiếm</button>
+                    <button class="btn btn-default btn-icon-notika waves-effect" data-toggle="modal" data-target="#sort" style="background: #54c391;color: white;"><i class="notika-icon notika-up-arrow"></i> Sắp xếp</button>
                     <a href="<?=base_url('crm/customer/add')?>" title="">
                         <button class="btn notika-btn-deeppurple btn-reco-mg btn-button-mg waves-effect" style="background: #54c391;color: white;">Thêm khách hàng</button>
                     </a>
@@ -15,6 +15,93 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="search" role="dialog">
+        <div class="modal-dialog modals-default">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2 style="text-align: center;">Tìm kiếm</h2>
+                    <hr>
+                    <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Họ tên</label>
+                                    <input type="text" class="form-control" name="customer_name" id="customer_name">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Số điện thoại</label>
+                                    <input type="text" name="customer_phone" id="customer_phone" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Sở thích</label>
+                                    <input id="interests" value="" type="text" name="interests" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Nghề nghiệp</label>
+                                    <input id="job" value="" type="text" name="job" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Nguồn</label>
+                                    <input id="source" value="" type="text" name="source" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Đã có bảo hiểm</label>
+                                    <select name="insurance" id="insurance" class="form-control">
+                                        <option value=""></option>
+                                        <option value="0">Chưa có</option>
+                                        <option value="1">Đã có</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Tìm kiếm</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="sort" role="dialog">
+        <div class="modal-dialog modals-default">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2>Sắp xếp</h2>
+                    <p>Curabitur blandit mollis lacus. Nulla sit amet est. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Cras sagittis.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Mobile Menu end -->
     <!-- Main Menu area start-->
     <div class="main-menu-area mg-tb-40">
@@ -36,6 +123,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- Main Menu area End-->
     <!-- Animateions area start-->
 
@@ -122,6 +211,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="<?=base_url()?>plugins/sweetalert2/sweetalert2.css">
     <script src="<?=base_url()?>plugins/sweetalert2/sweetalert2.js"></script>
+    <script src="<?=base_url()?>upload/js/sweetalert2.js"></script>
 
    <script type="text/javascript">
 
@@ -162,6 +252,17 @@
             url: "<?=base_url('crm/customer/update')?>",
             data: {'customer_id':customer_id,[colset]:ckb},
             success: function (response) {
+                const toast = swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+                toast({
+                  type: 'success',
+                  title: 'Đã cập nhật.',
+                });
+
                 active_steps(key);
             }
         });
@@ -175,6 +276,16 @@
             url: "<?=base_url('crm/customer/update')?>",
             data: {'customer_id':customer_id,[colset]:ckb},
             success: function (response) {
+                const toast = swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+                toast({
+                  type: 'success',
+                  title: 'Đã cập nhật.',
+                });
                 active_steps(key);
             }
         });
@@ -199,6 +310,17 @@
                     url: "<?=base_url('crm/customer/destroy')?>",
                     data: {'customer_id':customer_id},
                     success: function (response) {
+                        const toast = swal.mixin({
+                            toast: true,
+                            position: 'center',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        toast({
+                          type: 'success',
+                          title: 'Đã xóa.',
+                        });
+
                         active_steps(key);
                     }
                 });

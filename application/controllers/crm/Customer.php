@@ -24,20 +24,22 @@ class Customer extends MY_Controller {
 	public function loadCustomer()
 	{
 		$key = $this->input->post("key");
-		$arr_staff = array();
+		
 		
 		if ($this->is_admin ==1) {
-			$list_staff = $this->Staff_M->all();
+			$arr_staff = '';
 		}else{
+			$arr_staff = array();
 			array_push($arr_staff, $this->staff_id);
 			$list_staff = $this->Staff_M->all(['staff_curator' => $this->staff_id]);
-		}
-		
-		if (!empty($list_staff)) {
-			foreach ($list_staff as $staff) {
-				array_push($arr_staff, $staff['staff_id']);
+			if (!empty($list_staff)) {
+				foreach ($list_staff as $staff) {
+					array_push($arr_staff, $staff['staff_id']);
+				}
 			}
 		}
+		
+		
 
 		for ($i=0; $i <11 ; $i++) { 
 			$list_customer_steps = $this->Customer_M->listCustomerbyStaff($arr_staff,$i);

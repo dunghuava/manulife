@@ -1,8 +1,8 @@
 <div class="">
         <div class="container">
-            <div class="row" style="margin-top: 25px;">
+            <div class="row" style="margin-top: 80px;">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="font-weight: bold;font-size: 20px;">
-                    Thêm khách hàng
+                    Chỉnh sửa khách hàng
                 </div>
                 <!-- <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="text-align: right;">
                     <button class="btn notika-btn-deeppurple btn-reco-mg btn-button-mg waves-effect" style="background: #54c391;color: white;">Danh sách khách hàng</button>

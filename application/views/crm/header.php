@@ -121,7 +121,7 @@
 
 <body>
     <!-- Start Header Top Area -->
-    <div class="header-top-area">
+    <div class="header-top-area" style="position: fixed;top: 0;left: 0;right: 0;z-index: 999999;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -132,7 +132,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="header-top-menu" style="text-align: right;">
                         <div class="dropdown-trig-sgn" style="margin-top: 11px">
-                            <button class="btn triger-zoomIn waves-effect" data-toggle="dropdown" aria-expanded="false">Quản lí Khách hàng</button>
+                            <button class="btn triger-zoomIn waves-effect" data-toggle="dropdown" aria-expanded="false">Quản lí khách hàng</button>
                             <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="width: 232px;">
                                <li><a href="<?=base_url('crm/')?>">Danh sách khách hàng</a></li>
                                 <li><a href="<?=base_url('crm/customer/add')?>">Thêm khách hàng</a></li>
@@ -142,8 +142,8 @@
                         <div class="dropdown-trig-sgn" style="margin-top: 11px">
                             <button class="btn triger-zoomIn waves-effect" data-toggle="dropdown" aria-expanded="false">Account</button>
                             <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="width: 232px;">
-                                <li><a href="#">Thông tin cá nhân</a></li>
-                                <li><a href="#">Đổi mật khẩu</a></li>
+                                <li><a href="<?=base_url('crm/staff/info')?>">Thông tin cá nhân</a></li>
+                                <li><a href="<?=base_url('crm/staff/')?>">Quản lí nhân viên</a></li>
                                 <li><a href="<?=base_url('crm/logout')?>">Đăng xuất</a></li>
                             </ul>
                         </div>
