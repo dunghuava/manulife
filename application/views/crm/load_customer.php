@@ -66,7 +66,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_0['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_0['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_0['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -149,7 +149,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_1['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_1['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_1['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -233,7 +233,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_2['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_2['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_2['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -325,7 +325,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_3['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_3['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_3['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -409,7 +409,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_4['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_4['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_4['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -493,7 +493,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_5['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_5['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_5['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -585,7 +585,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_6['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_6['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_6['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -668,7 +668,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_7['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_7['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_7['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -752,7 +752,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_8['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_8['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_8['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -843,7 +843,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_9['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_9['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_9['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>
@@ -926,7 +926,7 @@
                                         <button class="btn triger-zoomIn waves-effect select aa" data-toggle="dropdown" aria-expanded="false" style="margin-right: 0px;"><i class="notika-icon notika-menu"></i></button>
                                         <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="margin-top: -5px;left: -10%;min-width: 118px;">
                                             <li onclick="setSteps(6,'processing_steps',<?=$value_10['customer_id']?>)"><a href="#" class="menu_con">Thất bại</a></li>
-                                            <li><a href="#" class="menu_con">Sửa nhanh</a></li>
+                                            <li><a href="<?=base_url('crm/customer/edit/').$value_10['customer_id']?>" class="menu_con">Sửa nhanh</a></li>
                                             <li onclick="onDelete(<?=$value_10['customer_id']?>)"><a href="#" class="menu_con">Xóa</a></li>
                                         </ul>
                                     </div>

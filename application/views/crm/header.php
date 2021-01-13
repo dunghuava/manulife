@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Animations | Notika - Notika Admin Template</title>
+    <title>CRM | Manucare.vn</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -95,7 +95,7 @@
         }
 
         .dropdown-trig-sgn .dropdown-menu.triger-zoomIn-dp {
-            left: 60%;
+            left: 56%;
         }
 
     </style>
@@ -126,23 +126,22 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="#" style="color: white;font-weight: bold;font-size: 20px;"><?=appSay().' '.$staff_infor['staff_name']?></a>
+                        <a href="<?=base_url('crm/')?>" style="color: white;font-weight: bold;font-size: 20px;"><?=appSay().' '.$staff_infor['staff_name']?></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="header-top-menu" style="text-align: right;">
-                        <!-- <div class="dropdown-trig-sgn" style="margin-top: 11px">
-                            <button class="btn triger-zoomIn waves-effect" data-toggle="dropdown" aria-expanded="false">Chọn nhân viên</button>
-                            <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="width: 210px;">
-                                <?php foreach ($list_staff as $key => $staff) {?>
-                                    <li><a href="#">staff 1</a></li>
-                                <?php } ?>
+                        <div class="dropdown-trig-sgn" style="margin-top: 11px">
+                            <button class="btn triger-zoomIn waves-effect" data-toggle="dropdown" aria-expanded="false">Quản lí Khách hàng</button>
+                            <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="width: 232px;">
+                               <li><a href="<?=base_url('crm/')?>">Danh sách khách hàng</a></li>
+                                <li><a href="<?=base_url('crm/customer/add')?>">Thêm khách hàng</a></li>
                             </ul>
-                        </div> -->
+                        </div>
 
                         <div class="dropdown-trig-sgn" style="margin-top: 11px">
                             <button class="btn triger-zoomIn waves-effect" data-toggle="dropdown" aria-expanded="false">Account</button>
-                            <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="width: 210px;">
+                            <ul class="dropdown-menu triger-zoomIn-dp animated zoomIn" style="width: 232px;">
                                 <li><a href="#">Thông tin cá nhân</a></li>
                                 <li><a href="#">Đổi mật khẩu</a></li>
                                 <li><a href="<?=base_url('crm/logout')?>">Đăng xuất</a></li>

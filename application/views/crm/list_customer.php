@@ -7,7 +7,10 @@
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="text-align: right;">
                     <button class="btn btn-default btn-icon-notika waves-effect" style="background: #54c391;color: white;"><i class="notika-icon notika-search"></i> Tìm kiếm</button>
                     <button class="btn btn-default btn-icon-notika waves-effect" style="background: #54c391;color: white;"><i class="notika-icon notika-search"></i> Sắp xếp</button>
-                    <button class="btn notika-btn-deeppurple btn-reco-mg btn-button-mg waves-effect" style="background: #54c391;color: white;">Thêm khách hàng</button>
+                    <a href="<?=base_url('crm/customer/add')?>" title="">
+                        <button class="btn notika-btn-deeppurple btn-reco-mg btn-button-mg waves-effect" style="background: #54c391;color: white;">Thêm khách hàng</button>
+                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -42,8 +45,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2018 
-. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                        <p>Copyright © 2020 <a href="https://colorlib.com">manucare.vn</a>.</p>
                     </div>
                 </div>
             </div>
