@@ -28,7 +28,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Tiềm hiểu thông tin</h2> 
+                            <h2>Tiềm hiểu thông tin <span>(<?=$count_steps_0?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -112,7 +112,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Nuôi dưỡng khách hàng</h2> 
+                            <h2>Nuôi dưỡng khách hàng <span>(<?=$count_steps_1?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -196,7 +196,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Xác định có nhu cầu</h2> 
+                            <h2>Xác định có nhu cầu <span>(<?=$count_steps_2?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -288,7 +288,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Sẳn sàng chốt hẹn</h2> 
+                            <h2>Sẳn sàng chốt hẹn <span>(<?=$count_steps_3?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -371,7 +371,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Chờ gặp</h2> 
+                            <h2>Chờ gặp <span>(<?=$count_steps_4?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -456,7 +456,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Thương thảo</h2> 
+                            <h2>Thương thảo <span>(<?=$count_steps_5?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -548,7 +548,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Thất bại</h2> 
+                            <h2>Thất bại <span>(<?=$count_steps_6?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -631,7 +631,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Thành công</h2> 
+                            <h2>Thành công <span>(<?=$count_steps_7?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -715,7 +715,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Chăm sóc</h2> 
+                            <h2>Chăm sóc <span>(<?=$count_steps_8?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -806,7 +806,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Giao HD và trao quà</h2> 
+                            <h2>Giao HD và trao quà <span>(<?=$count_steps_9?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">
@@ -889,7 +889,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="">
                     <div class="animation-single-int">
                         <div class="animation-ctn-hd" style="margin-bottom: -20px;">
-                            <h2>Có khả năng khai thác</h2> 
+                            <h2>Có khả năng khai thác <span>(<?=$count_steps_10?>)</span></h2> 
                         </div>
                     </div>
                     <div class="animation-single-int scrollbar style-scroll drag-area" style="height: 100vh;">

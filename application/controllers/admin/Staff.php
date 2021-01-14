@@ -12,7 +12,7 @@ class Staff extends MY_Controller {
 	public function index(){
 		$_data['page_name']='Danh sách nhân viên';
 		$_data['page_menu']='staff';
-		$_data['list_staff']=$this->Staff_M->all();
+		$_data['list_staff']=$this->Staff_M->all(['is_admin' => 0]);
 		$this->getHeader($_data);
 		$this->load->view('admin/pages/staff/index.php',$_data);
 		$this->getFooter();
@@ -31,15 +31,15 @@ class Staff extends MY_Controller {
 				move_uploaded_file($file['tmp_name'],$path);
 			}
 
-			if ($post['staff_active'] == '') {
-				$post['staff_active'] = 0;
-			}
+			// if ($post['staff_active'] == '') {
+			// 	$post['staff_active'] = 0;
+			// }
 
 			$data_insert = array(
 				'staff_name' => $post['staff_name'], 
 				'staff_position' => $post['staff_position'], 
 				'staff_phone' => $post['staff_phone'], 
-				'staff_active' => $post['staff_active'],
+				'staff_active' => 1,
 				'subdomain' => $post['subdomain'], 
 				'staff_email' => $post['staff_email'], 
 				'staff_password' => md5($post['staff_password']), 
@@ -80,10 +80,6 @@ class Staff extends MY_Controller {
 				$filename = $info_staff['staff_img'];
 			}
 
-			if ($post['staff_active'] == '') {
-				$post['staff_active'] = 0;
-			}
-
 			if ($post['staff_password'] != '') {
 				$password = md5($post['staff_password']);
 			}else{
@@ -95,7 +91,6 @@ class Staff extends MY_Controller {
 				'staff_name' => $post['staff_name'], 
 				'staff_position' => $post['staff_position'], 
 				'staff_phone' => $post['staff_phone'], 
-				'staff_active' => $post['staff_active'], 
 				'subdomain' => $post['subdomain'], 
 				'staff_email' => $post['staff_email'], 
 				'staff_password' => $password, 

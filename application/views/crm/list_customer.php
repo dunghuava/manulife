@@ -26,6 +26,7 @@
                     <h2 style="text-align: center;">Tìm kiếm</h2>
                     <hr>
                     <div class="row">
+                        <input type="hidden" name="searched" id="searched" value="0">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 
                               <div class="form-group">
@@ -98,8 +99,8 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Tìm kiếm</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-default" id="btn_search">Tìm kiếm</button>
+                    <button type="button" class="btn btn-default" id="btn_close_search" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>
@@ -116,33 +117,34 @@
                     <h2 style="text-align: center;">Sắp xếp</h2>
                     <hr>
                     <div class="row">
+                        <input type="hidden" name="sorted" id="sorted" value="0">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="" style="width: 95px;">Tương tác</label>
-                                <input type="radio" name="type_sort" style="vertical-align: middle;" checked="">
+                                <input type="radio" name="key_sort" value="updated_at" style="vertical-align: middle;" checked="">
                             </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="" style="width: 95px;">Hoa hồng</label>
-                                <input type="radio" name="type_sort" style="vertical-align: middle;">
+                                <input type="radio" name="key_sort" value="commission_level" style="vertical-align: middle;">
                             </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="" style="width: 95px;">Ngày tạo</label>
-                                <input type="radio" name="type_sort" style="vertical-align: middle;">
+                                <input type="radio" name="key_sort" value="created_at" style="vertical-align: middle;">
                             </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="" style="width: 95px;">Loại sắp xếp</label>
-                                <select name="insurance" id="insurance" class="form-control">
-                                    <option value="1">Giảm dần</option>
-                                    <option value="0">Tăng dần</option>
+                                <select name="type_sort" id="type_sort" class="form-control">
+                                    <option value="desc">Giảm dần</option>
+                                    <option value="asc">Tăng dần</option>
                                     
                                 </select>
                             </div>
@@ -150,8 +152,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Sắp xếp</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-default" id="btn_sort">Sắp xếp</button>
+                    <button type="button" class="btn btn-default" id="btn_close_sort" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>
@@ -276,16 +278,74 @@
         $( ".li_active" ).removeClass("active");
         $( "."+ key).addClass("active");
 
+        /*search*/
+        var searched =  $('#searched').val();
+        if (searched == 1) {
+            var staff_id = $('#staff_id').val();
+            var customer_name = $('#customer_name').val();
+            var customer_phone = $('#customer_phone').val();
+            var job = $('#job').val();
+            var source = $('#source').val();
+            var insurance = $('#insurance').val();
+        }else{
+            var staff_id = '';
+            var customer_name = '';
+            var customer_phone = '';
+            var job = '';
+            var source = '';
+            var insurance = '';
+        }
+        
+
+        /*sort*/
+        var sorted =  $('#sorted').val();
+        if (sorted == 1) {
+            var key_sort = $('input[name="key_sort"]:checked').val();
+            var type_sort = $('#type_sort').val();
+        }else{
+            var key_sort = '';
+            var type_sort = '';
+        }
+
+        console.log(customer_name);
+
         $.ajax({
             type: "POST",
             url: "<?=base_url()?>crm/customer/loadCustomer",
-            data: {key:key},
+            data: {
+                key:key,
+                staff_id:staff_id,
+                customer_name:customer_name,
+                customer_phone:customer_phone,
+                job:job,
+                source:source,
+                insurance:insurance,
+                key_sort:key_sort,
+                type_sort:type_sort,
+            },
             success: function(data)
             {
                 $("#load_data").html(data);
             }
         });
     }
+
+
+    $('.modal').on('click', '#btn_search', function(){
+       var key = $('#key').val();
+        $('#searched').val(1);
+        document.getElementById('btn_close_search').click();  
+        active_steps(key);
+
+    });
+
+    $('.modal').on('click', '#btn_sort', function(){
+        var key = $('#key').val();
+        $('#sorted').val(1);
+        document.getElementById('btn_close_sort').click();  
+        active_steps(key);
+
+    });
       
         
 

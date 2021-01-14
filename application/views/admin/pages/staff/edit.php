@@ -53,7 +53,7 @@
                     <input id="staff_password" value="" type="text" name="staff_password" class="form-control col-md-4">
              </div>
 
-             <div class="col-md-6 inline-flex">
+             <!-- <div class="col-md-6 inline-flex">
                 <label for="">Hiển thị</label>
                 <?php 
                   if ($info_staff['staff_active'] == 1) {
@@ -63,7 +63,7 @@
                   } 
                 ?>
                 <input type="checkbox" name="staff_active" id="staff_active" value="1" style="margin-top: 12px;" <?php echo $checked ?>>
-             </div>
+             </div> -->
 
              <div class="col-md-6 inline-flex">
              	    <label for=""></label>

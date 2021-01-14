@@ -12,7 +12,7 @@
                         <th>Hình ảnh</th>
                         <th>Chức danh</th>
                         <th>Số điện thoại</th>
-                        <th>Hiển thị</th>
+                        <!-- <th>Hiển thị</th> -->
                         <th style="width: 11%">Thao tác</th>
                     </tr>
                 </thead>
@@ -23,11 +23,11 @@
                              <td><img src="<?=resizeImg($item['staff_img'],50,50,0)?>" style="max-height: 90px;"></td>
                              <td><?=$item['staff_position']?></td>
                              <td><?=$item['staff_phone']?></td>
-                             <td>
+                             <!-- <td>
                               <?php if ($item['staff_id'] != 1) {?>
                                 <input onchange="setCkb(this,'staff_active',<?=$item['staff_id']?>)" type="checkbox" <?=$item['staff_active']==1 ? 'checked':''?> >
                               <?php }else{ echo 'mặc định hiển thị';} ?>
-                             </td>
+                             </td> -->
                              <td>
                                 <a href="<?=base_url().'admin/staff/edit/'.$item['staff_id']?>">
                                     <button type="button" class="btn btn-default">

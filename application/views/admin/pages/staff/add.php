@@ -52,10 +52,10 @@
              </div> -->
 
 
-             <div class="col-md-6 inline-flex">
+             <!-- <div class="col-md-6 inline-flex">
              	  <label for="">Hiển thị</label>
                 <input type="checkbox" name="staff_active" id="staff_active" value="1" style="margin-top: 12px;" checked>
-             </div>
+             </div> -->
 
              <div class="col-md-6 inline-flex">
              	    <label for=""></label>
