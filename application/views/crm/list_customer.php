@@ -26,6 +26,22 @@
                     <h2 style="text-align: center;">Tìm kiếm</h2>
                     <hr>
                     <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                
+                              <div class="form-group">
+                                    <label for="">Nhân viên phụ trách</label>
+                                    <select name="staff_id" id="staff_id" class="form-control" required="">
+                                        <option value=""></option>
+                                        <option value="<?=$staff_infor['staff_id']?>"><?=$staff_infor['staff_name']?></option>
+                                        <?php foreach ($list_staff as $key => $staff) {?>
+                                            <option value="<?=$staff['staff_id']?>"><?=$staff['staff_name']?></option>
+                                        <?php } ?>
+                                        
+                                    </select>
+                                </div>
+                            
+                            </div>
+
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Họ tên</label>
@@ -72,6 +88,13 @@
                                 </div>
                             </div>
 
+                            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Ghi chú</label>
+                                    <textarea name="note" id="note" cols="30" rows="3" class="form-control"></textarea>
+                                </div>
+                            </div> -->
+
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -90,12 +113,45 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <h2>Sắp xếp</h2>
-                    <p>Curabitur blandit mollis lacus. Nulla sit amet est. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Cras sagittis.</p>
+                    <h2 style="text-align: center;">Sắp xếp</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="" style="width: 95px;">Tương tác</label>
+                                <input type="radio" name="type_sort" style="vertical-align: middle;" checked="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="" style="width: 95px;">Hoa hồng</label>
+                                <input type="radio" name="type_sort" style="vertical-align: middle;">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="" style="width: 95px;">Ngày tạo</label>
+                                <input type="radio" name="type_sort" style="vertical-align: middle;">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="" style="width: 95px;">Loại sắp xếp</label>
+                                <select name="insurance" id="insurance" class="form-control">
+                                    <option value="1">Giảm dần</option>
+                                    <option value="0">Tăng dần</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Save changes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sắp xếp</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>

@@ -16,7 +16,15 @@ class Customer extends MY_Controller {
 	public function index()
 	{
 		$this->HeaderStaff();
-		$this->load->view('crm/list_customer.php');
+		if ($this->is_admin ==1) {
+			$list_staff = $this->Staff_M->all(['is_admin' => 0]);
+		}else{
+			$list_staff = $this->Staff_M->all(['staff_curator' => $this->staff_id]);
+		}
+
+		$data['list_staff'] = $list_staff;
+		$data['staff_infor'] = $this->staff_infor['staff_infor'];
+		$this->load->view('crm/list_customer.php',$data);
 		// $this->FooterStaff();
 	}
 
