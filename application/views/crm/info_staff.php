@@ -73,7 +73,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label for="">Email đăng nhập</label>
-                                    <input id="staff_email" value="<?php echo $info_staff['staff_email'] ?>" type="email" name="staff_email" class="form-control" required>
+                                    <input id="staff_email" value="<?php echo $info_staff['staff_email'] ?>" type="text" name="staff_email" class="form-control" required>
                                     <span id="result" style="color: red;margin-left: 5px;"></span>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2020 <a href="https://colorlib.com">manucare.vn</a>.</p>
+                        <p>Copyright © 2020 <a href="http://manucare.vn">manucare.vn</a>.</p>
                     </div>
                 </div>
             </div>

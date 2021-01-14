@@ -46,7 +46,7 @@
       </div>
       <form onsubmit="do_login()" action="" method="post">
       <div class="text-center">
-           <h3>Đăng nhập (Nhân viên)</h3>
+           <h3>Đăng nhập (CRM)</h3>
         </div>
         <div class="input-groups mb-3">
           <input name="staff_email" type="text" class="form-control" placeholder="Email đăng nhập" required="">

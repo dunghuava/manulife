@@ -143,8 +143,8 @@
                             <div class="form-group">
                                 <label for="" style="width: 95px;">Loại sắp xếp</label>
                                 <select name="type_sort" id="type_sort" class="form-control">
-                                    <option value="desc">Giảm dần</option>
                                     <option value="asc">Tăng dần</option>
+                                    <option value="desc">Giảm dần</option>
                                     
                                 </select>
                             </div>
@@ -192,7 +192,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2020 <a href="https://colorlib.com">manucare.vn</a>.</p>
+                        <p>Copyright © 2020 <a href="http://manucare.vn">manucare.vn</a>.</p>
                     </div>
                 </div>
             </div>
