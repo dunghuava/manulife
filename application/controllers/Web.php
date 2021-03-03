@@ -42,7 +42,7 @@ class Web extends MY_Controller {
         $seo = array(
             'title'=>$category['cate_title'],
             'description'=>strip_tags($category['cate_description']),
-            'image'=>$info['cate_img']
+            'image'=>$category['cate_img']
         );
 
         $data['seo'] = $seo;
@@ -55,7 +55,7 @@ class Web extends MY_Controller {
         $seo = array(
             'title'=>$category['cate_title'],
             'description'=>strip_tags($category['cate_description']),
-            'image'=>$info['cate_img']
+            'image'=>$category['cate_img']
         );
         
         $data['seo'] = $seo;
@@ -138,7 +138,7 @@ class Web extends MY_Controller {
         $seo = array(
             'title'=>$category['cate_title'],
             'description'=>strip_tags($category['cate_description']),
-            'image'=>$info['cate_img']
+            'image'=>$category['cate_img']
         );
         
         $data['seo'] = $seo;

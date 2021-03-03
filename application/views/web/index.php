@@ -1,5 +1,5 @@
 <?php 
-    $bvnoibat = $this->Web_M->q("select a.post_id,a.post_title,a.post_img,a.post_alias from db_post a where a.post_type=1 order by post_id desc limit 5");
+    $bvnoibat = $this->Web_M->q("select a.post_id,a.post_title,a.post_description,a.post_img,a.post_alias from db_post a where a.post_type=1 order by post_id desc limit 5");
 ?>
 <section class="sec-slide">
     <div class="container full-w">
@@ -15,7 +15,7 @@
                     <div class="post">
                         <a class="readmore" href="<?=base_url('post/'.$bv['post_alias'].'-'.$bv['post_id'])?>.html">
                             <h4><?=$bv['post_title']?></h4>
-                            <p><?=$bv['post_description']?></p>
+                            <!-- <p><?=$bv['post_description']?></p> -->
                             <br>
                             <span class="fa fa-angle-right"></span>Xem thêm
                         </a>
@@ -88,7 +88,7 @@
 </section>
 <?php 
     // thay where post_type=2 de lay dich vu
-    $list_post = $this->Web_M->q("select a.post_id,a.post_title,b.cate_title,a.post_img,a.post_alias from db_post a inner join db_category b on a.post_category_id=b.cate_id where a.post_type=1 order by rand() limit 6");
+    $list_post = $this->Web_M->q("select a.post_id,a.post_title,a.post_description,b.cate_title,a.post_img,a.post_alias from db_post a inner join db_category b on a.post_category_id=b.cate_id where a.post_type=1 order by rand() limit 6");
 ?>
 <section class="sec-product">
     <div class="container full-w"><br>
@@ -121,7 +121,7 @@
 
                                     </div>
                                     <div class="overlay"></div>
-                                    <div class="des"><?=$item['post_description']?></div>
+                                    <!-- <div class="des"><?=$item['post_description']?></div> -->
                                 </div>
                         </div>
                     <?php } ?>
