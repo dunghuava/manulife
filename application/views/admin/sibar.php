@@ -145,7 +145,7 @@
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Bài viết
+                Kiến thức & Tin tức
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

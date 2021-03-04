@@ -191,7 +191,7 @@ class Product extends MY_Controller {
 			// print_r($sub1);
 			if (count($sub1) >0){
 				foreach ($sub1 as $val1){
-					$str.='<option value="'.$val1['cate_id'].'" disabled style="background: #dee2e6;">'.$val1['cate_title'].'</option>';
+					$str.='<option value="'.$val1['cate_id'].'">'.$val1['cate_title'].'</option>';
 					$sub2 = $this->Category_M->all(['cate_parent_id'=>$val1['cate_id'],'cate_module_id'=> $cate_module_id],$oder_by);
 					if (count($sub2) >0){
 						foreach ($sub2 as $val2){
