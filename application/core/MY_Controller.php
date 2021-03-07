@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller {
 	}
 	public function page_header($seo=null){
 		$data['seo'] = $seo;
+		$data['info'] = $this->Info_M->all();
 		$this->load->view('web/header.php',$data);
 	}
 	public function page_footer($data=null){

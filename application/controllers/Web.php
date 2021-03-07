@@ -8,7 +8,7 @@ class Web extends MY_Controller {
         parent::__construct();
         $this->load->model('Web_M');
         $this->load->model('Category_M');
-        $this->load->model('Slide_M');
+        $this->load->model('Other_M');
         $this->load->model('Post_M');
         $this->load->model('Product_M');
     }

@@ -1,10 +1,17 @@
+<?php 
+    if (!isset($title)){
+        $title='Trang chủ';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title><?php if(!empty($seo['title'])) echo $seo['title']?></title>
     <!-- -->
+    <meta name="keywords" content="<?php if(!empty($seo['keywords'])) echo $seo['keywords']?>" />
     <meta name="description" content="<?php if(!empty($seo['description'])) echo $seo['description']?>" />
     <!-- google -->
     <meta itemprop="name" content="<?php if(!empty($seo['title'])) echo $seo['title']?>">
@@ -18,6 +25,9 @@
     <meta property="og:description" content="<?php if(!empty($seo['description'])) echo $seo['description']?>" />
 
 
+    <link rel="icon" type="image/png" href="<?=base_url('upload/images/').$info[0]['icon_img']?>" />
+    <link rel="Shortcut Icon" type="image/png" href="<?=base_url('upload/images/').$info[0]['icon_img']?>" />
+
     <base id="base_url" href="<?=base_url()?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick.css')?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick-theme.css')?>">
@@ -29,70 +39,54 @@
     <script src="<?=base_url('upload/bootstrap/js/bootstrap.js')?>"></script>
     <script src="<?=base_url('upload/slick/slick.min.js')?>"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .icon-bedroom:before {
+            content: url('https://api.iconify.design/zmdi-airline-seat-individual-suite.svg?height=16&inline=true');
+            vertical-align: -0.125em;
+        }
+
+        .icon-acreage:before {
+            content: url('https://api.iconify.design/zmdi-photo-size-select-small.svg?height=16&inline=true');
+            vertical-align: -0.125em;
+        }
+
+        .main-title {
+            font-size: 22px!important;
+        }
+
+        .main-menu li.dropdown .dropdown-list {
+            width: 320%;
+        }
+    </style>
 </head>
-
-<style type="text/css">
-    #main-menu ul li .sub-menu {
-        width: 300px;
-    }
-
-    #main-menu ul li .sub-menu li {
-        border-bottom: 1px solid #ededed;
-        min-height: 70px;
-        padding: 10px 10px;
-    }
-    hr{margin:5px 0px}
-
-    .swal2-icon {
-        font-size: 18px !important;
-    }
-
-    .swal2-title {
-        font-size: 18px !important;
-    }
-
-</style>
 <body>
-<header class="app-header">
-   <div class="desktop-menu">
-        <?php include ('main-menu.php') ?>
-   </div>
-    <div id="main-nav">
-        <div class="container full-w">
-            <div class="row">
-                <div class="col-md-9 col-xs-5">
-                    <span class="app-name">
-                        <a class="hidden-md hidden-lg" style="color:#fff" href="<?=base_url()?>">Manucare</a>
-                        <a class="hidden-xs" style="color:#000" href="<?=base_url()?>">Manucare</a>
-                    </span>
+<header id="nav-bar" class="app-header">
+    <div class="container" style="white-space: nowrap;">
+        <div class="row">
+            <div class="col-md-2 col-xs-8">
+                <div class="logo">
+                   <a href="<?=base_url()?>">
+                        <img src="<?=resizeImg($info[0]['logo_img'],190,47,0)?>" alt="" style="width: 190px;">
+                   </a>
                 </div>
-                <div class="col-md-3 col-xs-7">
-                    <div class="text-right hidden-xs">
-                        <a href="<?=base_url('lien-he')?>.html">
-                            <button class="btn btn-default">
-                                <span class="fa fa-info"></span>&nbsp;Liên hệ
-                            </button>
-                        </a>
-                        <button class="btn btn-default">
-                            <span class="fa fa-user"></span>&nbsp;Đăng nhập
-                        </button>
-                    </div>
-                    <div class="hidden-lg text-right nav_icon_mb">
-                        <a href=""><span class="fa fa-user"></span></a>
-                        <a href="javascript:$('#main-menu').toggleClass('opened')"><span class="fa fa-bars"></span></a>
-                    </div>
-                </div>
+            </div>
+            <div class="col-xs-4 hidden-md hidden-lg text-right">
+                <a id="openmenu_bar" href="javascript:void(0)">
+                    <span class="btnBar fa fa-bars"></span>
+                </a>
+            </div>
+            <div class="col-md-10">
+                <?php include ('menu.php') ?>
             </div>
         </div>
     </div>
 </header>
 <div id="backtotop"></div>
-<div id="page-break"></div>
 <script>
 window.onscroll = function() {
     addSticky()
 };
-    var navbar = document.getElementById("main-nav");
+    var navbar = document.getElementById("nav-bar");
     var sticky = (navbar.offsetTop+50);
     function addSticky() {
         if (window.pageYOffset >= sticky) {

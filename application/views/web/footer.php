@@ -1,61 +1,98 @@
 <br><br>
 <?php include ('botchat.php') ?>
 <?php include ('hotline.php') ?>
-<?php 
-    $textFooter = $this->Web_M->q("select * from db_other where other_id=2");
-    $menuFooter = $this->Web_M->q("select * from db_other where other_id in (8,9,10,11)");
-?>
-<footer id="footer">
-    <div class="container full-w">
+
+<style type="text/css">
+    @media screen and (max-width: 990px) {
+        .chinh_sach{
+            text-align: left;
+        }
+    }
+</style>
+<footer class="app-footer font18">
+    <div class="container">
         <div class="row">
-            <?php 
-                foreach ($menuFooter as $menu)
-                {
-                $sub = $this->Web_M->q("select * from db_other where other_category_id = '".$menu['other_id']."'");
-            ?>
+            <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-phone"></span>
+                    <span>Hotline</span>
+                    <p>(+84) <?=$info[0]['phone']?></p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-phone"></span>
+                    <span>Khiếu nại, phản hồi</span>
+                    <p>(+84) <?=$info[0]['phone']?></p>
+                </div>
+            </div>
+
+            
+            <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-envelope"></span>
+                    <span>Email</span>
+                    <p><?=$info[0]['email']?></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-address-card-o"></span>
+                    <span>Địa chỉ</span>
+                    <p><?=$info[0]['address']?></p>
+                </div>
+            </div>
+            <!-- <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-envelope"></span>
+                    <span>Email</span>
+                    <p>(+48) 0383868205</p>
+                </div>
+            </div> -->
+        </div><hr>
+        <div class="row">
             <div class="col-md-3">
-                <h3 class="title-footer"><?=$menu['other_title']?></h3>
-                <ul>
-                    <?php foreach ($sub as $item){ ?>
-                        <li><a target="_blank" href="<?=$item['other_url']?>"><?=$item['other_title']?></a></li>
-                    <?php } ?>
+                <div style="font-weight: bold;font-size: 30px">manucare.vn</div>
+                
+                <div style="font-weight: bold;font-size: 25px;margin-left: -14px" class="col-md-12">
+                    <a href="<?=$info[0]['facebook']?>" style="color: white;"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['youtube']?>" style="color: white;"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['twitter']?>" style="color: white;"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['instagram']?>" style="color: white;"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="title-footer">Sản phẩm</div>
+                <ul class="list-footer">
+                    
                 </ul>
             </div>
-            <?php 
-                } 
-            ?>
-        </div>
-    </div>
-    <div class="line-break"></div>
-    <div class="container full-w">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="">Điều khoản sử dụng</a>
-                <a href="">Chính sách bảo mật thông tin</a>
-            </div>
-            <div class="col-md-6">
-                <div class="link-icon">
-                    <a href=""><span class="fa fa-facebook"></span></a>
-                </div>
-                <div class="link-icon">
-                    <a href=""><span class="fa fa-youtube"></span></a>
-                </div>
-                <div class="link-icon">
-                    <a href=""><span class="fa fa-google"></span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="line-break"></div>
-    <div class="container full-w">
-        <div class="row">
             <div class="col-md-3">
-                <h4><?=$info[0]['company']?></h4>
+                <div class="title-footer">Dịch vụ</div>
+                <ul class="list-footer">
+
+                    
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <div class="title-footer">Kiến thức</div>
+                <ul class="list-footer">
+
+                    
+                </ul>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-left">
+                    <span>© <?=$info[0]['coppy_right']?></span>
+                </div>
             </div>
             <div class="col-md-6">
-                <p>
-                    <?=$info[0]['coppy_right']?>
-                </p>
+                <div class="text-right chinh_sach">
+                    <span>Chính sách bảo mật, Điều khoản sử dụng, Phản hồi</span>
+                </div>
             </div>
         </div>
     </div>
@@ -63,6 +100,32 @@
 <div class="hidden-md hidden-lg"><br><br><br></div>
 <script src="<?=base_url('upload/js/app.js?v='.time())?>"></script>
 <script src="<?=base_url()?>upload/js/sweetalert2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script type="text/javascript">
+    $(function() {
+    $('#btn_modal').on('click', function() {
+      
+      $('#form_pass').css("display","block");
+      $($(this).data('modal')).modal({
+        fadeDuration: 250
+      });
+      return false;
+    });
+  });
 
+    // $(function() {
+    // $('.container').on('click', '.btn_modal_contact', function() {
+
+    //     console.log('aaaaa');
+      
+    //   $('#form_contact_modal').css("display","block");
+    //   $($(this).data('modal')).modal({
+    //     fadeDuration: 250
+    //   });
+    //   return false;
+    // });
+  // });
+</script>
 </body>
 </html>

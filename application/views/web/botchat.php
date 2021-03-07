@@ -19,8 +19,8 @@
       <!-- Your Chat Plugin code -->
       <div class="fb-customerchat"
         attribution=setup_tool
-        page_id="107857070823040"
-  theme_color="#00A758"
-  logged_in_greeting="Chat với chúng tôi hoặc gọi 19001238."
-  logged_out_greeting="Chat với chúng tôi hoặc gọi 19001238.">
+        page_id="105661530845155"
+  theme_color="#0C714B"
+  logged_in_greeting="Hi! How can we help you?"
+  logged_out_greeting="Hi! How can we help you?">
       </div>
