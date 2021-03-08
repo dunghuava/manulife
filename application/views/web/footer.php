@@ -65,21 +65,35 @@
             <div class="col-md-3">
                 <div class="title-footer">Sản phẩm</div>
                 <ul class="list-footer">
-                    
+                    <?php
+                        $list_product_footer = $this->Web_M->q("select * from db_product a inner join db_category b on a.product_category_id=b.cate_id order by rand() limit 4");
+                        foreach ($list_product_footer as $product_footer) {
+                    ?>
+                            <li><a title="<?=$product_footer['product_title']?>" href="<?=base_url('san-pham/'.$product_footer['product_alias'].'-'.$product_footer['product_id'])?>.html"><?=$product_footer['product_title']?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="title-footer">Dịch vụ</div>
                 <ul class="list-footer">
-
+                    <?php
+                        $list_service_footer = $this->Web_M->q("select * from db_post where post_active = 1 and post_type = 2  order by rand() limit 4");
+                        foreach ($list_service_footer as $service_footer) {
+                    ?>
+                            <li><a title="<?=$service_footer['post_title']?>" href="<?=base_url('dich-vu/'.$service_footer['post_alias'].'-'.$service_footer['post_id'])?>.html"><?=$service_footer['post_title']?></a></li>
+                    <?php } ?>
                     
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="title-footer">Kiến thức</div>
                 <ul class="list-footer">
-
-                    
+                    <?php
+                        $list_post_footer = $this->Web_M->q("select * from db_post where post_active = 1 and post_type = 1  order by rand() limit 4");
+                        foreach ($list_post_footer as $post_footer) {
+                    ?>
+                            <li><a title="<?=$post_footer['post_title']?>" href="<?=base_url('dich-vu/'.$post_footer['post_alias'].'-'.$post_footer['post_id'])?>.html"><?=$post_footer['post_title']?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div><hr>

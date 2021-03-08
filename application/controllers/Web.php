@@ -29,16 +29,25 @@ class Web extends MY_Controller {
     }
     public function index(){
         $seo = array(
-            'title'=>'Bảo hiểm Manulife Việt Nam',
+            'title'=>'Bảo hiểm Manucare Việt Nam',
         );
 
         $data['seo'] = $seo;
+        $data['list_post'] = $this->Post_M->getListPost_byCategory(1,4);
+        $data['list_service'] = $this->Post_M->getListPost_byCategory(2,6);
+        $data['list_brands'] = $this->Other_M->all(['other_category_id'=>31]);
         $this->page_header($seo);
-        $this->view('web/index');
+        $this->view('web/index',$data);
         $this->page_footer();
     }
     public function product($category=null){
-        $data['category']=$category;
+        
+        if ($category['cate_parent_id']==0) {
+            $list_product = $this->Product_M->all(['product_active'=>1],'desc');
+        }else{
+            $list_product = $this->Product_M->all(['product_active'=>1,'product_category_id'=>$category['cate_id']],'desc');
+        }
+        
         $seo = array(
             'title'=>$category['cate_title'],
             'description'=>strip_tags($category['cate_description']),
@@ -46,12 +55,19 @@ class Web extends MY_Controller {
         );
 
         $data['seo'] = $seo;
+        $data['list_product']=$list_product;
+        $data['category']=$category;
         $this->page_header($seo);
-        $this->view('web/category',$data);
+        $this->view('web/list_product',$data);
         $this->page_footer();
     }
     public function service($category=null){
-        $data['category']=$category;
+        if ($category['cate_parent_id']==0) {
+            $list_service = $this->Post_M->all(['post_active'=>1,'post_type'=>2],'desc');
+        }else{
+            $list_service = $this->Post_M->all(['post_active'=>1,'post_category_id'=>$category['cate_id'],'post_type'=>2],'desc');
+        }
+        
         $seo = array(
             'title'=>$category['cate_title'],
             'description'=>strip_tags($category['cate_description']),
@@ -59,6 +75,8 @@ class Web extends MY_Controller {
         );
         
         $data['seo'] = $seo;
+        $data['category']=$category;
+        $data['list_service']=$list_service;
         $this->page_header($seo);
         $this->view('web/service',$data);
         $this->page_footer();
@@ -101,13 +119,12 @@ class Web extends MY_Controller {
     }
     public function dichvu_detail($alias=null){
         $id = getID($alias);
-        $data['category']=$this->Category_M->find_row(['cate_id'=>$id]);
-        $data['service']=$this->Post_M->all(['post_category_id'=>$id,'post_active'=>1]);
+        $data['post']=$this->Post_M->find_row(['post_id'=>$id]);
 
         $seo = array(
-            'title'=>$data['category']['cate_title'],
-            'description'=>strip_tags($data['category']['cate_description']),
-            'image'=>$data['category']['cate_img']
+            'title'=>$data['post']['post_title'],
+            'description'=>strip_tags($data['post']['post_description']),
+            'image'=>$data['post']['post_img']
         );
         
         $data['seo'] = $seo;
@@ -132,8 +149,14 @@ class Web extends MY_Controller {
         $this->view('web/product-detail',$data);
         $this->page_footer();
     }
-    public function tintuc($category=array()){      
-        $data['category']=$category;
+    public function tintuc($category=array()){
+
+        if ($category['cate_parent_id']==0) {
+            $list_post = $this->Post_M->all(['post_active'=>1,'post_type'=>1],'desc');
+        }else{
+            $list_post = $this->Post_M->all(['post_active'=>1,'post_category_id'=>$category['cate_id'],'post_type'=>1],'desc');
+        }      
+        
 
         $seo = array(
             'title'=>$category['cate_title'],
@@ -142,6 +165,8 @@ class Web extends MY_Controller {
         );
         
         $data['seo'] = $seo;
+        $data['category']=$category;
+        $data['list_post']=$list_post;
 
         $this->page_header($seo);
         $this->view('web/tin-tuc',$data);

@@ -1,56 +1,56 @@
+<?php 
+    $dvlienquan = $this->Web_M->q("select * from db_post where post_id<>'".$post['post_id']."' and post_category_id='".$post['post_category_id']."' and post_active=1 order by rand() limit 5");
+?>
+<br>
 <style>
-    .plsubtn{
-        width:25px;
-        height:25px;
-        line-height:25px;
-        background:#019E4D;
-        text-align:center;
-        border-radius:50%;
-        color:#fff;
-        font-size: 14px;
-        margin-right: 10px;
+    div img{
+        max-width:100%;
     }
 </style>
-<section>
-    <div class="container full-w">
+<section class="sec-post-detail font18">
+    <div class="container">
         <div class="row">
-            <div class="col-md-3 hidden-xs">
-                <img src="<?=img_path('1582170661771.jpeg')?>" alt="">
+            <div class="col-md-8">
+                <h3 class="post-title"><?=$post['post_title']?></h3>
+                <hr style="margin:5px 0px">
+                <div style="margin-left: -5px;"><?php include ('shares.php') ?></div>
+                <img src="<?=resizeImg($post['post_img'],750,355,0)?>" alt="">
+                <div class="post-content">
+                    <p>
+                        <span><?=$post['post_content']?></span>
+                    </p>
+                    <hr>
+                    <!-- <div class="text-left">
+                        <p><span class="fa fa-edit"></span>&nbsp;Nguồn: <?=$post['post_author']?></p>
+                    </div> -->
+                </div>
             </div>
-            <div class="col-md-9">
-                <h1><?=$category['cate_title']?></h1>
-                <hr>
-                <?php include ('shares.php') ?>
-                <img src="<?=img_path($category['cate_img'])?>" alt="">
-
-                <div class="row">
-                    <?php 
-                        foreach ($service as $sv)
-                        {
-                    ?>
-                        <div class="col-md-12">
-                            <div id="accordian_<?=$sv['post_id']?>" role="tablist" aria-multiselectable="true">
-                                <div class="card">
-                                    <div class="card-header" role="tab" id="section_h_<?=$sv['post_id']?>">
-                                        <h5 class="mb-0">
-                                            <a data-toggle="collapse" data-parent="#accordian_<?=$sv['post_id']?>" href="#sectioncontent_<?=$sv['post_id']?>" aria-expanded="true" aria-controls="#sectioncontent_<?=$sv['post_id']?>">
-                                               <p style="font-size:20px"><span class="plsubtn fa fa-plus"></span><?=$sv['post_title']?></p>
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="sectioncontent_<?=$sv['post_id']?>" class="collapse" role="tabpanel" aria-labelledby="section_h_<?=$sv['post_id']?>">
-                                        <div class="card-body">
-                                            <p><b><?=$sv['post_description']?></b></p>
-                                            <hr style="margin:5px 0px;">
-                                            <p><?=$sv['post_content']?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="col-md-4" style="margin-top: 55px;">
+                <div class="item-blog">
+                    <div class="title-blog">
+                        <span class="fa fa-bars"></span><h3>Cùng chuyên mục</h3>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-larger">
+                            <a href="<?=base_url('dich-vu/'.$dvlienquan[0]['post_alias'].'-'.$dvlienquan[0]['post_id'])?>">
+                                <img src="<?=resizeImg($dvlienquan[0]['post_img'],338,160,0)?>" alt="">
+                                <p style="height: 43px" class="title font17"><?=$dvlienquan[0]['post_title']?></p>
+                            </a>
                         </div>
+                        <br>
+                        <?php foreach ($dvlienquan as $key => $dv) {
+                            if ($key>0) {
+                        ?>
+                        <div class="blog-small">
+                            <a href="<?=base_url('dich-vu/'.$dv['post_alias'].'-'.$dv['post_id'])?>" style="display:inline-flex">
+                                <img src="<?=resizeImg($dv['post_img'],100,65,0)?>" alt="">
+                                <p class="title font16"><?=$dv['post_title']?></p>
+                             </a>
+                        </div>
+                        <?php } } ?>
+                    </div>
                     <?php 
-                        } 
-                        if (empty($service)){
+                        if (empty($dvlienquan)){
                             include ('empty.php');
                         }
                     ?>
@@ -59,4 +59,6 @@
         </div>
     </div>
 </section>
+
 <?php include ('form-contact.php') ?>
+

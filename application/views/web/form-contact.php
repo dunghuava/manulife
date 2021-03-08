@@ -1,14 +1,14 @@
 <?php 
     $formcontact = $this->Web_M->q("select * from db_other where other_id=1");
 ?>
-<section class="sec-form-contact">
+<section class="sec-form-contact font18">
     <div class="container full-w">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <h3>Hãy liên hệ với chúng tôi để được hỗ trợ tốt nhất</h3>
                 <?=$formcontact[0]['other_content']?>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <form id="form-contact" action="" method="post" class="form-group">
                     <input type="hidden" id="contact_title" name="contact_title" class="form-control custom" value="Giải đáp thắc mắc" >
                     <input type="hidden" id="contact_to_staff" name="contact_to_staff" class="form-control custom" value="1" >
@@ -31,19 +31,10 @@
                             <input placeholder="Nhu cầu liên hệ" type="text" id="contact_info" name="contact_info" class="form-control custom" required="">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div style="display:flex">
-                                <input type="checkbox" name="ckb" id="ckb" required="">&nbsp;
-                                <label for="ckb" style="padding-top: 8px;">
-                                    <div>Tôi đã đọc và đồng ý với <a style="color:#00A758" href="">Chính sách bảo mật</a>  của Manulife</div>
-                                </label> 
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="row">
                         <div class="col-md-12 text-left">
-                            <button type="submit" class="btn btn-danger">Gửi thông tin</button>
+                            <button type="submit" class="btn" style="color: white;">Gửi thông tin</button>
                         </div>
                     </div>
                 </form>

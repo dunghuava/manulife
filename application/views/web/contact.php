@@ -1,11 +1,12 @@
-<section>
+<?php 
+    $aboutus = $this->Web_M->q("select * from db_other where other_id=29");
+?>
+<section class="font18">
     <div class="container full-w">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-uppercase">Liên hệ chúng tôi</h1>
-                <p>Giấy phép số 503/GP-BC do Bộ VHTT cấp ngày 15/11/2004.
-                    Văn phòng chính: Tòa nhà Manulife Plaza, 75 Hoàng Văn Thái, Phường Tân Phú, Q. 7, Tp. HCM
-                    Điện thoại : (028) 5416 6888 / Fax : (028) 5416 1818 / Đường dây nóng: 1900 1776</p>
+                <h3 class="text-uppercase">Liên hệ</h3>
+                <p><?=$aboutus[0]['other_content'] ?></p>
             </div>
         </div>
     </div>

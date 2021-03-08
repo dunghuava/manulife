@@ -1,42 +1,35 @@
-<?php 
-    $kienthuc = $this->Web_M->q("select a.*,b.cate_title from db_post a left join db_category b on a.post_category_id=b.cate_id where a.post_category_id='".$category['cate_id']."' and a.post_type=1 and a.post_active=1");
-?>
 <section>
     <div class="container full-w">
         <div class="row">
             <div class="col-md-12">
-                <h2>Thông tin hữu ích</h2>
-                <p><?=$category['cate_description']?></p>
+                <h3 class="title"><?=$category['cate_title']?></h3>
                 <hr>
-                <p>Hiển thị tất cả <b><?=count($kienthuc)?></b> bài viết</p>
+                <p>Hiển thị tất cả <b><?=count($list_post)?></b> bài viết</p>
             </div>
         </div>
     </div>
 </section>
-<section class="sec-product">
-    <div class="container full-w"><br>
+<section class="sec-tintuc-list font18">
+    <div class="container">
         <div class="row">
             <?php
-            foreach ($kienthuc as $bv){ 
-                $styles=array(
-                    0=>"background:#00A758 url(".img_path($bv['post_img']).") no-repeat",
-                    1=>"background-size:cover",
-                    2=>"background-position-x:center"
-                );
-            ?>
-            <div class="col-md-3">
-                    <div class="item-blog" style="<?=implode(';',$styles)?>">
-                            <div class="title">
-                                <p><?=$bv['cate_title']?> <a style="float:right" href="<?=base_url('post/'.$bv['post_alias'].'-'.$bv['post_id'])?>.html" class="readmore"><span class="fa fa-angle-right"></span>Xem thêm</a></p>  
-                                <a href="<?=base_url('post/'.$bv['post_alias'].'-'.$bv['post_id'])?>.html" style="display:block">
-                                    <h3><?=$bv['post_title']?></h3>
-                                </a>
+                foreach ($list_post as $post){ ?>
+                <div class="col-md-4">
+                    <div class="item-tin-list">
+                        <a title="<?=$post['post_title']?>" href="<?=base_url('bai-viet/'.$post['post_alias'].'-'.$post['post_id'])?>.html" style="text-decoration:none">
+                            <div class="cover-img scaleimg">
+                                <img title="<?=$post['post_title']?>" alt="<?=$post['post_title']?>" src="<?=resizeImg($post['post_img'],360,240,0)?>" alt="">
                             </div>
-                            <div class="overlay">
+                            <div class="content">
+                                <h3 style="font-weight: bold;font-size: 18px;" class="title text-overflow"><?=$post['post_title']?></h3>
+                                <p><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($post['created_at']))?></p>
+                                <p class="text-overflow"><?=$post['post_introduce']?></p>
                             </div>
-                            <div class="des"><?=$bv['post_description']?></div>
-                    </div>
-            </div>
+                        </a>
+                    </div><br>
+                </div>
+            <?php } if (empty($list_post)){ ?>
+                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
             <?php } ?>
         </div>
     </div>

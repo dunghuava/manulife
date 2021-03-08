@@ -13,7 +13,7 @@
             $classes = count($sub) > 0 ? 'class="dropdown"':'';
         ?>
         <li <?=$classes?>>
-            <a href="<?=base_url('danh-muc/'.$cate['cate_alias'])?>"><?=$cate['cate_title']?></a>
+            <a href="<?=base_url($cate['cate_alias'])?>.html"><?=$cate['cate_title']?></a>
             <?php 
                 if ($sub>0){
             ?>
@@ -21,7 +21,7 @@
                 <?php foreach ($sub as $s_cate){ 
                 ?>
                     <li>
-                        <a href="<?=base_url('danh-muc/'.$s_cate['cate_alias'])?>"><?=$s_cate['cate_title']?></a>
+                        <a href="<?=base_url($s_cate['cate_alias'])?>.html"><?=$s_cate['cate_title']?></a>
                     </li>
                 <?php } ?>
             </ul>

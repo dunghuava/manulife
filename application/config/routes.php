@@ -67,8 +67,8 @@ $route['crm/logout'] 					= 'crm/account/logout';
 
 
 $route['(:any).html']					= 'web/route/$1';
-$route['post/(:any).html']				= 'web/tintuc_detail/$1';
-$route['service/(:any).html']		    = 'web/dichvu_detail/$1';
-$route['product/(:any).html']		    = 'web/product_detail/$1';
+$route['bai-viet/(:any).html']			= 'web/tintuc_detail/$1';
+$route['dich-vu/(:any).html']		    = 'web/dichvu_detail/$1';
+$route['san-pham/(:any).html']		    = 'web/product_detail/$1';
 
 

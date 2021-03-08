@@ -1,6 +1,6 @@
 <style>
     #seller table tr td{padding:4px 0px}
-    #seller table button{background:#00A758;;border-radius:5px}
+    #seller table button{background:#2f714b;border-radius:5px}
     #seller .f-left{float:left}
     #seller .f-right{float: left;padding-left: 15px;}
     #seller img{border-radius:50%}

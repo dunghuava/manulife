@@ -1,35 +1,62 @@
 <?php 
-    $bvlienquan = $this->Web_M->q("select * from db_post where post_category_id='".$post['post_category_id']."' and post_active=1 order by rand() limit 5");
+    $bvlienquan = $this->Web_M->q("select * from db_post where post_id<>'".$post['post_id']."' and post_category_id='".$post['post_category_id']."' and post_active=1 order by rand() limit 5");
 ?>
-<section>
-    <div class="container full-w">
+<br>
+<style>
+    div img{
+        max-width:100%;
+    }
+</style>
+<section class="sec-post-detail font18">
+    <div class="container">
         <div class="row">
-            <div class="col-md-9">
-                <h2><?=$post['post_title']?></h2>
-                <hr>
-                <?php include ('shares.php') ?>
-                <div class="des font16_all">
-                    <p><b><?=$post['post_description']?></b></p>
-                </div>
-                <div class="img">
-                    <p><img src="<?=img_path($post['post_img'])?>" alt=""></p>
-                </div>
-                <div class="content font16_all">
-                    <?=$post['post_content']?>
+            <div class="col-md-8">
+                <h3 class="post-title"><?=$post['post_title']?></h3>
+                <hr style="margin:5px 0px">
+                <div style="margin-left: -5px;"><?php include ('shares.php') ?></div>
+                <img src="<?=resizeImg($post['post_img'],750,355,0)?>" alt="">
+                <div class="post-content">
+                    <p>
+                        <span><?=$post['post_content']?></span>
+                    </p>
                     <hr>
+                    <div class="text-left">
+                        <p><span class="fa fa-edit"></span>&nbsp;Nguồn: <?=$post['post_author']?></p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <h3>BÀI VIẾT LIÊN QUAN</h3>
-                <?php foreach ($bvlienquan as $bv){ ?>
-                    <div class="item-tin">
-                        <p><b><?=$bv['post_title']?></b></p>
-                        <p><?=$bv['post_description']?></p>
-                        <a class="readmore" href="<?=base_url('post/'.$bv['post_alias'].'-'.$bv['post_id'])?>.html">
-                            <span class="fa fa-angle-right"></span>Xem thêm
-                        </a><hr>
+            <div class="col-md-4" style="margin-top: 55px;">
+                <div class="item-blog">
+                    <div class="title-blog">
+                        <span class="fa fa-bars"></span><h3>Cùng chuyên mục</h3>
                     </div>
-                <?php } ?>
+                    <div class="blog-content">
+                        <div class="blog-larger">
+                            <a href="<?=base_url('bai-viet/'.$bvlienquan[0]['post_alias'].'-'.$bvlienquan[0]['post_id'])?>">
+                                <img src="<?=resizeImg($bvlienquan[0]['post_img'],338,160,0)?>" alt="">
+                                <p style="height: 43px" class="title font17"><?=$bvlienquan[0]['post_title']?></p>
+                            </a>
+                        </div>
+                        <br>
+                        <?php foreach ($bvlienquan as $key => $bv) {
+                            if ($key>0) {
+                        ?>
+                        <div class="blog-small">
+                            <a href="<?=base_url('bai-viet/'.$bv['post_alias'].'-'.$bv['post_id'])?>" style="display:inline-flex">
+                                <img src="<?=resizeImg($bv['post_img'],100,65,0)?>" alt="">
+                                <p class="title font16"><?=$bv['post_title']?></p>
+                             </a>
+                        </div>
+                        <?php } } ?>
+                    </div>
+
+                    <?php 
+                        if (empty($bvlienquan)){
+                            include ('empty.php');
+                        }
+                    ?>
+                    
+                </div>
             </div>
         </div>
     </div>
