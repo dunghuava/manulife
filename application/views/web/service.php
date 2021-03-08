@@ -1,6 +1,3 @@
-<?php 
-    $service = $this->Web_M->q("select * from db_post where post_active=1 and post_type=2 order by rand()");
-?>
 <section>
     <div class="container full-w">
         <div class="row">
@@ -25,8 +22,7 @@
                             </div>
                             <div class="content">
                                 <h3 style="font-weight: bold;font-size: 18px;" class="title text-overflow"><?=$service['post_title']?></h3>
-                                <p><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($service['created_at']))?></p>
-                                <p class="text-overflow"><?=$service['post_introduce']?></p>
+                                <p class="text-overflow"><?=$service['post_description']?></p>
                             </div>
                         </a>
                     </div><br>

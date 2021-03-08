@@ -167,25 +167,34 @@
     </div>
 </section>
 
-
 <section class="sec-chudautu font18">
     <div class="container">
         <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
-            <a href="<?=base_url('danh-muc/danh-sach-chu-dau-tu')?>"><b>Thương hiệu bảo hiểm nổi bật</b></a>
+            <a href="<?=base_url('thuong-hieu')?>"><b>Thương hiệu bảo hiểm nổi bật</b></a>
         </h3>
-        <p>Thông tin cơ bản và danh mục dự án của các chủ đầu tư bất động sản uy tín hiện nay</p>
+        <p>Thương hiệu bảo hiểm uy tín nhất hiện nay</p>
         <div class="row">
-            <?php foreach ($list_brands as $key => $brands) {?>
-                <div class="col-md-2 col-xs-6">
-                    <div class="item-chudautu">
-                        <a title="<?=$brands['other_title']?>">
-                            <img src="<?=resizeImg($brands['other_img'],165,121,0)?>" alt="<?=$brands['other_title']?>">
-                        </a>
-                        
+            <?php foreach ($list_brands as $key => $brands) {
+                if ($key <6) {
+            ?>
+                <div class="col-md-3">
+                        <div class="item-khuvuc scaleimg">
+                            <a href="<?=base_url($brands['other_title'])?>.html">
+                                <img src="<?=resizeImg($brands['other_img'],263,150,0)?>" alt="">
+                               <div class="content">
+                                    <p class="title"><?php echo $brands['other_title'] ?></p>
+                               </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
+
+            <?php } } ?>
+
+            <?php if (empty($list_brands)) {?>
+                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
             <?php } ?>
-            <!-- <div class="col-md-12"><a class="hplink" href="<?=base_url('chu-dau-tu')?>">Xem thêm các thương hiệu <span class="fa fa-angle-right"></span></a></div> -->
+
+            <div class="col-md-12"><a class="hplink" href="<?=base_url('thuong-hieu.html')?>">Xem thêm các thương hiệu <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>

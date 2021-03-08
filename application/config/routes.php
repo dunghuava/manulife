@@ -65,10 +65,13 @@ $route['crm']							= 'crm/customer';
 $route['crm/login'] 					= 'crm/account/login';
 $route['crm/logout'] 					= 'crm/account/logout';
 
-
+$route['thuong-hieu.html']		        = 'web/list_brand';
+$route['thuong-hieu-(:any).html']		= 'web/list_brand/$1';
 $route['(:any).html']					= 'web/route/$1';
 $route['bai-viet/(:any).html']			= 'web/tintuc_detail/$1';
 $route['dich-vu/(:any).html']		    = 'web/dichvu_detail/$1';
 $route['san-pham/(:any).html']		    = 'web/product_detail/$1';
+
+
 
 

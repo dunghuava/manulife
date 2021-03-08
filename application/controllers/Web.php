@@ -81,6 +81,37 @@ class Web extends MY_Controller {
         $this->view('web/service',$data);
         $this->page_footer();
     }
+
+
+    public function list_brand($id=null){
+        if ($id == null) {
+            $seo = array(
+                'title'=>'Danh sách các thương hiệu',
+                'description'=>'',
+                'image'=>''
+            );
+
+            $data['seo'] = $seo;
+            $data['list_brands'] = $this->Other_M->all(['other_category_id'=>31]);
+            $this->page_header($seo);
+            $this->view('web/list_brand.php',$data);
+            $this->page_footer();
+        }else{
+            $info_brand = $this->Other_M->find(['other_id'=>$id]);
+            $seo = array(
+                'title'=>$info_brand['other_title'],
+                'description'=>$info_brand['other_description'],
+                'image'=>$info_brand['other_img'],
+            );
+
+            $data['seo'] = $seo;
+            $data['info_brand'] = $info_brand;
+            $this->page_header($seo);
+            $this->view('web/brand.php_detail',$data);
+            $this->page_footer();
+        }
+    }
+
     public function contact(){
         $seo = array(
             'title'=>'Liên hệ tư vấn',

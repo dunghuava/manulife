@@ -3,7 +3,7 @@
     <!-- Source: https://www.jssor.com/demos/full-width-slider.slider/=edit -->
 
     <?php 
-        $slider = $this->Other_M->all(['other_category_id'=>3]);
+        $slider = $this->Other_M->all(['other_category_id'=>3,'other_active'=>1]);
     ?>
     <script src="<?=base_url('plugins/jssor/js/jssor.slider-28.0.0.min.js')?>" type="text/javascript"></script>
     <script type="text/javascript">
