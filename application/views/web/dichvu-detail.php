@@ -17,6 +17,8 @@
                 <img src="<?=resizeImg($post['post_img'],750,355,0)?>" alt="">
                 <div class="post-content">
                     <p>
+                        <br>
+                        <span><?=$post['post_description']?></span>
                         <span><?=$post['post_content']?></span>
                     </p>
                     <hr>
@@ -32,7 +34,7 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="<?=base_url('dich-vu/'.$dvlienquan[0]['post_alias'].'-'.$dvlienquan[0]['post_id'])?>">
+                            <a href="<?=base_url('dich-vu/'.$dvlienquan[0]['post_alias'].'-'.$dvlienquan[0]['post_id'])?>.html">
                                 <img src="<?=resizeImg($dvlienquan[0]['post_img'],338,160,0)?>" alt="">
                                 <p style="height: 43px" class="title font17"><?=$dvlienquan[0]['post_title']?></p>
                             </a>

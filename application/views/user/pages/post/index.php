@@ -1,4 +1,3 @@
-
 <style type="text/css">
   th{
     white-space: nowrap;
@@ -23,8 +22,7 @@
                         <th>Hình ảnh</th>
                         <th>Cập nhật</th>
                         <th>Nổi bậc</th>
-                        <th>Hiển thị</th>
-                        <th>Người đăng</th>
+                        <th>Trạng thái</th>
                         <th style="width: 11%">Thao tác</th>
                     </tr>
                 </thead>
@@ -41,23 +39,20 @@
 
                              <td><?=$info_category['cate_title']?></td>
                              <td><?=$item['post_title']?></td>
-                             <td><img src="<?=resizeImg($item['post_img'],50,50,0)?>" style="max-height: 90px;"></td>
-                             <td><?=$item['updated_at']?></td>
+                             <td><img src="<?=resizeImg($item['post_img'],80,50,0)?>" style="max-height: 90px;"></td>
+                             <td style="white-space: nowrap;"><?=$item['updated_at']?></td>
                              <td><input onchange="setCkb(this,'post_highlights',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_highlights']==1 ? 'checked':''?>></td>
-                             <td><input onchange="setCkb(this,'post_active',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_active']==1 ? 'checked':''?> ></td>
-                              <td>
-                                <?php  
-                                  if ($item['post_user_id'] == 0) {
-                                      echo "Admin";
-                                  }else{
-                                      $info_user = $this->Account_M->find_row(['user_id'=>$item['post_user_id']]);
-                                      echo $info_user['user_fullname'];
-                                  }
-                                ?>
-                             </td> 
                              <td style="white-space: nowrap;">
-
-                                <a href="<?=base_url().'admin/post/edit/'.$item['post_id']?>">
+                               <?php  
+                                  if ($item['post_active'] == 1) {
+                                    echo "Đã xác nhận";
+                                  }else{
+                                    echo "Chờ xác nhận";
+                                  }
+                               ?>
+                             </td>
+                             <td>
+                                <a href="<?=base_url().'user/post/edit/'.$item['post_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
                                     </button>
@@ -67,12 +62,6 @@
                                  <button onclick="onDelete(<?=$item['post_id']?>)" type="button" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
-
-                                 <a href="<?=base_url('bai-viet/'.$item['post_alias'].'-'.$item['post_id'])?>">
-                                    <button type="button" class="btn btn-default">
-                                        <i class="fa fa-link" aria-hidden="true"></i>
-                                    </button>
-                                </a>
                              </td>
                         </tr>
                     <?php } ?>
@@ -97,7 +86,7 @@
         colset = colset.toString();
         $.ajax({
             type: "post",
-            url: "<?=base_url('admin/post/update')?>",
+            url: "<?=base_url('user/post/update')?>",
             data: {'post_id':post_id,[colset]:ckb},
             success: function (response) {
                 
@@ -122,7 +111,7 @@
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/post/destroy')?>",
+                    url: "<?=base_url('user/post/destroy')?>",
                     data: {'post_id':post_id},
                     success: function (response) {
                         location.reload();

@@ -7,12 +7,12 @@
     <?php include ('slider.php') ?>
     <div id="form-absolute" class="absolute hidden-xs">
         <form class="form-group" action="<?=base_url('tim-kiem')?>" method="get">
-            <input type="hidden" id="type" name="type" value="0">
+            <input type="hidden" id="type" name="type" value="2">
             <div class="containers">
                 <div class="form-inline">
-                    <button class="btn_choose_type 0 clicked" onclick="typeCheck(0)" type="button">Nhân Thọ</button>
-                    <button class="btn_choose_type 1" onclick="typeCheck(1)" type="button">Sức khỏe</button>
-                    <button class="btn_choose_type 2" onclick="typeCheck(2)" type="button">Tiết kiệm</button>
+                    <button class="btn_choose_type 2 clicked" onclick="typeCheck(2)" type="button">Nhân Thọ</button>
+                    <button class="btn_choose_type 3" onclick="typeCheck(3)" type="button">Sức khỏe</button>
+                    <button class="btn_choose_type 4" onclick="typeCheck(4)" type="button">Tiết kiệm</button>
                 </div>
                 <div class="form-inline relative" style="display: flex;">
                     <input type="search" class="form-control font18" name="input_search" id="input_search" placeholder="Nhập tên hoặc từ khóa (Ví dụ : Bảo hiểm nhân thọ)">
@@ -127,7 +127,7 @@
 <section class="sec-tintuc font18">
     <div class="container">
         <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
-            <a href="<?=base_url('kien-thuc.html')?>"><b>Kiến thức & Tin tức</b></a>
+            <a href="<?=base_url('kien-thuc-tin-tuc.html')?>"><b>Kiến thức & Tin tức</b></a>
         </h3>
         <p>Kiến thức & Tin tức mới nhất, cập nhật nhanh chóng và chính xác hàng ngày</p>
         <div class="row">
@@ -143,7 +143,7 @@
                        </div>
                     </a>
                 </div>
-                <br><a class="hplink" href="<?=base_url('kien-thuc.html')?>">Xem thêm bài viết <span class="fa fa-angle-right"></span></a>
+                <br><a class="hplink" href="<?=base_url('kien-thuc-tin-tuc.html')?>">Xem thêm bài viết <span class="fa fa-angle-right"></span></a>
             </div>
             <div class="col-md-6">
                 <?php foreach ($list_post as $key => $post) {
@@ -170,23 +170,21 @@
 <section class="sec-chudautu font18">
     <div class="container">
         <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
-            <a href="<?=base_url('thuong-hieu')?>"><b>Thương hiệu bảo hiểm nổi bật</b></a>
+            <a href="#"><b>Thương hiệu bảo hiểm nổi bật</b></a>
         </h3>
         <p>Thương hiệu bảo hiểm uy tín nhất hiện nay</p>
         <div class="row">
             <?php foreach ($list_brands as $key => $brands) {
                 if ($key <6) {
             ?>
-                <div class="col-md-3">
-                        <div class="item-khuvuc scaleimg">
-                            <a href="<?=base_url($brands['other_title'])?>.html">
-                                <img src="<?=resizeImg($brands['other_img'],263,150,0)?>" alt="">
-                               <div class="content">
-                                    <p class="title"><?php echo $brands['other_title'] ?></p>
-                               </div>
-                            </a>
-                        </div>
+                <div class="col-md-2 col-xs-6">
+                    <div class="item-chudautu" style="padding: 0px;">
+                        <a title="<?=$brands['other_title']?>">
+                            <img src="<?=resizeImg($brands['other_img'],165,121,0)?>" alt="<?=$brands['other_title']?>">
+                        </a>
+                        
                     </div>
+                </div>
 
             <?php } } ?>
 
@@ -194,7 +192,7 @@
                 <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
             <?php } ?>
 
-            <div class="col-md-12"><a class="hplink" href="<?=base_url('thuong-hieu.html')?>">Xem thêm các thương hiệu <span class="fa fa-angle-right"></span></a></div>
+            <!-- <div class="col-md-12"><a class="hplink" href="<?=base_url('thuong-hieu.html')?>">Xem thêm các thương hiệu <span class="fa fa-angle-right"></span></a></div> -->
         </div>
     </div>
 </section>

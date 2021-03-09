@@ -32,6 +32,11 @@
         <?php 
             }
         ?>
+
+        <li>
+            <a href="<?=base_url('user/post/add')?>">Đăng tin</a>
+        </li>
+
         <?php  
             $this->user_data = $this->session->get_userdata('user_data');
             if (!empty($this->user_data['user_data']['user_id'])) {

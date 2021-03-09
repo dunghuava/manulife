@@ -72,6 +72,14 @@ $route['bai-viet/(:any).html']			= 'web/tintuc_detail/$1';
 $route['dich-vu/(:any).html']		    = 'web/dichvu_detail/$1';
 $route['san-pham/(:any).html']		    = 'web/product_detail/$1';
 
+$route['dang-nhap']                     = 'user/account/page_user_login'; 
+$route['quen-mat-khau']                 = 'user/account/page_user_reset'; 
+$route['dang-ky']                       = 'user/account/page_user_register';
+
+$route['thong-tin']                     = 'user/account/infoUser';
+$route['user']							= 'user/post';
+$route['tim-kiem']                      = 'web/page_search';
+
 
 
 

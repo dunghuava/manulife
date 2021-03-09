@@ -61,6 +61,31 @@ class Web extends MY_Controller {
         $this->view('web/list_product',$data);
         $this->page_footer();
     }
+
+
+    public function page_search(){
+        
+        $input_search = $this->input->get('input_search');
+        $cate_id = $this->input->get('type');
+        $category = $this->Category_M->find_row(['cate_id'=>$cate_id]);
+
+        $list_product = $this->Product_M->searchProduct($cate_id,$input_search);
+
+        
+        $seo = array(
+            'title'=>$category['cate_title'],
+            'description'=>strip_tags($category['cate_description']),
+            'image'=>$category['cate_img']
+        );
+
+        $data['seo'] = $seo;
+        $data['list_product']=$list_product;
+        $data['category']=$category;
+        $this->page_header($seo);
+        $this->view('web/list_product',$data);
+        $this->page_footer();
+    }
+
     public function service($category=null){
         if ($category['cate_parent_id']==0) {
             $list_service = $this->Post_M->all(['post_active'=>1,'post_type'=>2],'desc');
@@ -107,7 +132,7 @@ class Web extends MY_Controller {
             $data['seo'] = $seo;
             $data['info_brand'] = $info_brand;
             $this->page_header($seo);
-            $this->view('web/brand.php_detail',$data);
+            $this->view('web/brand_detail.php',$data);
             $this->page_footer();
         }
     }
@@ -183,9 +208,9 @@ class Web extends MY_Controller {
     public function tintuc($category=array()){
 
         if ($category['cate_parent_id']==0) {
-            $list_post = $this->Post_M->all(['post_active'=>1,'post_type'=>1],'desc');
+            $list_post = $this->Post_M->all(['post_active'=>1,'post_type'=>1,'post_date_time <='=>date("YmdH")],'desc');
         }else{
-            $list_post = $this->Post_M->all(['post_active'=>1,'post_category_id'=>$category['cate_id'],'post_type'=>1],'desc');
+            $list_post = $this->Post_M->all(['post_active'=>1,'post_category_id'=>$category['cate_id'],'post_type'=>1,'post_date_time <='=>date("YmdH")],'desc');
         }      
         
 
